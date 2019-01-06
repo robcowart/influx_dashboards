@@ -1,4 +1,5 @@
 # Influx Dashboards
+
 Chronograf Dashboards for use with data produced by Telegraf input plugins.
 
 ## Examples
@@ -10,6 +11,10 @@ Chronograf Dashboards for use with data produced by Telegraf input plugins.
 ### Net: Interface Performance
 
 ![Net: Interface Performance](https://user-images.githubusercontent.com/10326954/50738526-467fd600-11d5-11e9-89ef-fcd15ec0e6a2.png)
+
+### NGiNX: Connections
+
+![NGiNX: Connections](https://user-images.githubusercontent.com/10326954/50740156-b8aee580-11ea-11e9-8d41-c733bec82b85.png)
 
 ## Importing Dashboards
 
