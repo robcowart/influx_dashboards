@@ -20,35 +20,19 @@
 				"name": "Keys",
 				"queries": [
 					{
-						"query": "SELECT last(\"keys\") AS \"keys\" FROM \"telegraf\"..\"redis_keyspace\" WHERE time > :dashboardTime: GROUP BY time(:interval:),\"database\" FILL(null)",
+						"query": "SELECT last(\"keys\") AS \"keys\" FROM \"telegraf\"..\"redis_keyspace\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:), \"database\" FILL(null)",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "redis_keyspace",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "keys",
-									"args": [
-										{
-											"value": "keys",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
+							"fields": [],
 							"tags": {},
 							"groupBy": {
-								"time": "auto",
-								"tags": [
-									"database"
-								]
+								"time": "",
+								"tags": []
 							},
 							"areTagsAccepted": false,
-							"fill": "null",
-							"rawText": null,
+							"rawText": "SELECT last(\"keys\") AS \"keys\" FROM \"telegraf\"..\"redis_keyspace\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:), \"database\" FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -153,7 +137,7 @@
 				"name": "Total Evicted Keys",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"evicted_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT cumulative_sum(non_negative_difference(last(\"evicted_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -165,7 +149,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"evicted_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"evicted_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -256,7 +240,7 @@
 				"name": "Total Expired Keys",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"expired_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT cumulative_sum(non_negative_difference(last(\"expired_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -268,7 +252,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"expired_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"expired_keys\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -359,7 +343,7 @@
 				"name": "Total Key Lookup Misses",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_misses\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_misses\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -371,7 +355,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_misses\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_misses\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -462,7 +446,7 @@
 				"name": "Total Key Lookup Hits",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_hits\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_hits\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -474,7 +458,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_hits\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"keyspace_hits\"))) FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -565,7 +549,7 @@
 				"name": "Evicted Keys",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"evicted_keys\"),1s) AS \"evicted keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"evicted_keys\"),1s) AS \"evicted keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -577,7 +561,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"evicted_keys\"),1s) AS \"evicted keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"evicted_keys\"),1s) AS \"evicted keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -682,7 +666,7 @@
 				"name": "Expired Keys",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"expired_keys\"),1s) AS \"expired keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"expired_keys\"),1s) AS \"expired keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -694,7 +678,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"expired_keys\"),1s) AS \"expired keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"expired_keys\"),1s) AS \"expired keys\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -799,7 +783,7 @@
 				"name": "Key Lookups (misses)",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"keyspace_misses\"),1s) AS \"misses\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"keyspace_misses\"),1s) AS \"misses\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -811,7 +795,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"keyspace_misses\"),1s) AS \"misses\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"keyspace_misses\"),1s) AS \"misses\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -916,7 +900,7 @@
 				"name": "Key Lookups (hits)",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"keyspace_hits\"),1s) AS \"hits\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"keyspace_hits\"),1s) AS \"hits\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -928,7 +912,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"keyspace_hits\"),1s) AS \"hits\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"keyspace_hits\"),1s) AS \"hits\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
