@@ -4,6 +4,10 @@ Chronograf Dashboards for use with data produced by Telegraf input plugins.
 
 ## Examples
 
+### Host: Compute Performance
+
+![Host: Compute Performance](https://user-images.githubusercontent.com/10326954/50901965-e7f76980-1419-11e9-85ef-ef5f933f722e.png)
+
 ### Sensors: System Environment Health
 
 ![Sensors: System Environment Health](https://user-images.githubusercontent.com/10326954/50735499-6a7cf080-11b0-11e9-95f4-a0aa11ace4a2.png)
