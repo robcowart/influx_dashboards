@@ -2,6 +2,15 @@
 
 Chronograf Dashboards for use with data produced by Telegraf input plugins.
 
+dashboards | telegraf inputs
+--- | ---
+[host](https://github.com/robcowart/influx_dashboards/tree/master/host) | system, cpu, mem, swap
+[net](https://github.com/robcowart/influx_dashboards/tree/master/net) | net
+[nginx](https://github.com/robcowart/influx_dashboards/tree/master/nginx) | nginx
+[redis](https://github.com/robcowart/influx_dashboards/tree/master/redis) | redis
+[sensors](https://github.com/robcowart/influx_dashboards/tree/master/sensors) | sensors
+[zookeeper](https://github.com/robcowart/influx_dashboards/tree/master/zookeeper) | zookeeper
+
 ## Examples
 
 ### Host: Compute Performance
