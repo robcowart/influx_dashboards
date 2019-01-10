@@ -4,6 +4,8 @@ Chronograf Dashboards for use with data produced by Telegraf input plugins.
 
 dashboards | telegraf inputs
 --- | ---
+[disk](https://github.com/robcowart/influx_dashboards/tree/master/disk) | disk
+[diskio](https://github.com/robcowart/influx_dashboards/tree/master/diskio) | diskio
 [host](https://github.com/robcowart/influx_dashboards/tree/master/host) | system, cpu, mem, swap
 [net](https://github.com/robcowart/influx_dashboards/tree/master/net) | net
 [nginx](https://github.com/robcowart/influx_dashboards/tree/master/nginx) | nginx
