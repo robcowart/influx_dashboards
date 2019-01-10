@@ -2,22 +2,21 @@
 
 The following dashboards are provided for use with data from the following Telegraf input plugins:
 
-* [system](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#system)
 * [cpu](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#cpu)
 * [mem](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#mem)
+* [processes](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#processes)
+* [swap](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#swap)
 * [system](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#system)
 
 ## Host: Compute Performance
 
-![Host: Compute Performance](https://user-images.githubusercontent.com/10326954/50901965-e7f76980-1419-11e9-85ef-ef5f933f722e.png)
+![Host: Compute Performance](https://user-images.githubusercontent.com/10326954/50965684-f9507c80-14d2-11e9-983c-2e7cc920a584.png)
 
 ## Telegraf Input Configuration
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
 ```
-[[inputs.system]]
-
 [[inputs.cpu]]
   # Whether to report per-cpu stats or not
   percpu = true
@@ -30,5 +29,9 @@ The following input plugin configuration is required to provide the data for the
 
 [[inputs.mem]]
 
+[[inputs.processes]]
+
 [[inputs.swap]]
+
+[[inputs.system]]
 ```

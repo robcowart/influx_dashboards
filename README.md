@@ -6,7 +6,7 @@ dashboards | telegraf inputs
 --- | ---
 [disk](https://github.com/robcowart/influx_dashboards/tree/master/disk) | disk
 [diskio](https://github.com/robcowart/influx_dashboards/tree/master/diskio) | diskio
-[host](https://github.com/robcowart/influx_dashboards/tree/master/host) | system, cpu, mem, swap
+[host](https://github.com/robcowart/influx_dashboards/tree/master/host) | cpu, mem, processes, swap, system
 [net](https://github.com/robcowart/influx_dashboards/tree/master/net) | net
 [nginx](https://github.com/robcowart/influx_dashboards/tree/master/nginx) | nginx
 [redis](https://github.com/robcowart/influx_dashboards/tree/master/redis) | redis
@@ -17,7 +17,7 @@ dashboards | telegraf inputs
 
 ### Host: Compute Performance
 
-![Host: Compute Performance](https://user-images.githubusercontent.com/10326954/50901965-e7f76980-1419-11e9-85ef-ef5f933f722e.png)
+![Host: Compute Performance](https://user-images.githubusercontent.com/10326954/50965684-f9507c80-14d2-11e9-983c-2e7cc920a584.png)
 
 ### Sensors: System Environment Health
 
