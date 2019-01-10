@@ -1,0 +1,538 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.4",
+		"sources": {
+			"0": {
+				"name": "http://192.2.0.1:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 32,
+		"cells": [
+			{
+				"i": "dcaa6c48-b636-473b-a2cc-f1420a769b13",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "Temperature",
+				"queries": [
+					{
+						"query": "SELECT last(\"temp_c\") AS \"temperature\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"temp_c\") AS \"temperature\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "temperature",
+						"prefix": "",
+						"suffix": "C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1b2c6b3e-7655-4cd7-98d2-fcb29b435eea",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4b835bca-4233-4104-95d6-8e56edf6cab1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14f0d278-e294-483b-9b79-714488cee3c4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/32/cells/dcaa6c48-b636-473b-a2cc-f1420a769b13"
+				}
+			},
+			{
+				"i": "8fc7be98-4b31-4636-ad3f-484f4ee43172",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Seek Errors",
+				"queries": [
+					{
+						"query": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1b2c6b3e-7655-4cd7-98d2-fcb29b435eea",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4b835bca-4233-4104-95d6-8e56edf6cab1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14f0d278-e294-483b-9b79-714488cee3c4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/32/cells/8fc7be98-4b31-4636-ad3f-484f4ee43172"
+				}
+			},
+			{
+				"i": "14bb9df0-9346-4b29-b344-b680b6ff05bb",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "CRC Errors",
+				"queries": [
+					{
+						"query": "SELECT non_negative_difference(last(\"udma_crc_errors\")) AS \"crc errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_difference(last(\"udma_crc_errors\")) AS \"crc errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1b2c6b3e-7655-4cd7-98d2-fcb29b435eea",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4b835bca-4233-4104-95d6-8e56edf6cab1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14f0d278-e294-483b-9b79-714488cee3c4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/32/cells/14bb9df0-9346-4b29-b344-b680b6ff05bb"
+				}
+			},
+			{
+				"i": "f78c459c-eecb-4b7f-8bd2-1e6c40a56bc5",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "Read Errors",
+				"queries": [
+					{
+						"query": "SELECT last(\"read_error_rate\") AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"read_error_rate\") AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1b2c6b3e-7655-4cd7-98d2-fcb29b435eea",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4b835bca-4233-4104-95d6-8e56edf6cab1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14f0d278-e294-483b-9b79-714488cee3c4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/32/cells/f78c459c-eecb-4b7f-8bd2-1e6c40a56bc5"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":host:",
+				"values": [
+					{
+						"value": "kmaster",
+						"type": "tagValue",
+						"selected": true
+					}
+				],
+				"id": "d3fd1aed-4b7f-4065-ac19-3747d8ecdcc9",
+				"type": "tagValues",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
+					"db": "telegraf",
+					"measurement": "smart_device",
+					"tagKey": "host",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/32/templates/d3fd1aed-4b7f-4065-ac19-3747d8ecdcc9"
+				}
+			},
+			{
+				"tempVar": ":device:",
+				"values": [
+					{
+						"value": "sda",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "729c739e-33f3-4a7e-ab43-dfa85a7c7c9b",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"smart_device\" WITH KEY=\"device\" WHERE \"host\"=:host:",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/32/templates/729c739e-33f3-4a7e-ab43-dfa85a7c7c9b"
+				}
+			}
+		],
+		"name": "S.M.A.R.T.",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/32",
+			"cells": "/chronograf/v1/dashboards/32/cells",
+			"templates": "/chronograf/v1/dashboards/32/templates"
+		}
+	}
+}

@@ -11,6 +11,7 @@ dashboards | telegraf inputs
 [nginx](https://github.com/robcowart/influx_dashboards/tree/master/nginx) | nginx
 [redis](https://github.com/robcowart/influx_dashboards/tree/master/redis) | redis
 [sensors](https://github.com/robcowart/influx_dashboards/tree/master/sensors) | sensors
+[smart](https://github.com/robcowart/influx_dashboards/tree/master/smart) | smart
 [zookeeper](https://github.com/robcowart/influx_dashboards/tree/master/zookeeper) | zookeeper
 
 ## Examples
