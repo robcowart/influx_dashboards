@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.4",
+		"chronografVersion": "1.7.8",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 32,
+		"id": 12,
 		"cells": [
 			{
-				"i": "dcaa6c48-b636-473b-a2cc-f1420a769b13",
+				"i": "5106066f-0b36-4b65-856c-5801d3378f45",
 				"x": 0,
 				"y": 0,
 				"w": 6,
@@ -54,7 +54,7 @@
 					},
 					"y": {
 						"bounds": [
-							"",
+							"0",
 							""
 						],
 						"label": "temperature",
@@ -125,11 +125,11 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/32/cells/dcaa6c48-b636-473b-a2cc-f1420a769b13"
+					"self": "/chronograf/v1/dashboards/12/cells/5106066f-0b36-4b65-856c-5801d3378f45"
 				}
 			},
 			{
-				"i": "8fc7be98-4b31-4636-ad3f-484f4ee43172",
+				"i": "9ccb3d56-058b-4120-8d90-bf566003029b",
 				"x": 6,
 				"y": 3,
 				"w": 6,
@@ -171,7 +171,7 @@
 					},
 					"y": {
 						"bounds": [
-							"",
+							"0",
 							""
 						],
 						"label": "",
@@ -242,11 +242,11 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/32/cells/8fc7be98-4b31-4636-ad3f-484f4ee43172"
+					"self": "/chronograf/v1/dashboards/12/cells/9ccb3d56-058b-4120-8d90-bf566003029b"
 				}
 			},
 			{
-				"i": "14bb9df0-9346-4b29-b344-b680b6ff05bb",
+				"i": "b4171c5e-d153-42a3-a078-4cbdb3145677",
 				"x": 0,
 				"y": 3,
 				"w": 6,
@@ -288,7 +288,7 @@
 					},
 					"y": {
 						"bounds": [
-							"",
+							"0",
 							""
 						],
 						"label": "",
@@ -359,11 +359,11 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/32/cells/14bb9df0-9346-4b29-b344-b680b6ff05bb"
+					"self": "/chronograf/v1/dashboards/12/cells/b4171c5e-d153-42a3-a078-4cbdb3145677"
 				}
 			},
 			{
-				"i": "f78c459c-eecb-4b7f-8bd2-1e6c40a56bc5",
+				"i": "5224a41d-f29b-4129-9be1-3e389be13268",
 				"x": 6,
 				"y": 0,
 				"w": 6,
@@ -405,7 +405,7 @@
 					},
 					"y": {
 						"bounds": [
-							"",
+							"0",
 							""
 						],
 						"label": "",
@@ -476,7 +476,7 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/32/cells/f78c459c-eecb-4b7f-8bd2-1e6c40a56bc5"
+					"self": "/chronograf/v1/dashboards/12/cells/5224a41d-f29b-4129-9be1-3e389be13268"
 				}
 			}
 		],
@@ -501,7 +501,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/32/templates/d3fd1aed-4b7f-4065-ac19-3747d8ecdcc9"
+					"self": "/chronograf/v1/dashboards/12/templates/d3fd1aed-4b7f-4065-ac19-3747d8ecdcc9"
 				}
 			},
 			{
@@ -523,16 +523,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/32/templates/729c739e-33f3-4a7e-ab43-dfa85a7c7c9b"
+					"self": "/chronograf/v1/dashboards/12/templates/729c739e-33f3-4a7e-ab43-dfa85a7c7c9b"
 				}
 			}
 		],
 		"name": "S.M.A.R.T.",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/32",
-			"cells": "/chronograf/v1/dashboards/32/cells",
-			"templates": "/chronograf/v1/dashboards/32/templates"
+			"self": "/chronograf/v1/dashboards/12",
+			"cells": "/chronograf/v1/dashboards/12/cells",
+			"templates": "/chronograf/v1/dashboards/12/templates"
 		}
 	}
 }

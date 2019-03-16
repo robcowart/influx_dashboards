@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.4",
+		"chronografVersion": "1.7.8",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 9,
+		"id": 13,
 		"cells": [
 			{
-				"i": "649b103c-d057-4503-bddf-1bb75124ad0d",
+				"i": "19e63b1d-58dd-4b32-a804-63240d45ae7d",
 				"x": 0,
 				"y": 6,
 				"w": 2,
@@ -108,14 +108,14 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device and feature does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/649b103c-d057-4503-bddf-1bb75124ad0d"
+					"self": "/chronograf/v1/dashboards/13/cells/19e63b1d-58dd-4b32-a804-63240d45ae7d"
 				}
 			},
 			{
-				"i": "7658f2df-9d94-4796-a852-0652a3335603",
+				"i": "7cdac30a-9fe1-44a0-a860-46e5d80a3c80",
 				"x": 7,
 				"y": 6,
 				"w": 5,
@@ -123,7 +123,7 @@
 				"name": "All Features",
 				"queries": [
 					{
-						"query": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"query": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"rawText": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -225,14 +225,14 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device does not provide metrics for additional features.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/7658f2df-9d94-4796-a852-0652a3335603"
+					"self": "/chronograf/v1/dashboards/13/cells/7cdac30a-9fe1-44a0-a860-46e5d80a3c80"
 				}
 			},
 			{
-				"i": "1139e423-ce74-41e2-9d45-3bb33a5a87b0",
+				"i": "41ada4e7-abba-4558-99a9-dc5fba97a93a",
 				"x": 7,
 				"y": 3,
 				"w": 5,
@@ -342,14 +342,14 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device does not provide metrics for fans.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/1139e423-ce74-41e2-9d45-3bb33a5a87b0"
+					"self": "/chronograf/v1/dashboards/13/cells/41ada4e7-abba-4558-99a9-dc5fba97a93a"
 				}
 			},
 			{
-				"i": "4b819bd3-ffaf-4b96-94f9-31f543c7e88e",
+				"i": "51335cbc-827b-480d-ac38-efd68c441225",
 				"x": 0,
 				"y": 3,
 				"w": 2,
@@ -452,14 +452,14 @@
 					"isEnforced": true,
 					"digits": 0
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device or fan does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/4b819bd3-ffaf-4b96-94f9-31f543c7e88e"
+					"self": "/chronograf/v1/dashboards/13/cells/51335cbc-827b-480d-ac38-efd68c441225"
 				}
 			},
 			{
-				"i": "5cfdc99a-0c66-4073-81b0-608974d1169d",
+				"i": "eff51c05-0526-4d0c-a856-39f1eb286018",
 				"x": 7,
 				"y": 0,
 				"w": 5,
@@ -569,14 +569,14 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device does not provide metrics for CPU core temperatures.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/5cfdc99a-0c66-4073-81b0-608974d1169d"
+					"self": "/chronograf/v1/dashboards/13/cells/eff51c05-0526-4d0c-a856-39f1eb286018"
 				}
 			},
 			{
-				"i": "ef5dfd47-b52f-4063-8200-e18aa960764c",
+				"i": "0d4e9bbc-ee09-4108-9f71-26fc659e180e",
 				"x": 0,
 				"y": 0,
 				"w": 2,
@@ -679,14 +679,14 @@
 					"isEnforced": true,
 					"digits": 1
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device or CPU core does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/ef5dfd47-b52f-4063-8200-e18aa960764c"
+					"self": "/chronograf/v1/dashboards/13/cells/0d4e9bbc-ee09-4108-9f71-26fc659e180e"
 				}
 			},
 			{
-				"i": "39409894-5e9f-45c0-b6ed-dffe2a1ba077",
+				"i": "479cee82-8969-4b2a-85bc-3800a29c13db",
 				"x": 2,
 				"y": 6,
 				"w": 5,
@@ -796,14 +796,14 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device and feature does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/39409894-5e9f-45c0-b6ed-dffe2a1ba077"
+					"self": "/chronograf/v1/dashboards/13/cells/479cee82-8969-4b2a-85bc-3800a29c13db"
 				}
 			},
 			{
-				"i": "becd93a9-61eb-48a1-96af-396ef9aff7a1",
+				"i": "eaff298f-1cab-4ce4-94a4-9175c277ee4b",
 				"x": 2,
 				"y": 3,
 				"w": 5,
@@ -913,14 +913,14 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device or fan does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/becd93a9-61eb-48a1-96af-396ef9aff7a1"
+					"self": "/chronograf/v1/dashboards/13/cells/eaff298f-1cab-4ce4-94a4-9175c277ee4b"
 				}
 			},
 			{
-				"i": "8ef6d7a8-749c-408c-b194-f1970e2a834b",
+				"i": "6d330a79-6a2b-4aca-be0d-e6c189b510dc",
 				"x": 2,
 				"y": 0,
 				"w": 5,
@@ -1030,10 +1030,10 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "",
-				"noteVisibility": "default",
+				"note": "The selected device or CPU core does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/cells/8ef6d7a8-749c-408c-b194-f1970e2a834b"
+					"self": "/chronograf/v1/dashboards/13/cells/6d330a79-6a2b-4aca-be0d-e6c189b510dc"
 				}
 			}
 		],
@@ -1042,7 +1042,7 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "lab1",
+						"value": "knode1",
 						"type": "tagValue",
 						"selected": true
 					}
@@ -1058,7 +1058,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/templates/018eb779-d712-47bb-9565-79348f7d09a4"
+					"self": "/chronograf/v1/dashboards/13/templates/018eb779-d712-47bb-9565-79348f7d09a4"
 				}
 			},
 			{
@@ -1080,7 +1080,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/templates/d3914759-c5fe-4c20-b518-1b0e267ce753"
+					"self": "/chronograf/v1/dashboards/13/templates/d3914759-c5fe-4c20-b518-1b0e267ce753"
 				}
 			},
 			{
@@ -1102,7 +1102,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/templates/50c82bce-5d25-4012-a3bc-3b338cd00584"
+					"self": "/chronograf/v1/dashboards/13/templates/50c82bce-5d25-4012-a3bc-3b338cd00584"
 				}
 			},
 			{
@@ -1118,44 +1118,54 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=:host:",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=:host: AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/templates/9692b59e-caa6-4cf3-8156-3caeeb92622c"
+					"self": "/chronograf/v1/dashboards/13/templates/9692b59e-caa6-4cf3-8156-3caeeb92622c"
 				}
 			},
 			{
 				"tempVar": ":value:",
 				"values": [
 					{
+						"value": "fan_input",
+						"type": "csv",
+						"selected": false
+					},
+					{
 						"value": "in_input",
-						"type": "influxql",
+						"type": "csv",
 						"selected": true
+					},
+					{
+						"value": "temp_input",
+						"type": "csv",
+						"selected": false
 					}
 				],
 				"id": "6b1f3acc-96ba-4c83-8efb-25b5ec44533a",
-				"type": "influxql",
+				"type": "csv",
 				"label": "",
 				"query": {
-					"influxql": "SHOW FIELD KEYS ON \"telegraf\" FROM \"sensors\" ",
+					"influxql": "",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/9/templates/6b1f3acc-96ba-4c83-8efb-25b5ec44533a"
+					"self": "/chronograf/v1/dashboards/13/templates/6b1f3acc-96ba-4c83-8efb-25b5ec44533a"
 				}
 			}
 		],
 		"name": "Sensors: System Environment Health",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/9",
-			"cells": "/chronograf/v1/dashboards/9/cells",
-			"templates": "/chronograf/v1/dashboards/9/templates"
+			"self": "/chronograf/v1/dashboards/13",
+			"cells": "/chronograf/v1/dashboards/13/cells",
+			"templates": "/chronograf/v1/dashboards/13/templates"
 		}
 	}
 }

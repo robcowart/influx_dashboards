@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.4",
+		"chronografVersion": "1.7.8",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 20,
+		"id": 9,
 		"cells": [
 			{
-				"i": "76bf4fda-76a4-48bc-8069-ad010af3250d",
+				"i": "e7f41308-9746-4dee-ae60-067790effdd1",
 				"x": 9,
 				"y": 0,
 				"w": 3,
@@ -111,11 +111,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/76bf4fda-76a4-48bc-8069-ad010af3250d"
+					"self": "/chronograf/v1/dashboards/9/cells/e7f41308-9746-4dee-ae60-067790effdd1"
 				}
 			},
 			{
-				"i": "fab50636-2b1c-4dd5-ab42-033f2621552f",
+				"i": "14da8aef-0334-4038-a696-b7dacb652d8b",
 				"x": 3,
 				"y": 0,
 				"w": 3,
@@ -214,11 +214,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/fab50636-2b1c-4dd5-ab42-033f2621552f"
+					"self": "/chronograf/v1/dashboards/9/cells/14da8aef-0334-4038-a696-b7dacb652d8b"
 				}
 			},
 			{
-				"i": "59eb6098-abed-4b1f-b634-82de53126593",
+				"i": "95860483-2789-4cfa-8d5b-7a55e02d6ee7",
 				"x": 6,
 				"y": 0,
 				"w": 3,
@@ -317,11 +317,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/59eb6098-abed-4b1f-b634-82de53126593"
+					"self": "/chronograf/v1/dashboards/9/cells/95860483-2789-4cfa-8d5b-7a55e02d6ee7"
 				}
 			},
 			{
-				"i": "26490c8d-1f16-4512-b2bd-9fa21dece261",
+				"i": "84739fa5-e6dc-4b26-afff-169538db3b73",
 				"x": 0,
 				"y": 0,
 				"w": 3,
@@ -420,11 +420,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/26490c8d-1f16-4512-b2bd-9fa21dece261"
+					"self": "/chronograf/v1/dashboards/9/cells/84739fa5-e6dc-4b26-afff-169538db3b73"
 				}
 			},
 			{
-				"i": "847a94fc-2ea8-4e8a-9faa-f50216cdb2d3",
+				"i": "9e22e374-1bbc-4c24-a9d8-e11cf581752c",
 				"x": 6,
 				"y": 1,
 				"w": 6,
@@ -537,11 +537,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/847a94fc-2ea8-4e8a-9faa-f50216cdb2d3"
+					"self": "/chronograf/v1/dashboards/9/cells/9e22e374-1bbc-4c24-a9d8-e11cf581752c"
 				}
 			},
 			{
-				"i": "10f13ac2-5a43-4766-8438-af86fa0f85f1",
+				"i": "d0f2275a-e7da-4a5a-a2f4-53cc81fca7e4",
 				"x": 0,
 				"y": 1,
 				"w": 6,
@@ -654,11 +654,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/10f13ac2-5a43-4766-8438-af86fa0f85f1"
+					"self": "/chronograf/v1/dashboards/9/cells/d0f2275a-e7da-4a5a-a2f4-53cc81fca7e4"
 				}
 			},
 			{
-				"i": "a23c4486-9e64-454e-8144-7491d78f8db4",
+				"i": "80ae99f0-55c2-491a-b668-2a821be89df8",
 				"x": 0,
 				"y": 4,
 				"w": 6,
@@ -771,11 +771,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/a23c4486-9e64-454e-8144-7491d78f8db4"
+					"self": "/chronograf/v1/dashboards/9/cells/80ae99f0-55c2-491a-b668-2a821be89df8"
 				}
 			},
 			{
-				"i": "c754912c-4b53-40ae-b354-a62beae876ba",
+				"i": "a8d5a4de-3263-4eaf-bac4-ccbd9dd97212",
 				"x": 6,
 				"y": 4,
 				"w": 6,
@@ -888,7 +888,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/cells/c754912c-4b53-40ae-b354-a62beae876ba"
+					"self": "/chronograf/v1/dashboards/9/cells/a8d5a4de-3263-4eaf-bac4-ccbd9dd97212"
 				}
 			}
 		],
@@ -913,16 +913,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/20/templates/76c5fdd0-ae6e-40d3-96f6-d0a3a09a9251"
+					"self": "/chronograf/v1/dashboards/9/templates/76c5fdd0-ae6e-40d3-96f6-d0a3a09a9251"
 				}
 			}
 		],
 		"name": "Zookeeper: Namespace",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/20",
-			"cells": "/chronograf/v1/dashboards/20/cells",
-			"templates": "/chronograf/v1/dashboards/20/templates"
+			"self": "/chronograf/v1/dashboards/9",
+			"cells": "/chronograf/v1/dashboards/9/cells",
+			"templates": "/chronograf/v1/dashboards/9/templates"
 		}
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.4",
+		"chronografVersion": "1.7.8",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 15,
+		"id": 17,
 		"cells": [
 			{
-				"i": "ed16c6be-1957-4846-b579-9c817c7e6def",
+				"i": "092bc423-0c0e-4cd5-9275-416b05dc8824",
 				"x": 0,
 				"y": 3,
 				"w": 6,
@@ -125,11 +125,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/15/cells/ed16c6be-1957-4846-b579-9c817c7e6def"
+					"self": "/chronograf/v1/dashboards/17/cells/092bc423-0c0e-4cd5-9275-416b05dc8824"
 				}
 			},
 			{
-				"i": "4560d21e-0153-4d4a-b735-29d935edf6a7",
+				"i": "24fc76a9-6a21-408b-a1c0-d8e46395d6c8",
 				"x": 0,
 				"y": 6,
 				"w": 6,
@@ -262,11 +262,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/15/cells/4560d21e-0153-4d4a-b735-29d935edf6a7"
+					"self": "/chronograf/v1/dashboards/17/cells/24fc76a9-6a21-408b-a1c0-d8e46395d6c8"
 				}
 			},
 			{
-				"i": "518706ae-7ef6-4054-814f-ad49f62264f9",
+				"i": "01333306-d876-482f-86cd-3088c4a472f2",
 				"x": 0,
 				"y": 0,
 				"w": 6,
@@ -379,11 +379,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/15/cells/518706ae-7ef6-4054-814f-ad49f62264f9"
+					"self": "/chronograf/v1/dashboards/17/cells/01333306-d876-482f-86cd-3088c4a472f2"
 				}
 			},
 			{
-				"i": "8f6982c5-53f9-432c-84fb-13d9e98b570f",
+				"i": "5952ee39-0e11-4456-a4d6-b6c7aa2cfe31",
 				"x": 6,
 				"y": 6,
 				"w": 6,
@@ -496,11 +496,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/15/cells/8f6982c5-53f9-432c-84fb-13d9e98b570f"
+					"self": "/chronograf/v1/dashboards/17/cells/5952ee39-0e11-4456-a4d6-b6c7aa2cfe31"
 				}
 			},
 			{
-				"i": "dacb97df-3232-4f67-8e89-5f73e4894fcf",
+				"i": "0bb7f8fc-64f9-432a-a46f-722e5483b78b",
 				"x": 6,
 				"y": 3,
 				"w": 6,
@@ -613,11 +613,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/15/cells/dacb97df-3232-4f67-8e89-5f73e4894fcf"
+					"self": "/chronograf/v1/dashboards/17/cells/0bb7f8fc-64f9-432a-a46f-722e5483b78b"
 				}
 			},
 			{
-				"i": "7376ce51-b4db-4bee-8240-2f5e425252df",
+				"i": "32a8731f-419f-48f1-8087-96017c55420b",
 				"x": 6,
 				"y": 0,
 				"w": 6,
@@ -730,7 +730,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/15/cells/7376ce51-b4db-4bee-8240-2f5e425252df"
+					"self": "/chronograf/v1/dashboards/17/cells/32a8731f-419f-48f1-8087-96017c55420b"
 				}
 			}
 		],
@@ -755,16 +755,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/15/templates/77534f2d-694f-4569-af9d-aefa4fe666af"
+					"self": "/chronograf/v1/dashboards/17/templates/77534f2d-694f-4569-af9d-aefa4fe666af"
 				}
 			}
 		],
 		"name": "Redis: Server Resources",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/15",
-			"cells": "/chronograf/v1/dashboards/15/cells",
-			"templates": "/chronograf/v1/dashboards/15/templates"
+			"self": "/chronograf/v1/dashboards/17",
+			"cells": "/chronograf/v1/dashboards/17/cells",
+			"templates": "/chronograf/v1/dashboards/17/templates"
 		}
 	}
 }
