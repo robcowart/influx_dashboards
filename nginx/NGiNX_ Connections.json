@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,10 +17,10 @@
 				"y": 7,
 				"w": 6,
 				"h": 3,
-				"name": "Requests per Connection",
+				"name": "Requests per Connection - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"requests\")) / non_negative_difference(last(\"handled\")) AS \"requests per connection\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"requests\")) / non_negative_difference(last(\"handled\")) AS \"requests per connection\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"requests\")) / non_negative_difference(last(\"handled\")) AS \"requests per connection\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"requests\")) / non_negative_difference(last(\"handled\")) AS \"requests per connection\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -134,22 +134,40 @@
 				"y": 7,
 				"w": 6,
 				"h": 3,
-				"name": "Connections Waiting",
+				"name": "Connections Waiting - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"waiting\") AS \"wsiting\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"waiting\") AS \"wsiting\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "nginx",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "wsiting",
+									"args": [
+										{
+											"value": "waiting",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"waiting\") AS \"wsiting\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -251,10 +269,10 @@
 				"y": 0,
 				"w": 2,
 				"h": 1,
-				"name": "Total Handled Requests",
+				"name": "Total Handled Requests - :host:",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"requests\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT cumulative_sum(non_negative_difference(last(\"requests\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -266,7 +284,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"requests\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"requests\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -354,10 +372,10 @@
 				"y": 0,
 				"w": 2,
 				"h": 1,
-				"name": "Total Handled Connections",
+				"name": "Total Handled Connections - :host:",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"handled\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT cumulative_sum(non_negative_difference(last(\"handled\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -369,7 +387,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"handled\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"handled\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -457,10 +475,10 @@
 				"y": 0,
 				"w": 2,
 				"h": 1,
-				"name": "Total Accepted Connections",
+				"name": "Total Accepted Connections - :host:",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"accepts\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT cumulative_sum(non_negative_difference(last(\"accepts\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -472,7 +490,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"accepts\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"accepts\"))) FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -560,10 +578,10 @@
 				"y": 0,
 				"w": 2,
 				"h": 1,
-				"name": "Connections Processing",
+				"name": "Connections Processing - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"reading\") + last(\"writing\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host:",
+						"query": "SELECT last(\"reading\") + last(\"writing\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -575,7 +593,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"reading\") + last(\"writing\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host:",
+							"rawText": "SELECT last(\"reading\") + last(\"writing\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 							"range": null,
 							"shifts": null
 						},
@@ -663,22 +681,39 @@
 				"y": 0,
 				"w": 2,
 				"h": 1,
-				"name": "Connections Waiting",
+				"name": "Connections Waiting - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"waiting\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host:",
+						"query": "SELECT last(\"waiting\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "nginx",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "waiting",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"waiting\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -766,22 +801,39 @@
 				"y": 0,
 				"w": 2,
 				"h": 1,
-				"name": "Active Connections",
+				"name": "Active Connections - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"active\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host:",
+						"query": "SELECT last(\"active\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "nginx",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "active",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"active\") FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -869,22 +921,52 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Connections Processing",
+				"name": "Connections Processing - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"reading\") AS \"reading\", last(\"writing\") AS \"writing\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"reading\") AS \"reading\", last(\"writing\") AS \"writing\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "nginx",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "reading",
+									"args": [
+										{
+											"value": "reading",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "writing",
+									"args": [
+										{
+											"value": "writing",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"reading\") AS \"reading\", last(\"writing\") AS \"writing\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -986,10 +1068,10 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Handled Requests",
+				"name": "Handled Requests - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"requests\")) AS \"accepts\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"requests\")) AS \"accepts\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -1001,7 +1083,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"requests\")) AS \"accepts\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"requests\")) AS \"accepts\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -1103,22 +1185,52 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Active Connections",
+				"name": "Active Connections - :host:",
 				"queries": [
 					{
-						"query": "SELECT mean(\"active\") AS \"avg active\", max(\"active\") AS \"max active\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"active\") AS \"avg active\", max(\"active\") AS \"max active\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "nginx",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "avg active",
+									"args": [
+										{
+											"value": "active",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "max active",
+									"args": [
+										{
+											"value": "active",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT mean(\"active\") AS \"avg active\", max(\"active\") AS \"max active\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -1220,10 +1332,10 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Accepted & Handled Connections",
+				"name": "Accepted & Handled Connections - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"accepts\")) AS \"accepts\", non_negative_difference(last(\"handled\")) AS \"handled\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"accepts\")) AS \"accepts\", non_negative_difference(last(\"handled\")) AS \"handled\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -1235,7 +1347,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"accepts\")) AS \"accepts\", non_negative_difference(last(\"handled\")) AS \"handled\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"accepts\")) AS \"accepts\", non_negative_difference(last(\"handled\")) AS \"handled\" FROM \"telegraf\"..\"nginx\" WHERE time > :dashboardTime: AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -1337,19 +1449,18 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "kmaster",
-						"type": "tagValue",
+						"value": "lab0",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "2ca49f6f-840a-4929-83c4-338ca228ff74",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "nginx",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"nginx\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {

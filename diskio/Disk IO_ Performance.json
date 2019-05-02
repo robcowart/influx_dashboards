@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,10 +17,10 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Total Write Volume",
+				"name": "Total Write Volume - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"write_bytes\") - first(\"write_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+						"query": "SELECT last(\"write_bytes\") - first(\"write_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"write_bytes\") - first(\"write_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+							"rawText": "SELECT last(\"write_bytes\") - first(\"write_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 							"range": null,
 							"shifts": null
 						},
@@ -120,10 +120,10 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Total Read Volume",
+				"name": "Total Read Volume - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"read_bytes\") - first(\"read_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+						"query": "SELECT last(\"read_bytes\") - first(\"read_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"read_bytes\") - first(\"read_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+							"rawText": "SELECT last(\"read_bytes\") - first(\"read_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 							"range": null,
 							"shifts": null
 						},
@@ -223,10 +223,10 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Total Write IOPs",
+				"name": "Total Writes - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"writes\") - first(\"writes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+						"query": "SELECT last(\"writes\") - first(\"writes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -238,7 +238,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"writes\") - first(\"writes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+							"rawText": "SELECT last(\"writes\") - first(\"writes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 							"range": null,
 							"shifts": null
 						},
@@ -265,7 +265,7 @@
 						],
 						"label": "IOPS",
 						"prefix": "",
-						"suffix": " IOPS",
+						"suffix": "",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -326,10 +326,10 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Total Read IOPs",
+				"name": "Total Reads - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"reads\") - first(\"reads\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+						"query": "SELECT last(\"reads\") - first(\"reads\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -341,7 +341,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"reads\") - first(\"reads\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:'",
+							"rawText": "SELECT last(\"reads\") - first(\"reads\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 							"range": null,
 							"shifts": null
 						},
@@ -368,7 +368,7 @@
 						],
 						"label": "IOPS",
 						"prefix": "",
-						"suffix": " IOPS",
+						"suffix": "",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -429,10 +429,10 @@
 				"y": 7,
 				"w": 6,
 				"h": 3,
-				"name": " Write Time Utilization",
+				"name": " Write Time Utilization - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"write_time\"),1s) / 10 AS \"write time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"write_time\"),1s) / 10 AS \"write time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -444,7 +444,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"write_time\"),1s) / 10 AS \"write time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"write_time\"),1s) / 10 AS \"write time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -546,10 +546,10 @@
 				"y": 7,
 				"w": 6,
 				"h": 3,
-				"name": " Read Time Utilization",
+				"name": " Read Time Utilization - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"read_time\"),1s) / 10 AS \"read time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"read_time\"),1s) / 10 AS \"read time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -561,7 +561,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"read_time\"),1s) / 10 AS \"read time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"read_time\"),1s) / 10 AS \"read time utilization\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -663,10 +663,10 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Write Volume",
+				"name": "Write Volume - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"write_bytes\"),1s) AS \"write bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"write_bytes\"),1s) AS \"write bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -678,7 +678,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"write_bytes\"),1s) AS \"write bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"write_bytes\"),1s) AS \"write bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -780,10 +780,10 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Read Volume",
+				"name": "Read Volume - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"read_bytes\"),1s) AS \"read bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"read_bytes\"),1s) AS \"read bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -795,7 +795,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"read_bytes\"),1s) AS \"read bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"read_bytes\"),1s) AS \"read bytes\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -897,10 +897,10 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Write IOPs",
+				"name": "Write IOPs - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"writes\"),1s) AS \"write IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"writes\"),1s) AS \"write IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -912,7 +912,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"writes\"),1s) AS \"write IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"writes\"),1s) AS \"write IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -1014,10 +1014,10 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Read IOPs",
+				"name": "Read IOPs - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"reads\"),1s) AS \"read IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"reads\"),1s) AS \"read IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -1029,7 +1029,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"reads\"),1s) AS \"read IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"reads\"),1s) AS \"read IOPs\" FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -1132,18 +1132,17 @@
 				"values": [
 					{
 						"value": "lab1",
-						"type": "tagValue",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "21f8e74f-f78c-440e-af0a-58efdb7299b0",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "disk",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"disk\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
@@ -1154,7 +1153,7 @@
 				"tempVar": ":device:",
 				"values": [
 					{
-						"value": "loop0",
+						"value": "sda",
 						"type": "influxql",
 						"selected": true
 					}
@@ -1163,7 +1162,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"diskio\" WITH KEY=\"name\" WHERE \"host\"=:host:",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"diskio\" WITH KEY=\"name\" WHERE \"host\"=':host:'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""

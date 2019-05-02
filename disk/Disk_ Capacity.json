@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -13,26 +13,46 @@
 		"cells": [
 			{
 				"i": "f61b009f-7340-46c4-9a9d-ff86809ab52e",
-				"x": 4,
+				"x": 5,
 				"y": 0,
-				"w": 4,
+				"w": 5,
 				"h": 1,
-				"name": "File System Capacity Used",
+				"name": "File System Capacity Used - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"used\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+						"query": "SELECT last(\"used\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "disk",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "capacity",
+									"args": [
+										{
+											"value": "used",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"path": [
+									":file_system:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"used\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -120,10 +140,10 @@
 				"y": 4,
 				"w": 2,
 				"h": 3,
-				"name": "inode Utilization",
+				"name": "inode Utilization - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+						"query": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +155,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+							"rawText": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 							"range": null,
 							"shifts": null
 						},
@@ -230,22 +250,42 @@
 				"y": 1,
 				"w": 2,
 				"h": 3,
-				"name": "Capacity Utilization",
+				"name": "Capacity Utilization - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"used_percent\") FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+						"query": "SELECT last(\"used_percent\") FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "disk",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "used_percent",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"path": [
+									":file_system:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"used_percent\") FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -338,12 +378,12 @@
 				"i": "f96abb06-ec39-44c0-9ff7-1bd1eb381685",
 				"x": 2,
 				"y": 4,
-				"w": 6,
+				"w": 8,
 				"h": 3,
-				"name": "inode Utilization",
+				"name": "inode Utilization - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+						"query": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -355,7 +395,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+							"rawText": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
 							"range": null,
 							"shifts": null
 						},
@@ -455,24 +495,44 @@
 				"i": "c47ef3e3-5df0-45ec-a673-f0724be5bbe0",
 				"x": 0,
 				"y": 0,
-				"w": 4,
+				"w": 5,
 				"h": 1,
-				"name": "File System Capacity",
+				"name": "File System Capacity - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"total\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+						"query": "SELECT last(\"total\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "disk",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "capacity",
+									"args": [
+										{
+											"value": "total",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"path": [
+									":file_system:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"total\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:'",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -558,24 +618,45 @@
 				"i": "5c505bf6-2fe5-4a10-9a14-ef88d2655607",
 				"x": 2,
 				"y": 1,
-				"w": 6,
+				"w": 8,
 				"h": 3,
-				"name": "Capacity Utilization",
+				"name": "Capacity Utilization - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"used_percent\") AS \"capacity utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+						"query": "SELECT last(\"used_percent\") AS \"capacity utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "disk",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "capacity utilization",
+									"args": [
+										{
+											"value": "used_percent",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"path": [
+									":file_system:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"used_percent\") AS \"capacity utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -678,18 +759,17 @@
 				"values": [
 					{
 						"value": "lab1",
-						"type": "tagValue",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "21f8e74f-f78c-440e-af0a-58efdb7299b0",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "disk",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"disk\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
@@ -709,7 +789,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"disk\" WITH KEY=\"path\" WHERE \"host\"=:host:",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"disk\" WITH KEY=\"path\" WHERE \"host\"=':host:'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""

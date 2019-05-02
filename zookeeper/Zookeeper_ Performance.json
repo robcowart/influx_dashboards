@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,10 +17,10 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Total FSync Threshold Violations",
+				"name": "Total FSync Threshold Violations - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"fsync_threshold_exceed_count\") - first(\"fsync_threshold_exceed_count\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT last(\"fsync_threshold_exceed_count\") - first(\"fsync_threshold_exceed_count\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"fsync_threshold_exceed_count\") - first(\"fsync_threshold_exceed_count\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"rawText": "SELECT last(\"fsync_threshold_exceed_count\") - first(\"fsync_threshold_exceed_count\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 							"range": null,
 							"shifts": null
 						},
@@ -120,22 +120,39 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Current Outstanding Requests",
+				"name": "Current Outstanding Requests - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"outstanding_requests\") AS \"outstanding requests\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT last(\"outstanding_requests\") AS \"outstanding requests\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "outstanding requests",
+									"args": [
+										{
+											"value": "outstanding_requests",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"outstanding_requests\") AS \"outstanding requests\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -223,22 +240,39 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Latest Query Response Latency (avg)",
+				"name": "Latest Query Response Latency (avg) - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"avg_latency\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT last(\"avg_latency\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "avg_latency",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"avg_latency\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -326,22 +360,39 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Latest Query Response Latency (max)",
+				"name": "Latest Query Response Latency (max) - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"max_latency\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT last(\"max_latency\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "max_latency",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"max_latency\") FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -429,22 +480,40 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Outstanding Requests",
+				"name": "Outstanding Requests - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"outstanding_requests\") AS \"outstanding requests\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"outstanding_requests\") AS \"outstanding requests\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "outstanding requests",
+									"args": [
+										{
+											"value": "outstanding_requests",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"outstanding_requests\") AS \"outstanding requests\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -490,21 +559,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "df62074d-c769-4ff6-a098-2f4d877b200a",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "0e9f14d2-07ee-4cd2-8230-0969a27e6699",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "e69407c9-1c92-4e44-8d0f-dc3186e2df3e",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -546,10 +615,10 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "FSync Threshold Violations",
+				"name": "FSync Threshold Violations - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"fsync_threshold_exceed_count\")) AS \"fsync violations\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"fsync_threshold_exceed_count\")) AS \"fsync violations\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -561,7 +630,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"fsync_threshold_exceed_count\")) AS \"fsync violations\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"fsync_threshold_exceed_count\")) AS \"fsync violations\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -586,7 +655,7 @@
 							"0",
 							""
 						],
-						"label": "",
+						"label": "violations",
 						"prefix": "",
 						"suffix": "",
 						"base": "10",
@@ -607,21 +676,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "df62074d-c769-4ff6-a098-2f4d877b200a",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "0e9f14d2-07ee-4cd2-8230-0969a27e6699",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "e69407c9-1c92-4e44-8d0f-dc3186e2df3e",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -663,22 +732,64 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Proposal Size",
+				"name": "Proposal Size - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"last_proposal_size\") AS \"last size\", max(\"max_proposal_size\") AS \"maximum size\", min(\"min_proposal_size\") AS \"minimum size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"last_proposal_size\") AS \"last size\", max(\"max_proposal_size\") AS \"maximum size\", min(\"min_proposal_size\") AS \"minimum size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "last size",
+									"args": [
+										{
+											"value": "last_proposal_size",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "maximum size",
+									"args": [
+										{
+											"value": "max_proposal_size",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "min",
+									"type": "func",
+									"alias": "minimum size",
+									"args": [
+										{
+											"value": "min_proposal_size",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"last_proposal_size\") AS \"last size\", max(\"max_proposal_size\") AS \"maximum size\", min(\"min_proposal_size\") AS \"minimum size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -724,21 +835,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "df62074d-c769-4ff6-a098-2f4d877b200a",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "0e9f14d2-07ee-4cd2-8230-0969a27e6699",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "e69407c9-1c92-4e44-8d0f-dc3186e2df3e",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -780,22 +891,64 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Query Response Latency",
+				"name": "Query Response Latency - :host:",
 				"queries": [
 					{
-						"query": "SELECT mean(\"avg_latency\") AS \"average latency\", max(\"max_latency\") AS \"maximum latency\", min(\"min_latency\") AS \"minimum latency\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"avg_latency\") AS \"average latency\", max(\"max_latency\") AS \"maximum latency\", min(\"min_latency\") AS \"minimum latency\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "average latency",
+									"args": [
+										{
+											"value": "avg_latency",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "maximum latency",
+									"args": [
+										{
+											"value": "max_latency",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "min",
+									"type": "func",
+									"alias": "minimum latency",
+									"args": [
+										{
+											"value": "min_latency",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT mean(\"avg_latency\") AS \"average latency\", max(\"max_latency\") AS \"maximum latency\", min(\"min_latency\") AS \"minimum latency\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -841,21 +994,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "df62074d-c769-4ff6-a098-2f4d877b200a",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "0e9f14d2-07ee-4cd2-8230-0969a27e6699",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "e69407c9-1c92-4e44-8d0f-dc3186e2df3e",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -897,19 +1050,18 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "knode1",
-						"type": "tagValue",
+						"value": "lab1",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "76c5fdd0-ae6e-40d3-96f6-d0a3a09a9251",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "zookeeper",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"zookeeper\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {

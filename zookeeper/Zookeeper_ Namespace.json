@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,22 +17,39 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Data Size",
+				"name": "Data Size - :host:",
 				"queries": [
 					{
-						"query": "SELECT mean(\"approximate_data_size\") AS \"data size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT mean(\"approximate_data_size\") AS \"data size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "data size",
+									"args": [
+										{
+											"value": "approximate_data_size",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT mean(\"approximate_data_size\") AS \"data size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -120,22 +137,39 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Ephemeral Nodes",
+				"name": "Ephemeral Nodes - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"ephemerals_count\") AS \"ephemeral nodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT last(\"ephemerals_count\") AS \"ephemeral nodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "ephemeral nodes",
+									"args": [
+										{
+											"value": "ephemerals_count",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"ephemerals_count\") AS \"ephemeral nodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -223,22 +257,39 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "Watches",
+				"name": "Watches - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"watch_count\") AS \"watches\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT last(\"watch_count\") AS \"watches\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "watches",
+									"args": [
+										{
+											"value": "watch_count",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"watch_count\") AS \"watches\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -326,22 +377,39 @@
 				"y": 0,
 				"w": 3,
 				"h": 1,
-				"name": "ZNodes",
+				"name": "ZNodes - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"znode_count\") AS \"znodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+						"query": "SELECT last(\"znode_count\") AS \"znodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "znodes",
+									"args": [
+										{
+											"value": "znode_count",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"znode_count\") AS \"znodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host:",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -429,22 +497,40 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Watches",
+				"name": "Watches - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"watch_count\") AS \"watches\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"watch_count\") AS \"watches\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "watches",
+									"args": [
+										{
+											"value": "watch_count",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"watch_count\") AS \"watches\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -490,21 +576,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "65d3c6ed-8e90-4638-a14b-316bd352b323",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "403f264d-0b8e-481b-b063-96cc61566dff",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "32ac72e0-d4d5-4e85-ae77-3497d28013ad",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -546,22 +632,40 @@
 				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "ZNodes",
+				"name": "ZNodes - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"znode_count\") AS \"znodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"znode_count\") AS \"znodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "znodes",
+									"args": [
+										{
+											"value": "znode_count",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"znode_count\") AS \"znodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -607,21 +711,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "65d3c6ed-8e90-4638-a14b-316bd352b323",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "403f264d-0b8e-481b-b063-96cc61566dff",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "32ac72e0-d4d5-4e85-ae77-3497d28013ad",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -663,22 +767,40 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Ephemeral Nodes",
+				"name": "Ephemeral Nodes - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"ephemerals_count\") AS \"ephemeral nodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"ephemerals_count\") AS \"ephemeral nodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "ephemeral nodes",
+									"args": [
+										{
+											"value": "ephemerals_count",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"ephemerals_count\") AS \"ephemeral nodes\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -724,21 +846,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "65d3c6ed-8e90-4638-a14b-316bd352b323",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "403f264d-0b8e-481b-b063-96cc61566dff",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "32ac72e0-d4d5-4e85-ae77-3497d28013ad",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -780,22 +902,40 @@
 				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Data Size",
+				"name": "Data Size - :host:",
 				"queries": [
 					{
-						"query": "SELECT mean(\"approximate_data_size\") AS \"data size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"approximate_data_size\") AS \"data size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "zookeeper",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "data size",
+									"args": [
+										{
+											"value": "approximate_data_size",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT mean(\"approximate_data_size\") AS \"data size\" FROM \"telegraf\"..\"zookeeper\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -841,21 +981,21 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "3d93aef0-d250-4625-84a4-0e5138ec2a9d",
+						"id": "65d3c6ed-8e90-4638-a14b-316bd352b323",
 						"type": "scale",
 						"hex": "#31C0F6",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "534a1478-191d-4282-8c48-c7fe93ad8ccf",
+						"id": "403f264d-0b8e-481b-b063-96cc61566dff",
 						"type": "scale",
 						"hex": "#A500A5",
 						"name": "Nineteen Eighty Four",
 						"value": "0"
 					},
 					{
-						"id": "fd125d07-fadd-478d-afbb-32387ffbf4b8",
+						"id": "32ac72e0-d4d5-4e85-ae77-3497d28013ad",
 						"type": "scale",
 						"hex": "#FF7E27",
 						"name": "Nineteen Eighty Four",
@@ -897,19 +1037,18 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "knode1",
-						"type": "tagValue",
+						"value": "lab1",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "76c5fdd0-ae6e-40d3-96f6-d0a3a09a9251",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "zookeeper",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"zookeeper\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {

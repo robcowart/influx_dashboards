@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,10 +17,10 @@
 				"y": 3,
 				"w": 6,
 				"h": 3,
-				"name": "CPU Utilization - Background Processes",
+				"name": "CPU Utilization - Background Processes - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"used_cpu_sys_children\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user_children\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"used_cpu_sys_children\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user_children\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"used_cpu_sys_children\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user_children\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"used_cpu_sys_children\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user_children\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -134,10 +134,10 @@
 				"y": 6,
 				"w": 6,
 				"h": 3,
-				"name": "Network Usage",
+				"name": "Network Usage - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"total_net_input_bytes\"),1s) * 8 AS \"Ingress Traffic\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"total_net_input_bytes\"),1s) * 8 AS \"Ingress Traffic\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -149,7 +149,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"total_net_input_bytes\"),1s) * 8 AS \"Ingress Traffic\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"total_net_input_bytes\"),1s) * 8 AS \"Ingress Traffic\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -271,10 +271,10 @@
 				"y": 0,
 				"w": 6,
 				"h": 3,
-				"name": "CPU Utilization - Redis Server",
+				"name": "CPU Utilization - Redis Server - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"used_cpu_sys\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"used_cpu_sys\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -286,7 +286,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"used_cpu_sys\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"used_cpu_sys\"),1s) * 100 AS \"system\", non_negative_derivative(last(\"used_cpu_user\"),1s) * 100 AS \"user\" FROM \"telegraf\".\"autogen\".\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -388,10 +388,10 @@
 				"y": 6,
 				"w": 6,
 				"h": 3,
-				"name": "Memory Size by Usage",
+				"name": "Memory Size by Usage - :host:",
 				"queries": [
 					{
-						"query": "SELECT max(\"used_memory_overhead\") - max(\"used_memory_lua\") AS \"overhead\", max(\"used_memory_dataset\") AS \"dataset\", max(\"used_memory_lua\") AS \"lua\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT max(\"used_memory_overhead\") - max(\"used_memory_lua\") AS \"overhead\", max(\"used_memory_dataset\") AS \"dataset\", max(\"used_memory_lua\") AS \"lua\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -403,7 +403,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"used_memory_overhead\") - max(\"used_memory_lua\") AS \"overhead\", max(\"used_memory_dataset\") AS \"dataset\", max(\"used_memory_lua\") AS \"lua\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT max(\"used_memory_overhead\") - max(\"used_memory_lua\") AS \"overhead\", max(\"used_memory_dataset\") AS \"dataset\", max(\"used_memory_lua\") AS \"lua\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -505,22 +505,40 @@
 				"y": 3,
 				"w": 6,
 				"h": 3,
-				"name": "Memory Fragmentation",
+				"name": "Memory Fragmentation - :host:",
 				"queries": [
 					{
-						"query": "SELECT max(\"mem_fragmentation_ratio\") AS \"memory fragmentation ratio\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT max(\"mem_fragmentation_ratio\") AS \"memory fragmentation ratio\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "redis",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "memory fragmentation ratio",
+									"args": [
+										{
+											"value": "mem_fragmentation_ratio",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"mem_fragmentation_ratio\") AS \"memory fragmentation ratio\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -622,22 +640,52 @@
 				"y": 0,
 				"w": 6,
 				"h": 3,
-				"name": "Memory Size",
+				"name": "Memory Size - :host:",
 				"queries": [
 					{
-						"query": "SELECT max(\"used_memory\") AS \"memory used\", max(\"used_memory_rss\") AS \"memory used (rss)\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT max(\"used_memory\") AS \"memory used\", max(\"used_memory_rss\") AS \"memory used (rss)\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "redis",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "memory used",
+									"args": [
+										{
+											"value": "used_memory",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "memory used (rss)",
+									"args": [
+										{
+											"value": "used_memory_rss",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"used_memory\") AS \"memory used\", max(\"used_memory_rss\") AS \"memory used (rss)\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -739,19 +787,18 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "lab1",
-						"type": "tagValue",
+						"value": "lab3",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "77534f2d-694f-4569-af9d-aefa4fe666af",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "redis",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"redis\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {

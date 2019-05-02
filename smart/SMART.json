@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,22 +17,43 @@
 				"y": 0,
 				"w": 6,
 				"h": 3,
-				"name": "Temperature",
+				"name": "Temperature - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"temp_c\") AS \"temperature\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"temp_c\") AS \"temperature\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "smart_device",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "temperature",
+									"args": [
+										{
+											"value": "temp_c",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"device": [
+									":device:"
+								],
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"temp_c\") AS \"temperature\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -134,10 +155,10 @@
 				"y": 3,
 				"w": 6,
 				"h": 3,
-				"name": "Seek Errors",
+				"name": "Seek Errors - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -149,7 +170,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -174,7 +195,7 @@
 							"0",
 							""
 						],
-						"label": "",
+						"label": "errors",
 						"prefix": "",
 						"suffix": "",
 						"base": "10",
@@ -251,10 +272,10 @@
 				"y": 3,
 				"w": 6,
 				"h": 3,
-				"name": "CRC Errors",
+				"name": "CRC Errors - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"udma_crc_errors\")) AS \"crc errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"udma_crc_errors\")) AS \"crc errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -266,7 +287,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"udma_crc_errors\")) AS \"crc errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"udma_crc_errors\")) AS \"crc errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -291,7 +312,7 @@
 							"0",
 							""
 						],
-						"label": "",
+						"label": "errors",
 						"prefix": "",
 						"suffix": "",
 						"base": "10",
@@ -368,22 +389,43 @@
 				"y": 0,
 				"w": 6,
 				"h": 3,
-				"name": "Read Errors",
+				"name": "Read Errors - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"read_error_rate\") AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"read_error_rate\") AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "smart_device",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "read errors",
+									"args": [
+										{
+											"value": "read_error_rate",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"device": [
+									":device:"
+								],
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"read_error_rate\") AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -408,7 +450,7 @@
 							"0",
 							""
 						],
-						"label": "",
+						"label": "errors",
 						"prefix": "",
 						"suffix": "",
 						"base": "10",
@@ -485,19 +527,18 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "kmaster",
-						"type": "tagValue",
+						"value": "lab1",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "d3fd1aed-4b7f-4065-ac19-3747d8ecdcc9",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "smart_device",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"smart_device\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
@@ -517,7 +558,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"smart_device\" WITH KEY=\"device\" WHERE \"host\"=:host:",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"smart_device\" WITH KEY=\"device\" WHERE \"host\"=':host:'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""

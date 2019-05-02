@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,10 +17,10 @@
 				"y": 6,
 				"w": 2,
 				"h": 3,
-				"name": ":feature: - :value:",
+				"name": ":feature: - :host: - :value:",
 				"queries": [
 					{
-						"query": "SELECT last(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':feature:'",
+						"query": "SELECT last(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':feature:'",
+							"rawText": "SELECT last(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:'",
 							"range": null,
 							"shifts": null
 						},
@@ -120,10 +120,10 @@
 				"y": 6,
 				"w": 5,
 				"h": 3,
-				"name": "All Features",
+				"name": "All Features - :host:",
 				"queries": [
 					{
-						"query": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"query": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"rawText": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -237,10 +237,10 @@
 				"y": 3,
 				"w": 5,
 				"h": 3,
-				"name": "All Fan Speeds",
+				"name": "All Fan Speeds - :host:",
 				"queries": [
 					{
-						"query": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" =~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"query": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -252,7 +252,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" =~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"rawText": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -354,22 +354,42 @@
 				"y": 3,
 				"w": 2,
 				"h": 3,
-				"name": "Fan Speed - :fan:",
+				"name": "Fan Speed - :host: - :fan:",
 				"queries": [
 					{
-						"query": "SELECT last(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':fan:'",
+						"query": "SELECT last(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':fan:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "sensors",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "fan speed",
+									"args": [
+										{
+											"value": "fan_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":fan:"
+								],
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':fan:'",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -464,10 +484,10 @@
 				"y": 0,
 				"w": 5,
 				"h": 3,
-				"name": "All Core Temperatures",
+				"name": "All Core Temperatures - :host:",
 				"queries": [
 					{
-						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -479,7 +499,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"rawText": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -581,22 +601,42 @@
 				"y": 0,
 				"w": 2,
 				"h": 3,
-				"name": "Temperature - :core:",
+				"name": "Temperature - :host: - :core:",
 				"queries": [
 					{
-						"query": "SELECT last(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':core:'",
+						"query": "SELECT last(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':core:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "sensors",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "temperature",
+									"args": [
+										{
+											"value": "temp_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":core:"
+								],
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':core:'",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -691,10 +731,10 @@
 				"y": 6,
 				"w": 5,
 				"h": 3,
-				"name": ":feature: - :value:",
+				"name": ":feature: - :host: - :value:",
 				"queries": [
 					{
-						"query": "SELECT mean(:value:) AS \"mean :feature: :value:\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':feature:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(:value:) AS \"mean :feature: :value:\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -706,7 +746,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT mean(:value:) AS \"mean :feature: :value:\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':feature:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT mean(:value:) AS \"mean :feature: :value:\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -808,22 +848,43 @@
 				"y": 3,
 				"w": 5,
 				"h": 3,
-				"name": "Fan Speed - :fan:",
+				"name": "Fan Speed - :host: - :fan:",
 				"queries": [
 					{
-						"query": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':fan:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':fan:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "sensors",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "fan speed",
+									"args": [
+										{
+											"value": "fan_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":fan:"
+								],
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':fan:' GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -925,22 +986,43 @@
 				"y": 0,
 				"w": 5,
 				"h": 3,
-				"name": "Temperature - :core:",
+				"name": "Temperature - :host: - :core:",
 				"queries": [
 					{
-						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':core:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':core:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "sensors",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "temperature",
+									"args": [
+										{
+											"value": "temp_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":core:"
+								],
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"feature\"=':core:' GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -1043,18 +1125,17 @@
 				"values": [
 					{
 						"value": "knode1",
-						"type": "tagValue",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "018eb779-d712-47bb-9565-79348f7d09a4",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "sensors",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
@@ -1074,7 +1155,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=:host: AND \"feature\" =~ /^core.*$/",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" =~ /^core.*$/",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
@@ -1096,7 +1177,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=:host: AND \"feature\" =~ /^fan.*$/",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" =~ /^fan.*$/",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
@@ -1118,7 +1199,7 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=:host: AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""

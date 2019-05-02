@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.8",
+		"chronografVersion": "1.7.10",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -17,22 +17,40 @@
 				"y": 6,
 				"w": 6,
 				"h": 3,
-				"name": "Subscribed Pub/Sub Patterns",
+				"name": "Subscribed Pub/Sub Patterns - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"pubsub_patterns\") AS \"pub/sub patterns\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"pubsub_patterns\") AS \"pub/sub patterns\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "redis",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "pub/sub patterns",
+									"args": [
+										{
+											"value": "pubsub_patterns",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"pubsub_patterns\") AS \"pub/sub patterns\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -134,22 +152,40 @@
 				"y": 3,
 				"w": 6,
 				"h": 3,
-				"name": "Subscribed Pub/Sub Channels",
+				"name": "Subscribed Pub/Sub Channels - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"pubsub_channels\") AS \"pub/sub channels\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"pubsub_channels\") AS \"pub/sub channels\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "redis",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "pub/sub channels",
+									"args": [
+										{
+											"value": "pubsub_channels",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"pubsub_channels\") AS \"pub/sub channels\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -251,10 +287,10 @@
 				"y": 0,
 				"w": 6,
 				"h": 3,
-				"name": "Commands",
+				"name": "Commands - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"total_commands_processed\"),1s) AS \"commands processed\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"total_commands_processed\"),1s) AS \"commands processed\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -266,7 +302,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"total_commands_processed\"),1s) AS \"commands processed\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"total_commands_processed\"),1s) AS \"commands processed\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -291,7 +327,7 @@
 							"0",
 							""
 						],
-						"label": "",
+						"label": "commands",
 						"prefix": "",
 						"suffix": "/s",
 						"base": "10",
@@ -368,10 +404,10 @@
 				"y": 0,
 				"w": 6,
 				"h": 3,
-				"name": "Connections",
+				"name": "Connections - :host:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"total_connections_received\"),1m) AS \"connections\", non_negative_difference(last(\"rejected_connections\")) AS \"rejected\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"total_connections_received\"),1m) AS \"connections\", non_negative_difference(last(\"rejected_connections\")) AS \"rejected\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -383,7 +419,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"total_connections_received\"),1m) AS \"connections\", non_negative_difference(last(\"rejected_connections\")) AS \"rejected\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"total_connections_received\"),1m) AS \"connections\", non_negative_difference(last(\"rejected_connections\")) AS \"rejected\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -485,22 +521,40 @@
 				"y": 6,
 				"w": 6,
 				"h": 3,
-				"name": "Blocked Clients",
+				"name": "Blocked Clients - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"blocked_clients\") AS \"blocked clients\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"blocked_clients\") AS \"blocked clients\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "redis",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "blocked clients",
+									"args": [
+										{
+											"value": "blocked_clients",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"blocked_clients\") AS \"blocked clients\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -602,22 +656,40 @@
 				"y": 3,
 				"w": 6,
 				"h": 3,
-				"name": "Clients",
+				"name": "Clients - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"clients\") AS \"clients\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"clients\") AS \"clients\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "redis",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "clients",
+									"args": [
+										{
+											"value": "clients",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								]
+							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"clients\") AS \"clients\" FROM \"telegraf\"..\"redis\" WHERE time > :dashboardTime: and \"host\"=:host: GROUP BY time(:interval:) FILL(null)",
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -719,19 +791,18 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "lab1",
-						"type": "tagValue",
+						"value": "lab3",
+						"type": "influxql",
 						"selected": true
 					}
 				],
 				"id": "77534f2d-694f-4569-af9d-aefa4fe666af",
-				"type": "tagValues",
+				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
-					"db": "telegraf",
-					"measurement": "redis",
-					"tagKey": "host",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"redis\" WITH KEY=\"host\"",
+					"measurement": "",
+					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
