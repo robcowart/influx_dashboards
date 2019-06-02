@@ -10,7 +10,7 @@ The following dashboards are provided for use with data from the Telegraf [disk]
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.disk]]
   # By default stats will be gathered for all mount points. Set mount_points will restrict the stats to only the
   # specified mount points.

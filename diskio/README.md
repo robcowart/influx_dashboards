@@ -10,7 +10,7 @@ The following dashboards are provided for use with data from the Telegraf [disk]
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.diskio]]
   # By default, telegraf will gather stats for all devices including disk partitions. Setting devices will restrict the
   # stats to the specified devices.

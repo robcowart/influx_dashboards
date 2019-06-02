@@ -22,7 +22,7 @@ As the network interface metrics are counters, all queries leverage the [non_neg
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.net]]
   # By default, telegraf gathers stats from any up interface (excluding loopback). Setting interfaces will tell it to
   # gather these explicit interfaces, regardless of status.

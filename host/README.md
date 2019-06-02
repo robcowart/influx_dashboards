@@ -16,7 +16,7 @@ The following dashboards are provided for use with data from the following Teleg
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.cpu]]
   # Whether to report per-cpu stats or not
   percpu = true

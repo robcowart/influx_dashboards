@@ -10,7 +10,7 @@ The following dashboards are provided for use with data from the Telegraf [smart
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.smart]]
   # Optionally specify the path to the smartctl executable.
   #path = "/usr/bin/smartctl"

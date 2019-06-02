@@ -20,7 +20,7 @@ Template variables are provided to allow easy navigation from one sensor value t
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.sensors]]
   # Remove numbers from field names. If true, a field name like 'temp1_input' will be changed to 'temp_input'.
   #remove_numbers = true

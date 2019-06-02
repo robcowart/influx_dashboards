@@ -14,7 +14,7 @@ Template variables are provided to allow easy selection of the NGiNX server to b
 
 The NGiNX server must be configured to load the `stub_status` module. The following example will make the statistics available at `/nginx_status`.
 
-```
+```text
 location /nginx_status {
   stub_status;
   allow 127.0.0.1;
@@ -28,7 +28,7 @@ location /nginx_status {
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.nginx]]
   # An array of Nginx stub_status URI to gather stats.
   urls = ["http://192.2.0.1/nginx_status"]

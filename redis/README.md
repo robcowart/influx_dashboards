@@ -18,7 +18,7 @@ The following dashboards are provided for use with data from the Telegraf [redis
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.redis]]
   servers = ["tcp://192.2.0.1:6379"]
   password = "changeme"

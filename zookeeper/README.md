@@ -18,7 +18,7 @@ The following dashboards are provided for use with data from the Telegraf [zooke
 
 The following input plugin configuration is required to provide the data for these dashboards.
 
-```
+```toml
 [[inputs.zookeeper]]
   servers = ["192.2.0.1:2181"]
 
