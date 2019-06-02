@@ -1,4 +1,4 @@
-# host
+# docker
 
 The following dashboards are provided for use with data from the following Telegraf input plugins:
 
@@ -8,6 +8,10 @@ The following dashboards are provided for use with data from the following Teleg
 
 ![Docker: Engine](https://user-images.githubusercontent.com/10326954/58759127-68cc1480-8525-11e9-8474-de1b08844afe.png)
 
+## Docker: Container Compute Performance
+
+![Docker: Container Compute Performance](https://user-images.githubusercontent.com/10326954/58761899-6976a200-8549-11e9-9247-5302a0efe099.png)
+
 ## Docker: Device Block I/O
 
 ![Docker: Device Block I/O](https://user-images.githubusercontent.com/10326954/58760563-d8e49580-8539-11e9-9818-3e036496bc9d.png)
@@ -15,6 +19,10 @@ The following dashboards are provided for use with data from the following Teleg
 ## Docker: Container Block I/O
 
 ![Docker: Container Block I/O](https://user-images.githubusercontent.com/10326954/58760537-74c1d180-8539-11e9-85c1-eb46323b7710.png)
+
+## Docker: Container Network Performance
+
+![Docker: Container Network Performance](https://user-images.githubusercontent.com/10326954/58762503-d6416a80-8550-11e9-857e-3c99560526d1.png)
 
 ## Telegraf Input Configuration
 

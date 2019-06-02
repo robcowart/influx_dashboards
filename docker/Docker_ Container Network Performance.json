@@ -9,486 +9,18 @@
 		}
 	},
 	"dashboard": {
-		"id": 51,
+		"id": 50,
 		"cells": [
 			{
-				"i": "58ba1385-ac1d-4bef-b496-ffc67430dd64",
-				"x": 6,
-				"y": 12,
-				"w": 6,
-				"h": 3,
-				"name": "Writes Queued - :host: - :container:",
-				"queries": [
-					{
-						"query": "SELECT non_negative_difference(last(\"io_queue_recursive_write\")) AS \"Writes Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"io_queue_recursive_write\")) AS \"Writes Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "operations",
-						"prefix": "",
-						"suffix": "/s",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line-stacked",
-				"colors": [
-					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 2
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/58ba1385-ac1d-4bef-b496-ffc67430dd64"
-				}
-			},
-			{
-				"i": "cb20efdb-20b4-45a9-acd3-5c93bb8b3da6",
-				"x": 0,
-				"y": 12,
-				"w": 6,
-				"h": 3,
-				"name": "Reads Queued - :host: - :container:",
-				"queries": [
-					{
-						"query": "SELECT non_negative_difference(last(\"io_queue_recursive_read\")) AS \"Reads Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"io_queue_recursive_read\")) AS \"Reads Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "operations",
-						"prefix": "",
-						"suffix": "/s",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line-stacked",
-				"colors": [
-					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 2
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/cb20efdb-20b4-45a9-acd3-5c93bb8b3da6"
-				}
-			},
-			{
-				"i": "659c4629-a2d1-4719-a8f2-b4fcf55bc8d5",
-				"x": 6,
-				"y": 9,
-				"w": 6,
-				"h": 3,
-				"name": "Writes Merged - :host: - :container:",
-				"queries": [
-					{
-						"query": "SELECT non_negative_derivative(last(\"io_merged_recursive_write\"),1s) AS \"Writes Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_merged_recursive_write\"),1s) AS \"Writes Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "operations",
-						"prefix": "",
-						"suffix": "/s",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line-stacked",
-				"colors": [
-					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 2
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/659c4629-a2d1-4719-a8f2-b4fcf55bc8d5"
-				}
-			},
-			{
-				"i": "f3de9199-8719-4db6-8b2c-992da02d2f41",
-				"x": 0,
-				"y": 9,
-				"w": 6,
-				"h": 3,
-				"name": "Reads Merged - :host: - :container:",
-				"queries": [
-					{
-						"query": "SELECT non_negative_derivative(last(\"io_merged_recursive_read\"),1s) AS \"Reads Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_merged_recursive_read\"),1s) AS \"Reads Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "operations",
-						"prefix": "",
-						"suffix": "/s",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line-stacked",
-				"colors": [
-					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 2
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/f3de9199-8719-4db6-8b2c-992da02d2f41"
-				}
-			},
-			{
-				"i": "30d0e227-9b83-4327-a77e-2344fdb63dca",
-				"x": 6,
+				"i": "cdf6ed31-f6bd-4071-b222-606013e0ed44",
+				"x": 4,
 				"y": 0,
-				"w": 6,
-				"h": 3,
-				"name": "Write Bytes - :host: - :container:",
+				"w": 2,
+				"h": 1,
+				"name": "Ingress Packet Delivery - :host: - :container: (clone 1)",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_write\"),1s) AS \"Write Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+						"query": "SELECT ((last(\"rx_packets\") - first(\"rx_packets\")) * 100) / ((last(\"rx_dropped\") - first(\"rx_dropped\")) + (last(\"rx_errors\") - first(\"rx_errors\")) + (last(\"rx_packets\") - first(\"rx_packets\"))) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -500,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_write\"),1s) AS \"Write Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+							"rawText": "SELECT ((last(\"rx_packets\") - first(\"rx_packets\")) * 100) / ((last(\"rx_dropped\") - first(\"rx_dropped\")) + (last(\"rx_errors\") - first(\"rx_errors\")) + (last(\"rx_packets\") - first(\"rx_packets\"))) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
 							"range": null,
 							"shifts": null
 						},
@@ -522,12 +54,12 @@
 					},
 					"y": {
 						"bounds": [
-							"0",
+							"",
 							""
 						],
 						"label": "bytes",
 						"prefix": "",
-						"suffix": "/s",
+						"suffix": "%",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -543,28 +75,14 @@
 						"scale": "linear"
 					}
 				},
-				"type": "line-stacked",
+				"type": "single-stat",
 				"colors": [
 					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
 					}
 				],
 				"legend": {},
@@ -588,24 +106,24 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 2
+					"digits": 0
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/30d0e227-9b83-4327-a77e-2344fdb63dca"
+					"self": "/chronograf/v1/dashboards/50/cells/cdf6ed31-f6bd-4071-b222-606013e0ed44"
 				}
 			},
 			{
-				"i": "8a54617c-31b3-40d7-9934-30d55006d6cd",
-				"x": 0,
+				"i": "f01aef0d-7048-4881-a86b-554998658269",
+				"x": 6,
 				"y": 0,
-				"w": 6,
-				"h": 3,
-				"name": "Read Bytes - :host: - :container:",
+				"w": 2,
+				"h": 1,
+				"name": "Egress Packet Delivery - :host: - :container:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_read\"),1s) AS \"Read Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+						"query": "SELECT ((last(\"tx_packets\") - first(\"tx_packets\")) * 100) / ((last(\"tx_dropped\") - first(\"tx_dropped\")) + (last(\"tx_errors\") - first(\"tx_errors\")) + (last(\"tx_packets\") - first(\"tx_packets\"))) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -617,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_read\"),1s) AS \"Read Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+							"rawText": "SELECT ((last(\"tx_packets\") - first(\"tx_packets\")) * 100) / ((last(\"tx_dropped\") - first(\"tx_dropped\")) + (last(\"tx_errors\") - first(\"tx_errors\")) + (last(\"tx_packets\") - first(\"tx_packets\"))) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
 							"range": null,
 							"shifts": null
 						},
@@ -639,11 +157,526 @@
 					},
 					"y": {
 						"bounds": [
-							"0",
+							"",
 							""
 						],
 						"label": "bytes",
 						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/f01aef0d-7048-4881-a86b-554998658269"
+				}
+			},
+			{
+				"i": "b662faa7-85b5-48bb-9ec3-0fba56440ee1",
+				"x": 10,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Total Errors - :host: - :container:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"rx_errors\") - first(\"rx_errors\")) + (last(\"tx_errors\") - first(\"tx_errors\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"rx_errors\") - first(\"rx_errors\")) + (last(\"tx_errors\") - first(\"tx_errors\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/b662faa7-85b5-48bb-9ec3-0fba56440ee1"
+				}
+			},
+			{
+				"i": "a4f2c3ad-ea87-4d70-95f4-fbca0bc1dc97",
+				"x": 8,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Total Drops - :host: - :container:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"rx_dropped\") - first(\"rx_dropped\")) + (last(\"tx_dropped\") - first(\"tx_dropped\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"rx_dropped\") - first(\"rx_dropped\")) + (last(\"tx_dropped\") - first(\"tx_dropped\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/a4f2c3ad-ea87-4d70-95f4-fbca0bc1dc97"
+				}
+			},
+			{
+				"i": "6e147175-b662-4a0a-bcdb-4826ebfcfe43",
+				"x": 2,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Total Traffic (packets) - :host: - :container:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"rx_packets\") - first(\"rx_packets\")) + (last(\"tx_packets\") - first(\"tx_packets\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"rx_packets\") - first(\"rx_packets\")) + (last(\"tx_packets\") - first(\"tx_packets\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/6e147175-b662-4a0a-bcdb-4826ebfcfe43"
+				}
+			},
+			{
+				"i": "8b958bdb-98d6-4cb4-9e95-3899615f0ac5",
+				"x": 0,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Total Traffic (bytes) - :host: - :container:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"rx_bytes\") - first(\"rx_bytes\")) + (last(\"tx_bytes\") - first(\"tx_bytes\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"rx_bytes\") - first(\"rx_bytes\")) + (last(\"tx_bytes\") - first(\"tx_bytes\")) FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/8b958bdb-98d6-4cb4-9e95-3899615f0ac5"
+				}
+			},
+			{
+				"i": "3fe218ee-7299-4c97-866b-1409aedb69a8",
+				"x": 6,
+				"y": 4,
+				"w": 6,
+				"h": 3,
+				"name": "Errored Packet Rate (pkts/s) - :host: - :container:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(max(\"rx_errors\"),1s) AS \"ingress errored packets\", non_negative_derivative(max(\"tx_errors\"),1s) * -1 AS \"egress errored packets\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(max(\"rx_errors\"),1s) AS \"ingress errored packets\", non_negative_derivative(max(\"tx_errors\"),1s) * -1 AS \"egress errored packets\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "packets",
+						"prefix": "",
 						"suffix": "/s",
 						"base": "10",
 						"scale": "linear"
@@ -660,7 +693,7 @@
 						"scale": "linear"
 					}
 				},
-				"type": "line-stacked",
+				"type": "line",
 				"colors": [
 					{
 						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
@@ -710,19 +743,19 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/8a54617c-31b3-40d7-9934-30d55006d6cd"
+					"self": "/chronograf/v1/dashboards/50/cells/3fe218ee-7299-4c97-866b-1409aedb69a8"
 				}
 			},
 			{
-				"i": "5344230e-0287-4edc-b107-3da872935aa7",
+				"i": "06df2a88-4c8a-454f-a418-61292ec1b2a6",
 				"x": 6,
-				"y": 6,
+				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Write IOPs - :host: - :container:",
+				"name": "Dropped Packet Rate (pkts/s) - :host: - :container:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"io_serviced_recursive_write\"),1s) AS \"Write IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+						"query": "SELECT non_negative_derivative(max(\"rx_dropped\"),1s) AS \"dropped packets in\", non_negative_derivative(max(\"tx_dropped\"),1s) * -1 AS \"dropped packets out\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -734,7 +767,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_serviced_recursive_write\"),1s) AS \"Write IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+							"rawText": "SELECT non_negative_derivative(max(\"rx_dropped\"),1s) AS \"dropped packets in\", non_negative_derivative(max(\"tx_dropped\"),1s) * -1 AS \"dropped packets out\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -756,12 +789,12 @@
 					},
 					"y": {
 						"bounds": [
-							"0",
+							"",
 							""
 						],
-						"label": "IOPs",
+						"label": "packets",
 						"prefix": "",
-						"suffix": "",
+						"suffix": "/s",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -777,7 +810,7 @@
 						"scale": "linear"
 					}
 				},
-				"type": "line-stacked",
+				"type": "line",
 				"colors": [
 					{
 						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
@@ -827,19 +860,19 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/5344230e-0287-4edc-b107-3da872935aa7"
+					"self": "/chronograf/v1/dashboards/50/cells/06df2a88-4c8a-454f-a418-61292ec1b2a6"
 				}
 			},
 			{
-				"i": "a3ba0fc1-66f2-4c37-84da-24b42b71089e",
+				"i": "c1a71511-baf2-40e2-8a3e-5ad8452b51cc",
 				"x": 0,
-				"y": 6,
+				"y": 4,
 				"w": 6,
 				"h": 3,
-				"name": "Read IOPs - :host: - :container:",
+				"name": "Network Traffic Rate (pkts/s) - :host: - :container:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"io_serviced_recursive_read\"),1s) AS \"Read IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+						"query": "SELECT non_negative_derivative(max(\"rx_packets\"),1s) AS \"ingress pkts/s\", non_negative_derivative(max(\"tx_packets\"),1s) * -1 AS \"egress pkts/s\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -851,7 +884,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_serviced_recursive_read\"),1s) AS \"Read IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+							"rawText": "SELECT non_negative_derivative(max(\"rx_packets\"),1s) AS \"ingress pkts/s\", non_negative_derivative(max(\"tx_packets\"),1s) * -1 AS \"egress pkts/s\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -873,12 +906,12 @@
 					},
 					"y": {
 						"bounds": [
-							"0",
+							"",
 							""
 						],
-						"label": "IOPs",
+						"label": "packets",
 						"prefix": "",
-						"suffix": "",
+						"suffix": "/s",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -894,7 +927,7 @@
 						"scale": "linear"
 					}
 				},
-				"type": "line-stacked",
+				"type": "line",
 				"colors": [
 					{
 						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
@@ -944,136 +977,19 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/a3ba0fc1-66f2-4c37-84da-24b42b71089e"
+					"self": "/chronograf/v1/dashboards/50/cells/c1a71511-baf2-40e2-8a3e-5ad8452b51cc"
 				}
 			},
 			{
-				"i": "7e1d99c4-1c19-4c6e-9eb2-82f9dac25c31",
-				"x": 6,
-				"y": 3,
-				"w": 6,
-				"h": 3,
-				"name": "Write I/O Wait - :host: - :container:",
-				"queries": [
-					{
-						"query": "SELECT non_negative_derivative(last(\"io_wait_time_write\"),1s)/10000000 AS \"Write I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_wait_time_write\"),1s)/10000000 AS \"Write I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "I/O Wait",
-						"prefix": "",
-						"suffix": "%",
-						"base": "raw",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line-stacked",
-				"colors": [
-					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
-						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
-						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					},
-					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
-						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
-						"value": "0"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 2
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/7e1d99c4-1c19-4c6e-9eb2-82f9dac25c31"
-				}
-			},
-			{
-				"i": "afb77dc1-b9a6-453e-ba27-0c9882e4f59a",
+				"i": "db0a3235-b819-4c68-90b6-ab4c9c0bbcd1",
 				"x": 0,
-				"y": 3,
+				"y": 1,
 				"w": 6,
 				"h": 3,
-				"name": "Read I/O Wait - :host: - :container:",
+				"name": "Network Traffic Rate (bits/s) - :host: - :container:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_derivative(last(\"io_wait_time_read\"),1s)/10000000 AS \"Read I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+						"query": "SELECT non_negative_derivative(max(\"rx_bytes\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(max(\"tx_bytes\"),1s) * -8 AS \"egress bits/s\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -1085,7 +1001,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"io_wait_time_read\"),1s)/10000000 AS \"Read I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"container_name\"=':container:' GROUP BY time(:interval:),device FILL(null)",
+							"rawText": "SELECT non_negative_derivative(max(\"rx_bytes\"),1s) * 8 AS \"ingress bits/s\", non_negative_derivative(max(\"tx_bytes\"),1s) * -8 AS \"egress bits/s\" FROM \"telegraf\"..\"docker_container_net\" WHERE time > :dashboardTime: AND \"container_name\"=':container:' AND \"engine_host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -1107,13 +1023,13 @@
 					},
 					"y": {
 						"bounds": [
-							"0",
+							"",
 							""
 						],
-						"label": "I/O Wait",
+						"label": "bandwidth",
 						"prefix": "",
-						"suffix": "%",
-						"base": "raw",
+						"suffix": " bits/s",
+						"base": "10",
 						"scale": "linear"
 					},
 					"y2": {
@@ -1128,7 +1044,7 @@
 						"scale": "linear"
 					}
 				},
-				"type": "line-stacked",
+				"type": "line",
 				"colors": [
 					{
 						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
@@ -1178,7 +1094,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/51/cells/afb77dc1-b9a6-453e-ba27-0c9882e4f59a"
+					"self": "/chronograf/v1/dashboards/50/cells/db0a3235-b819-4c68-90b6-ab4c9c0bbcd1"
 				}
 			}
 		],
@@ -1196,20 +1112,20 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker\" WITH KEY=\"engine_host\"",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker_container_net\" WITH KEY=\"engine_host\"",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/51/templates/09f94aa0-ff13-436a-a700-3a484ea03edf"
+					"self": "/chronograf/v1/dashboards/50/templates/09f94aa0-ff13-436a-a700-3a484ea03edf"
 				}
 			},
 			{
 				"tempVar": ":container:",
 				"values": [
 					{
-						"value": "elasticsearch",
+						"value": "kafka-manager",
 						"type": "influxql",
 						"selected": true
 					}
@@ -1218,22 +1134,22 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker_container_blkio\" WITH KEY=\"container_name\" WHERE \"host\"=':host:'",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker_container_net\" WITH KEY=\"container_name\" WHERE \"host\"=':host:'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/51/templates/3c26b0ea-60ce-4434-a8e2-dbb2317d3a3e"
+					"self": "/chronograf/v1/dashboards/50/templates/3c26b0ea-60ce-4434-a8e2-dbb2317d3a3e"
 				}
 			}
 		],
-		"name": "Docker: Container Block I/O",
+		"name": "Docker: Container Network Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/51",
-			"cells": "/chronograf/v1/dashboards/51/cells",
-			"templates": "/chronograf/v1/dashboards/51/templates"
+			"self": "/chronograf/v1/dashboards/50",
+			"cells": "/chronograf/v1/dashboards/50/cells",
+			"templates": "/chronograf/v1/dashboards/50/templates"
 		}
 	}
 }
