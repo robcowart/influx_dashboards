@@ -1,6 +1,6 @@
 # diskio
 
-The following dashboards are provided for use with data from the Telegraf [disk](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#diskio) input.
+The following dashboards are provided for use with data from the Telegraf [diskio](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#diskio) input.
 
 ## Disk IO: Device Performance
 

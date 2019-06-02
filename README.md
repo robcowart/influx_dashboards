@@ -2,17 +2,19 @@
 
 Chronograf Dashboards for use with data produced by Telegraf input plugins.
 
-dashboards | telegraf inputs
+Dashboards | Telegraf Inputs
 --- | ---
-[disk](https://github.com/robcowart/influx_dashboards/tree/master/disk) | disk
-[diskio](https://github.com/robcowart/influx_dashboards/tree/master/diskio) | diskio
-[host](https://github.com/robcowart/influx_dashboards/tree/master/host) | cpu, mem, processes, swap, system
-[net](https://github.com/robcowart/influx_dashboards/tree/master/net) | net
-[nginx](https://github.com/robcowart/influx_dashboards/tree/master/nginx) | nginx
-[redis](https://github.com/robcowart/influx_dashboards/tree/master/redis) | redis
-[sensors](https://github.com/robcowart/influx_dashboards/tree/master/sensors) | sensors
-[smart](https://github.com/robcowart/influx_dashboards/tree/master/smart) | smart
-[zookeeper](https://github.com/robcowart/influx_dashboards/tree/master/zookeeper) | zookeeper
+[disk](https://github.com/robcowart/influx_dashboards/tree/master/disk) | [disk](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#disk)
+[diskio](https://github.com/robcowart/influx_dashboards/tree/master/diskio) | [diskio](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#diskio)
+[docker](https://github.com/robcowart/influx_dashboards/tree/master/docker) | [docker](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#docker)
+[host](https://github.com/robcowart/influx_dashboards/tree/master/host) | [cpu](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#cpu), [mem](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#mem), [processes](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#processes), [swap](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#swap), [system](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#system)
+[influxdb](https://github.com/robcowart/influx_dashboards/tree/master/influxdb) | [influxdb](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#influxdb)
+[net](https://github.com/robcowart/influx_dashboards/tree/master/net) | [net](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#net)
+[nginx](https://github.com/robcowart/influx_dashboards/tree/master/nginx) | [nginx](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#nginx)
+[redis](https://github.com/robcowart/influx_dashboards/tree/master/redis) | [redis](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#redis)
+[sensors](https://github.com/robcowart/influx_dashboards/tree/master/sensors) | [sensors](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#sensors)
+[smart](https://github.com/robcowart/influx_dashboards/tree/master/smart) | [smart](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#smart)
+[zookeeper](https://github.com/robcowart/influx_dashboards/tree/master/zookeeper) | [zookeeper](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#zookeeper)
 
 ## Examples
 

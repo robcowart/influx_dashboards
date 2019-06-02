@@ -1,6 +1,6 @@
 # redis
 
-The following dashboards are provided for use with data from the Telegraf [redis](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#nginx) input. This input will produce both the `redis` and `redis_keyspace` measurements.
+The following dashboards are provided for use with data from the Telegraf [redis](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#redis) input. This input will produce both the `redis` and `redis_keyspace` measurements.
 
 ## Redis: Server Resources
 

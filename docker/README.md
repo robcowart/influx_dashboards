@@ -1,8 +1,6 @@
 # docker
 
-The following dashboards are provided for use with data from the following Telegraf input plugins:
-
-* [docker](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#docker)
+The following dashboards are provided for use with data from the Telegraf [docker](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#docker) input.
 
 ## Docker: Engine
 
