@@ -1,6 +1,10 @@
 # Influx Dashboards
 
-Chronograf Dashboards for use with data produced by Telegraf input plugins.
+This project provides Chronograf dashboards for use with data produced by various Telegraf input plugins, and stored in InfluxDB.
+
+![Influx Dashboards](https://user-images.githubusercontent.com/10326954/58766393-516d4580-857e-11e9-8be4-7dbbff55917d.png) 
+
+The following dashboard collections are provided:
 
 Dashboards | Telegraf Inputs
 --- | ---
@@ -15,6 +19,12 @@ Dashboards | Telegraf Inputs
 [sensors](https://github.com/robcowart/influx_dashboards/tree/master/sensors) | [sensors](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#sensors)
 [smart](https://github.com/robcowart/influx_dashboards/tree/master/smart) | [smart](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#smart)
 [zookeeper](https://github.com/robcowart/influx_dashboards/tree/master/zookeeper) | [zookeeper](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#zookeeper)
+
+## Importing Dashboards
+
+The dashboards themselves are easily imported from the Chronograf user interface. An example telegraf input configuration is also provided in the README.md for each dashboard collection.
+
+Please refer to the Chronograf documentation for instructions to [import dashboards](https://docs.influxdata.com/chronograf/latest/administration/import-export-dashboards/#importing-a-dashboard).
 
 ## Examples
 
@@ -33,7 +43,3 @@ Dashboards | Telegraf Inputs
 ### NGiNX: Connections
 
 ![NGiNX: Connections](https://user-images.githubusercontent.com/10326954/50740156-b8aee580-11ea-11e9-8d41-c733bec82b85.png)
-
-## Importing Dashboards
-
-Please refer to the Chronograf documentation for instructions to [import dashboards](https://docs.influxdata.com/chronograf/latest/administration/import-export-dashboards/#importing-a-dashboard).
