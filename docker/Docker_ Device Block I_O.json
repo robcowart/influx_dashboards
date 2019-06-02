@@ -1,0 +1,1239 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.10",
+		"sources": {
+			"0": {
+				"name": "http://192.168.9.11:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 49,
+		"cells": [
+			{
+				"i": "c09171da-21f3-461a-97a5-13c511b2f133",
+				"x": 6,
+				"y": 12,
+				"w": 6,
+				"h": 3,
+				"name": "Writes Queued - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_difference(last(\"io_queue_recursive_write\")) AS \"Writes Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_difference(last(\"io_queue_recursive_write\")) AS \"Writes Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "operations",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/c09171da-21f3-461a-97a5-13c511b2f133"
+				}
+			},
+			{
+				"i": "afddb785-12ea-4b86-987a-d357bd51ee22",
+				"x": 0,
+				"y": 12,
+				"w": 6,
+				"h": 3,
+				"name": "Reads Queued - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_difference(last(\"io_queue_recursive_read\")) AS \"Reads Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_difference(last(\"io_queue_recursive_read\")) AS \"Reads Queued\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "operations",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/afddb785-12ea-4b86-987a-d357bd51ee22"
+				}
+			},
+			{
+				"i": "3dc0eb45-b0c4-4f55-9e6a-3d711f454eea",
+				"x": 6,
+				"y": 9,
+				"w": 6,
+				"h": 3,
+				"name": "Writes Merged - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_merged_recursive_write\"),1s) AS \"Writes Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_merged_recursive_write\"),1s) AS \"Writes Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "operations",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/3dc0eb45-b0c4-4f55-9e6a-3d711f454eea"
+				}
+			},
+			{
+				"i": "a0b2f2ed-6116-4246-90be-a10a2add611d",
+				"x": 0,
+				"y": 9,
+				"w": 6,
+				"h": 3,
+				"name": "Reads Merged - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_merged_recursive_read\"),1s) AS \"Reads Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_merged_recursive_read\"),1s) AS \"Reads Merged\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "operations",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/a0b2f2ed-6116-4246-90be-a10a2add611d"
+				}
+			},
+			{
+				"i": "7292aa31-0e88-4591-850e-dc925b909852",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "Write Bytes - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_write\"),1s) AS \"Write Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_write\"),1s) AS \"Write Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/7292aa31-0e88-4591-850e-dc925b909852"
+				}
+			},
+			{
+				"i": "7d18b93a-02f9-4c05-810f-58ab21185437",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "Read Bytes - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_read\"),1s) AS \"Read Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_service_bytes_recursive_read\"),1s) AS \"Read Bytes\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/7d18b93a-02f9-4c05-810f-58ab21185437"
+				}
+			},
+			{
+				"i": "ee789ab0-928d-462d-8cb2-d28973efa46a",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Write IOPs - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_serviced_recursive_write\"),1s) AS \"Write IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_serviced_recursive_write\"),1s) AS \"Write IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "IOPs",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/ee789ab0-928d-462d-8cb2-d28973efa46a"
+				}
+			},
+			{
+				"i": "9b30971d-a672-4e82-a5a7-d5b322f4e3b9",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Read IOPs - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_serviced_recursive_read\"),1s) AS \"Read IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_serviced_recursive_read\"),1s) AS \"Read IOPs\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "IOPs",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/9b30971d-a672-4e82-a5a7-d5b322f4e3b9"
+				}
+			},
+			{
+				"i": "741bcc57-849c-4140-8e1f-b30543c1dbf9",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Write I/O Wait - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_wait_time_write\"),1s)/10000000 AS \"Write I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_wait_time_write\"),1s)/10000000 AS \"Write I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "I/O Wait",
+						"prefix": "",
+						"suffix": "%",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/741bcc57-849c-4140-8e1f-b30543c1dbf9"
+				}
+			},
+			{
+				"i": "f5aec888-905f-4d1a-ab4f-2deb4a2b5dc0",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Read I/O Wait - :host: - :device:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"io_wait_time_read\"),1s)/10000000 AS \"Read I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"io_wait_time_read\"),1s)/10000000 AS \"Read I/O Wait\" FROM \"telegraf\"..\"docker_container_blkio\" WHERE time > :dashboardTime: AND \"engine_host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:),container_name FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "I/O Wait",
+						"prefix": "",
+						"suffix": "%",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/cells/f5aec888-905f-4d1a-ab4f-2deb4a2b5dc0"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":host:",
+				"values": [
+					{
+						"value": "lab0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "09f94aa0-ff13-436a-a700-3a484ea03edf",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker\" WITH KEY=\"engine_host\"",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/templates/09f94aa0-ff13-436a-a700-3a484ea03edf"
+				}
+			},
+			{
+				"tempVar": ":device:",
+				"values": [
+					{
+						"value": "8:0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "3c26b0ea-60ce-4434-a8e2-dbb2317d3a3e",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker_container_blkio\" WITH KEY=\"device\" WHERE \"host\"=':host:'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/49/templates/3c26b0ea-60ce-4434-a8e2-dbb2317d3a3e"
+				}
+			}
+		],
+		"name": "Docker: Device Block I/O",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/49",
+			"cells": "/chronograf/v1/dashboards/49/cells",
+			"templates": "/chronograf/v1/dashboards/49/templates"
+		}
+	}
+}
