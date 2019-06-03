@@ -1,4 +1,4 @@
-# influxdb
+# kibana
 
 The following dashboards are provided for use with data from the Telegraf [kibana](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#kibana) input.
 
