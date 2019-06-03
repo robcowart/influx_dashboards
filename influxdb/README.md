@@ -23,5 +23,4 @@ The following input plugin configuration is required to provide the data for the
 
   ## http request & header timeout
   timeout = "5s"
-
 ```
