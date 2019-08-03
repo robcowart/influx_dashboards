@@ -1,0 +1,971 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.12",
+		"sources": {
+			"0": {
+				"name": "http://192.168.9.14:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 51,
+		"cells": [
+			{
+				"i": "c1282d3f-bbac-42e6-bde7-c0f5f2eed282",
+				"x": 9,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "Egress Errors - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT last(\"tx_errors\") - first(\"tx_errors\") FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"tx_errors\") - first(\"tx_errors\") FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "byte rate",
+						"prefix": "",
+						"suffix": "",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/c1282d3f-bbac-42e6-bde7-c0f5f2eed282"
+				}
+			},
+			{
+				"i": "ef612d93-4708-4b1f-a053-e014ccab1d0c",
+				"x": 3,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "Ingress Errors - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT last(\"rx_errors\") - first(\"rx_errors\") FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"rx_errors\") - first(\"rx_errors\") FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "byte rate",
+						"prefix": "",
+						"suffix": "",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/ef612d93-4708-4b1f-a053-e014ccab1d0c"
+				}
+			},
+			{
+				"i": "f7301753-d2eb-40c6-8fe3-7c474dd6146f",
+				"x": 6,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "Egress Traffic - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"tx_bytes\") - first(\"tx_bytes\")) / 1048576 FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"tx_bytes\") - first(\"tx_bytes\")) / 1048576 FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "byte rate",
+						"prefix": "",
+						"suffix": " MiB",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/f7301753-d2eb-40c6-8fe3-7c474dd6146f"
+				}
+			},
+			{
+				"i": "fcd8eede-1dd9-4052-a1ea-817ef65b7511",
+				"x": 0,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "Ingress Traffic - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"rx_bytes\") - first(\"rx_bytes\")) / 1048576 FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"rx_bytes\") - first(\"rx_bytes\")) / 1048576 FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "byte rate",
+						"prefix": "",
+						"suffix": " MiB",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/fcd8eede-1dd9-4052-a1ea-817ef65b7511"
+				}
+			},
+			{
+				"i": "e2adcd25-89cf-46b8-b683-5c79a11cc2d1",
+				"x": 0,
+				"y": 4,
+				"w": 6,
+				"h": 3,
+				"name": "Ingress Network Errors - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_difference(last(\"rx_errors\")) AS \"ingress errors\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_difference(last(\"rx_errors\")) AS \"ingress errors\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "errors",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/e2adcd25-89cf-46b8-b683-5c79a11cc2d1"
+				}
+			},
+			{
+				"i": "6b288e5d-a831-4ea7-ad41-046242edef68",
+				"x": 6,
+				"y": 1,
+				"w": 6,
+				"h": 3,
+				"name": "Egress Network Traffic - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"tx_bytes\"),1s) AS \"egress bytes/s\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"tx_bytes\"),1s) AS \"egress bytes/s\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "byte rate",
+						"prefix": "",
+						"suffix": "B/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/6b288e5d-a831-4ea7-ad41-046242edef68"
+				}
+			},
+			{
+				"i": "637bb9bb-8718-4d9b-83eb-099dc49aa8ae",
+				"x": 0,
+				"y": 1,
+				"w": 6,
+				"h": 3,
+				"name": "Ingress Network Traffic - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"rx_bytes\"),1s) AS \"ingress bytes/s\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"rx_bytes\"),1s) AS \"ingress bytes/s\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "byte rate",
+						"prefix": "",
+						"suffix": "B/s",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/637bb9bb-8718-4d9b-83eb-099dc49aa8ae"
+				}
+			},
+			{
+				"i": "175615af-56da-4eb3-ac2e-b1ac1be8be8e",
+				"x": 6,
+				"y": 4,
+				"w": 6,
+				"h": 3,
+				"name": "Egress Network Errors - :node: - :pod:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_difference(last(\"tx_errors\")) AS \"egress errors\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_difference(last(\"tx_errors\")) AS \"egress errors\" FROM \"telegraf\"..\"kubernetes_pod_network\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "errors",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/cells/175615af-56da-4eb3-ac2e-b1ac1be8be8e"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":namespace:",
+				"values": [
+					{
+						"value": "kube-system",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "47fc9bdb-e55b-4afd-89d9-2c67fb39dbdc",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"kubernetes_pod_network\" WITH KEY=\"namespace\"",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/templates/47fc9bdb-e55b-4afd-89d9-2c67fb39dbdc"
+				}
+			},
+			{
+				"tempVar": ":node:",
+				"values": [
+					{
+						"value": "kmaster1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "a688a801-bf62-428a-a097-9ff7c03fafdd",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"kubernetes_pod_network\" WITH KEY=\"node_name\" WHERE \"namespace\"=':namespace:'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/templates/a688a801-bf62-428a-a097-9ff7c03fafdd"
+				}
+			},
+			{
+				"tempVar": ":pod:",
+				"values": [
+					{
+						"value": "etcd-kmaster1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "520f810a-6e06-4a31-8a70-2c29dadff6ee",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"kubernetes_pod_network\" WITH KEY=\"pod_name\" WHERE \"namespace\"=':namespace:' AND \"node_name\"=':node:'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/51/templates/520f810a-6e06-4a31-8a70-2c29dadff6ee"
+				}
+			}
+		],
+		"name": "Kubernetes: Pod Networks",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/51",
+			"cells": "/chronograf/v1/dashboards/51/cells",
+			"templates": "/chronograf/v1/dashboards/51/templates"
+		}
+	}
+}

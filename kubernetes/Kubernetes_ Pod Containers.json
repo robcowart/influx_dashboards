@@ -1,0 +1,1005 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.12",
+		"sources": {
+			"0": {
+				"name": "http://192.168.9.14:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 50,
+		"cells": [
+			{
+				"i": "9e59fb96-5836-49cb-a691-bf1e138300ae",
+				"x": 0,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Root File System Usage - :node: - :pod: - :container:",
+				"queries": [
+					{
+						"query": "SELECT last(\"rootfs_used_bytes\") AS \"root filesystem used\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"container_name\"=':container:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "kubernetes_pod_container",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "root filesystem used",
+									"args": [
+										{
+											"value": "rootfs_used_bytes",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"container_name": [
+									":container:"
+								],
+								"namespace": [
+									":namespace:"
+								],
+								"node_name": [
+									":node:"
+								],
+								"pod_name": [
+									":pod:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "B",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/9e59fb96-5836-49cb-a691-bf1e138300ae"
+				}
+			},
+			{
+				"i": "dc3131aa-4939-45d2-bd01-5540eaa988e2",
+				"x": 0,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Log File System Utilization - :node: - :pod: - :container:",
+				"queries": [
+					{
+						"query": "SELECT last(\"logsfs_used_bytes\") AS \"log filesystem used\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"container_name\"=':container:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "kubernetes_pod_container",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "log filesystem used",
+									"args": [
+										{
+											"value": "logsfs_used_bytes",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"container_name": [
+									":container:"
+								],
+								"namespace": [
+									":namespace:"
+								],
+								"node_name": [
+									":node:"
+								],
+								"pod_name": [
+									":pod:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "B",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/dc3131aa-4939-45d2-bd01-5540eaa988e2"
+				}
+			},
+			{
+				"i": "229acdb6-7514-467c-8d83-4d68949e585a",
+				"x": 6,
+				"y": 3,
+				"w": 6,
+				"h": 3,
+				"name": "Memory Page Faults - :node: - :pod: - :container:",
+				"queries": [
+					{
+						"query": "SELECT non_negative_derivative(last(\"memory_page_faults\"),1m) AS \"Page Faults/min\", non_negative_derivative(last(\"memory_major_page_faults\"),1m) AS \"Major Page Faults/min\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' AND \"container_name\"=':container:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_derivative(last(\"memory_page_faults\"),1m) AS \"Page Faults/min\", non_negative_derivative(last(\"memory_major_page_faults\"),1m) AS \"Major Page Faults/min\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' AND \"container_name\"=':container:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "page faults",
+						"prefix": "",
+						"suffix": "/m",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/229acdb6-7514-467c-8d83-4d68949e585a"
+				}
+			},
+			{
+				"i": "ea251948-9678-41a1-a830-4d4ca7d8ddc2",
+				"x": 6,
+				"y": 6,
+				"w": 6,
+				"h": 3,
+				"name": "Memory Details - :node: - :pod: - :container:",
+				"queries": [
+					{
+						"query": "SELECT last(\"memory_rss_bytes\") AS \"RSS\", last(\"memory_usage_bytes\") AS \"Used\", last(\"memory_working_set_bytes\") AS \"Working Set\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"container_name\"=':container:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "kubernetes_pod_container",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "RSS",
+									"args": [
+										{
+											"value": "memory_rss_bytes",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Used",
+									"args": [
+										{
+											"value": "memory_usage_bytes",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Working Set",
+									"args": [
+										{
+											"value": "memory_working_set_bytes",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"container_name": [
+									":container:"
+								],
+								"namespace": [
+									":namespace:"
+								],
+								"node_name": [
+									":node:"
+								],
+								"pod_name": [
+									":pod:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "B",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/ea251948-9678-41a1-a830-4d4ca7d8ddc2"
+				}
+			},
+			{
+				"i": "6f782c64-cfed-4406-93df-31e99f827d04",
+				"x": 0,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "Cores Utilized - :node: - :pod: - :container:",
+				"queries": [
+					{
+						"query": "SELECT last(\"cpu_usage_nanocores\")/1000000000 AS \"cores used\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' AND \"container_name\"=':container:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"cpu_usage_nanocores\")/1000000000 AS \"cores used\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' AND \"container_name\"=':container:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT last(\"cpu_usage_nanocores\")/1000000000 AS \"cores used\" FROM \"telegraf\"..\"kubernetes_node\" WHERE time > :dashboardTime: AND \"node_name\"=':node:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"cpu_usage_nanocores\")/1000000000 AS \"cores used\" FROM \"telegraf\"..\"kubernetes_node\" WHERE time > :dashboardTime: AND \"node_name\"=':node:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "cores",
+						"prefix": "",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/6f782c64-cfed-4406-93df-31e99f827d04"
+				}
+			},
+			{
+				"i": "856f8a09-62f7-4711-bb91-f8661166013e",
+				"x": 6,
+				"y": 0,
+				"w": 6,
+				"h": 3,
+				"name": "Memory Working Set - :node: - :pod: - :container:",
+				"queries": [
+					{
+						"query": "SELECT last(\"memory_working_set_bytes\") AS \"working set\" FROM \"telegraf\"..\"kubernetes_pod_container\" WHERE time > :dashboardTime: AND \"namespace\"=':namespace:' AND \"container_name\"=':container:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "kubernetes_pod_container",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "working set",
+									"args": [
+										{
+											"value": "memory_working_set_bytes",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"container_name": [
+									":container:"
+								],
+								"namespace": [
+									":namespace:"
+								],
+								"node_name": [
+									":node:"
+								],
+								"pod_name": [
+									":pod:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT last(\"memory_working_set_bytes\") AS \"working set\" FROM \"telegraf\"..\"kubernetes_node\" WHERE time > :dashboardTime: AND \"node_name\"=':node:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "kubernetes_node",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "working set",
+									"args": [
+										{
+											"value": "memory_working_set_bytes",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"node_name": [
+									":node:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "B",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "e0ad5304-f54a-47c4-af9a-d234a1addc0a",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "799b522a-329f-4a00-8def-7833c02e5df6",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5007a439-46c0-4988-be20-e01e11c6ea99",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/cells/856f8a09-62f7-4711-bb91-f8661166013e"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":namespace:",
+				"values": [
+					{
+						"value": "kube-system",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "47fc9bdb-e55b-4afd-89d9-2c67fb39dbdc",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"kubernetes_pod_container\" WITH KEY=\"namespace\"",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/templates/47fc9bdb-e55b-4afd-89d9-2c67fb39dbdc"
+				}
+			},
+			{
+				"tempVar": ":node:",
+				"values": [
+					{
+						"value": "kmaster1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "a688a801-bf62-428a-a097-9ff7c03fafdd",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"kubernetes_pod_container\" WITH KEY=\"node_name\" WHERE \"namespace\"=':namespace:'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/templates/a688a801-bf62-428a-a097-9ff7c03fafdd"
+				}
+			},
+			{
+				"tempVar": ":pod:",
+				"values": [
+					{
+						"value": "etcd-kmaster1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "520f810a-6e06-4a31-8a70-2c29dadff6ee",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"kubernetes_pod_container\" WITH KEY=\"pod_name\" WHERE \"namespace\"=':namespace:' AND \"node_name\"=':node:'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/templates/520f810a-6e06-4a31-8a70-2c29dadff6ee"
+				}
+			},
+			{
+				"tempVar": ":container:",
+				"values": [
+					{
+						"value": "etcd",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "3e028c81-40fa-4fca-babd-642b27ad6b0e",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"kubernetes_pod_container\" WITH KEY=\"container_name\" WHERE \"namespace\"=':namespace:' AND \"node_name\"=':node:' AND \"pod_name\"=':pod:'",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/50/templates/3e028c81-40fa-4fca-babd-642b27ad6b0e"
+				}
+			}
+		],
+		"name": "Kubernetes: Pod Containers",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/50",
+			"cells": "/chronograf/v1/dashboards/50/cells",
+			"templates": "/chronograf/v1/dashboards/50/templates"
+		}
+	}
+}
