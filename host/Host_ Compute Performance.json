@@ -1,18 +1,18 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.10",
+		"chronografVersion": "1.7.12",
 		"sources": {
 			"0": {
-				"name": "http://192.2.0.1:8086",
+				"name": "http://192.168.9.14:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}
 	},
 	"dashboard": {
-		"id": 21,
+		"id": 30,
 		"cells": [
 			{
-				"i": "b05ff0fb-0e5f-4fa6-b550-7d6138519749",
+				"i": "51338740-2cdf-4834-b847-48dad529a831",
 				"x": 0,
 				"y": 4,
 				"w": 6,
@@ -20,7 +20,7 @@
 				"name": "CPU Utilization - :host: - :cpu:",
 				"queries": [
 					{
-						"query": "SELECT 100 - last(\"usage_idle\") AS \"utilization\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: AND \"cpu\"=':cpu:' AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT 100 - last(\"usage_idle\") - last(\"usage_iowait\") AS \"utilization\", last(\"usage_iowait\") AS \"I/O wait\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: AND \"cpu\"=':cpu:' AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT 100 - last(\"usage_idle\") AS \"utilization\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: AND \"cpu\"=':cpu:' AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT 100 - last(\"usage_idle\") - last(\"usage_iowait\") AS \"utilization\", last(\"usage_iowait\") AS \"I/O wait\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: AND \"cpu\"=':cpu:' AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -125,11 +125,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/b05ff0fb-0e5f-4fa6-b550-7d6138519749"
+					"self": "/chronograf/v1/dashboards/30/cells/51338740-2cdf-4834-b847-48dad529a831"
 				}
 			},
 			{
-				"i": "dd66257e-b58a-4dd4-b9eb-cc36e793d950",
+				"i": "7a853a4b-6632-4225-bc63-df91f1d99767",
 				"x": 2,
 				"y": 0,
 				"w": 2,
@@ -245,11 +245,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/dd66257e-b58a-4dd4-b9eb-cc36e793d950"
+					"self": "/chronograf/v1/dashboards/30/cells/7a853a4b-6632-4225-bc63-df91f1d99767"
 				}
 			},
 			{
-				"i": "09386259-5198-4e13-aae5-e8991d74fc3b",
+				"i": "4076434c-8e50-41a6-bb83-df026ea4d3a2",
 				"x": 0,
 				"y": 13,
 				"w": 6,
@@ -476,12 +476,12 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/09386259-5198-4e13-aae5-e8991d74fc3b"
+					"self": "/chronograf/v1/dashboards/30/cells/4076434c-8e50-41a6-bb83-df026ea4d3a2"
 				}
 			},
 			{
-				"i": "f44fe3ff-fac7-457d-b54e-3afa1ce161b7",
-				"x": 6,
+				"i": "8771060f-ae9b-4b93-a517-e9bd083e2fcc",
+				"x": 2,
 				"y": 1,
 				"w": 2,
 				"h": 3,
@@ -603,11 +603,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/f44fe3ff-fac7-457d-b54e-3afa1ce161b7"
+					"self": "/chronograf/v1/dashboards/30/cells/8771060f-ae9b-4b93-a517-e9bd083e2fcc"
 				}
 			},
 			{
-				"i": "f925484e-04f7-4267-848d-7ddad805be24",
+				"i": "654c39fd-7ebc-4bd5-92ce-d8a7c8d1a117",
 				"x": 4,
 				"y": 1,
 				"w": 2,
@@ -730,11 +730,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/f925484e-04f7-4267-848d-7ddad805be24"
+					"self": "/chronograf/v1/dashboards/30/cells/654c39fd-7ebc-4bd5-92ce-d8a7c8d1a117"
 				}
 			},
 			{
-				"i": "55ce55fc-1528-4d5b-8d59-0b9781acc841",
+				"i": "c2e06ecb-91fa-4100-9619-c92531920587",
 				"x": 9,
 				"y": 0,
 				"w": 3,
@@ -742,36 +742,19 @@
 				"name": "Total Swap - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"total\") AS \"swap\" FROM \"telegraf\"..\"swap\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
+						"query": "SELECT last(\"total\") / 1073741824 AS \"swap\" FROM \"telegraf\"..\"swap\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "swap",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "swap",
-									"args": [
-										{
-											"value": "total",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":host:"
-								]
-							},
+							"fields": [],
+							"tags": {},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": true,
-							"rawText": null,
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"total\") / 1073741824 AS \"swap\" FROM \"telegraf\"..\"swap\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 							"range": null,
 							"shifts": null
 						},
@@ -798,7 +781,7 @@
 						],
 						"label": "bytes",
 						"prefix": "",
-						"suffix": " B",
+						"suffix": " GB",
 						"base": "2",
 						"scale": "linear"
 					},
@@ -845,16 +828,16 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 0
+					"digits": 2
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/55ce55fc-1528-4d5b-8d59-0b9781acc841"
+					"self": "/chronograf/v1/dashboards/30/cells/c2e06ecb-91fa-4100-9619-c92531920587"
 				}
 			},
 			{
-				"i": "03607c11-f20a-4544-8f0c-04cfaae21e9a",
+				"i": "d8f905f7-92e8-4c7b-be1b-93a6015ae51d",
 				"x": 10,
 				"y": 1,
 				"w": 2,
@@ -977,11 +960,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/03607c11-f20a-4544-8f0c-04cfaae21e9a"
+					"self": "/chronograf/v1/dashboards/30/cells/d8f905f7-92e8-4c7b-be1b-93a6015ae51d"
 				}
 			},
 			{
-				"i": "72837ff7-ee39-4366-baf2-17b88f7fc3b3",
+				"i": "216ff6f5-f851-4815-bcb7-bfad36510bd4",
 				"x": 6,
 				"y": 10,
 				"w": 6,
@@ -1112,11 +1095,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/72837ff7-ee39-4366-baf2-17b88f7fc3b3"
+					"self": "/chronograf/v1/dashboards/30/cells/216ff6f5-f851-4815-bcb7-bfad36510bd4"
 				}
 			},
 			{
-				"i": "5f36c56a-c936-4093-9d46-ab97eb0616d2",
+				"i": "12056ff6-c56c-47bd-8635-18f904551d2c",
 				"x": 6,
 				"y": 13,
 				"w": 6,
@@ -1259,11 +1242,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/5f36c56a-c936-4093-9d46-ab97eb0616d2"
+					"self": "/chronograf/v1/dashboards/30/cells/12056ff6-c56c-47bd-8635-18f904551d2c"
 				}
 			},
 			{
-				"i": "aab81087-6f8e-436b-9b4e-5c6de88afd8e",
+				"i": "f0051798-bd94-4e0c-bddb-75fb5bbee5dd",
 				"x": 6,
 				"y": 0,
 				"w": 3,
@@ -1271,36 +1254,19 @@
 				"name": "Total Memory - :host:",
 				"queries": [
 					{
-						"query": "SELECT last(\"total\") AS \"total memory\" FROM \"telegraf\"..\"mem\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
+						"query": "SELECT last(\"total\") / 1073741824 AS \"total memory\" FROM \"telegraf\"..\"mem\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "mem",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "total memory",
-									"args": [
-										{
-											"value": "total",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":host:"
-								]
-							},
+							"fields": [],
+							"tags": {},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": true,
-							"rawText": null,
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"total\") / 1073741824 AS \"total memory\" FROM \"telegraf\"..\"mem\" WHERE time > :dashboardTime: AND \"host\"=':host:'",
 							"range": null,
 							"shifts": null
 						},
@@ -1327,7 +1293,7 @@
 						],
 						"label": "bytes",
 						"prefix": "",
-						"suffix": " B",
+						"suffix": " GB",
 						"base": "2",
 						"scale": "linear"
 					},
@@ -1374,16 +1340,16 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 0
+					"digits": 2
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/aab81087-6f8e-436b-9b4e-5c6de88afd8e"
+					"self": "/chronograf/v1/dashboards/30/cells/f0051798-bd94-4e0c-bddb-75fb5bbee5dd"
 				}
 			},
 			{
-				"i": "af74dc35-319a-4939-80fd-f5aed60d197e",
+				"i": "28ea55e4-7ff1-412b-9036-51e9d4ee5b20",
 				"x": 8,
 				"y": 1,
 				"w": 2,
@@ -1506,11 +1472,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/af74dc35-319a-4939-80fd-f5aed60d197e"
+					"self": "/chronograf/v1/dashboards/30/cells/28ea55e4-7ff1-412b-9036-51e9d4ee5b20"
 				}
 			},
 			{
-				"i": "7f4d0c9f-b078-452f-ae21-4974e409d6f6",
+				"i": "614d953f-4123-42d1-b4e3-72c14a4cef7e",
 				"x": 6,
 				"y": 4,
 				"w": 6,
@@ -1641,11 +1607,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/7f4d0c9f-b078-452f-ae21-4974e409d6f6"
+					"self": "/chronograf/v1/dashboards/30/cells/614d953f-4123-42d1-b4e3-72c14a4cef7e"
 				}
 			},
 			{
-				"i": "4f7dda85-befb-4ff8-91c3-e33372181401",
+				"i": "9df5c98d-8740-4b9d-b69f-54539da4b8c7",
 				"x": 6,
 				"y": 7,
 				"w": 6,
@@ -1800,12 +1766,12 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/4f7dda85-befb-4ff8-91c3-e33372181401"
+					"self": "/chronograf/v1/dashboards/30/cells/9df5c98d-8740-4b9d-b69f-54539da4b8c7"
 				}
 			},
 			{
-				"i": "e2cc2efe-8261-4912-9132-ac620ea0f95f",
-				"x": 2,
+				"i": "f10c8a36-5611-4d68-8b44-9c577849357f",
+				"x": 6,
 				"y": 1,
 				"w": 2,
 				"h": 3,
@@ -1910,11 +1876,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/e2cc2efe-8261-4912-9132-ac620ea0f95f"
+					"self": "/chronograf/v1/dashboards/30/cells/f10c8a36-5611-4d68-8b44-9c577849357f"
 				}
 			},
 			{
-				"i": "6fa81a70-2636-4e52-bd71-c92e07d5152a",
+				"i": "76662c60-6ce3-4987-95f2-1c6fe17d17eb",
 				"x": 0,
 				"y": 1,
 				"w": 2,
@@ -1922,7 +1888,7 @@
 				"name": "CPU Utilization - :host:",
 				"queries": [
 					{
-						"query": "SELECT 100 - last(\"usage_idle\") AS \"utilization\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: and \"host\"=':host:'",
+						"query": "SELECT 100 - last(\"usage_idle\") - last(\"usage_iowait\") AS \"utilization\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: and \"host\"=':host:' and \"cpu\"=':cpu:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -1934,7 +1900,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT 100 - last(\"usage_idle\") AS \"utilization\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: and \"host\"=':host:'",
+							"rawText": "SELECT 100 - last(\"usage_idle\") - last(\"usage_iowait\") AS \"utilization\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: and \"host\"=':host:' and \"cpu\"=':cpu:'",
 							"range": null,
 							"shifts": null
 						},
@@ -2020,11 +1986,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/6fa81a70-2636-4e52-bd71-c92e07d5152a"
+					"self": "/chronograf/v1/dashboards/30/cells/76662c60-6ce3-4987-95f2-1c6fe17d17eb"
 				}
 			},
 			{
-				"i": "39f1f260-1bf8-41a6-a749-e8fdaaf59775",
+				"i": "d8537593-2c49-444d-ba43-9d6db2adde83",
 				"x": 0,
 				"y": 7,
 				"w": 6,
@@ -2032,136 +1998,19 @@
 				"name": "CPU Utilization Details - :host: - :cpu:",
 				"queries": [
 					{
-						"query": "SELECT last(\"usage_system\") AS \"system\", last(\"usage_user\") AS \"user\", last(\"usage_nice\") AS \"nice\", last(\"usage_softirq\") AS \"softirq\", last(\"usage_irq\") AS \"irq\", last(\"usage_iowait\") AS \"io wait\", last(\"usage_steal\") AS \"steal\", last(\"usage_guest\") AS \"guest\", last(\"usage_guest_nice\") AS \"guest nice\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"cpu\"=':cpu:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT last(\"usage_system\") AS \"system\", last(\"usage_user\") + last(\"usage_guest\") AS \"user\", last(\"usage_nice\") + last(\"usage_guest_nice\") AS \"nice\", last(\"usage_softirq\") AS \"softirq\", last(\"usage_irq\") AS \"irq\", last(\"usage_steal\") AS \"steal\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: AND \"cpu\"=':cpu:' AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "cpu",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "system",
-									"args": [
-										{
-											"value": "usage_system",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "user",
-									"args": [
-										{
-											"value": "usage_user",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "nice",
-									"args": [
-										{
-											"value": "usage_nice",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "softirq",
-									"args": [
-										{
-											"value": "usage_softirq",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "irq",
-									"args": [
-										{
-											"value": "usage_irq",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "io wait",
-									"args": [
-										{
-											"value": "usage_iowait",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "steal",
-									"args": [
-										{
-											"value": "usage_steal",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "guest",
-									"args": [
-										{
-											"value": "usage_guest",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "guest nice",
-									"args": [
-										{
-											"value": "usage_guest_nice",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"cpu": [
-									":cpu:"
-								],
-								"host": [
-									":host:"
-								]
-							},
+							"fields": [],
+							"tags": {},
 							"groupBy": {
-								"time": "auto",
+								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": true,
-							"fill": "null",
-							"rawText": null,
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"usage_system\") AS \"system\", last(\"usage_user\") + last(\"usage_guest\") AS \"user\", last(\"usage_nice\") + last(\"usage_guest_nice\") AS \"nice\", last(\"usage_softirq\") AS \"softirq\", last(\"usage_irq\") AS \"irq\", last(\"usage_steal\") AS \"steal\" FROM \"telegraf\"..\"cpu\" WHERE time > :dashboardTime: AND \"cpu\"=':cpu:' AND \"host\"=':host:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -2254,11 +2103,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/39f1f260-1bf8-41a6-a749-e8fdaaf59775"
+					"self": "/chronograf/v1/dashboards/30/cells/d8537593-2c49-444d-ba43-9d6db2adde83"
 				}
 			},
 			{
-				"i": "c542dc6f-d1d5-4b4d-93ed-d6e82a1cfbfe",
+				"i": "0d8fed5f-a136-468f-adef-a2b270891579",
 				"x": 0,
 				"y": 16,
 				"w": 6,
@@ -2389,11 +2238,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/c542dc6f-d1d5-4b4d-93ed-d6e82a1cfbfe"
+					"self": "/chronograf/v1/dashboards/30/cells/0d8fed5f-a136-468f-adef-a2b270891579"
 				}
 			},
 			{
-				"i": "1e92b915-f37c-4d42-b680-57986d566c65",
+				"i": "cc726bb7-c2cd-4256-a03b-33579e466a2e",
 				"x": 4,
 				"y": 0,
 				"w": 2,
@@ -2509,11 +2358,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/1e92b915-f37c-4d42-b680-57986d566c65"
+					"self": "/chronograf/v1/dashboards/30/cells/cc726bb7-c2cd-4256-a03b-33579e466a2e"
 				}
 			},
 			{
-				"i": "f98bc3df-dc38-459b-b879-05d8d706a926",
+				"i": "cd147107-78ab-4abe-9565-7519b3d566ae",
 				"x": 0,
 				"y": 0,
 				"w": 2,
@@ -2629,11 +2478,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/f98bc3df-dc38-459b-b879-05d8d706a926"
+					"self": "/chronograf/v1/dashboards/30/cells/cd147107-78ab-4abe-9565-7519b3d566ae"
 				}
 			},
 			{
-				"i": "f800c4a8-fb2f-4952-8331-0094e2097cb2",
+				"i": "a3125d60-f4a7-4d26-a235-3e2879315c0c",
 				"x": 0,
 				"y": 10,
 				"w": 6,
@@ -2746,7 +2595,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/f800c4a8-fb2f-4952-8331-0094e2097cb2"
+					"self": "/chronograf/v1/dashboards/30/cells/a3125d60-f4a7-4d26-a235-3e2879315c0c"
 				}
 			}
 		],
@@ -2770,7 +2619,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/templates/47fc9bdb-e55b-4afd-89d9-2c67fb39dbdc"
+					"self": "/chronograf/v1/dashboards/30/templates/47fc9bdb-e55b-4afd-89d9-2c67fb39dbdc"
 				}
 			},
 			{
@@ -2792,16 +2641,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/templates/f7002c65-e1fc-4b77-a0da-be15b3ed5c2c"
+					"self": "/chronograf/v1/dashboards/30/templates/f7002c65-e1fc-4b77-a0da-be15b3ed5c2c"
 				}
 			}
 		],
 		"name": "Host: Compute Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/21",
-			"cells": "/chronograf/v1/dashboards/21/cells",
-			"templates": "/chronograf/v1/dashboards/21/templates"
+			"self": "/chronograf/v1/dashboards/30",
+			"cells": "/chronograf/v1/dashboards/30/cells",
+			"templates": "/chronograf/v1/dashboards/30/templates"
 		}
 	}
 }
