@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.10",
+		"chronografVersion": "1.7.12",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 7,
+		"id": 36,
 		"cells": [
 			{
-				"i": "f61b009f-7340-46c4-9a9d-ff86809ab52e",
+				"i": "d3a80752-4ae2-4c0f-833f-9eee3d8cd60a",
 				"x": 5,
 				"y": 0,
 				"w": 5,
@@ -20,39 +20,19 @@
 				"name": "File System Capacity Used - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"used\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+						"query": "SELECT last(\"used\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "disk",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "capacity",
-									"args": [
-										{
-											"value": "used",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":host:"
-								],
-								"path": [
-									":file_system:"
-								]
-							},
+							"fields": [],
+							"tags": {},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": true,
-							"rawText": null,
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"used\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 							"range": null,
 							"shifts": null
 						},
@@ -79,7 +59,7 @@
 						],
 						"label": "",
 						"prefix": "",
-						"suffix": " B",
+						"suffix": " GiB",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -126,16 +106,16 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 0
+					"digits": 2
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/cells/f61b009f-7340-46c4-9a9d-ff86809ab52e"
+					"self": "/chronograf/v1/dashboards/36/cells/d3a80752-4ae2-4c0f-833f-9eee3d8cd60a"
 				}
 			},
 			{
-				"i": "4fc7a2c4-fe68-496d-9ce9-8d624391527f",
+				"i": "b205ad64-c155-43a7-95a0-8e438977c6fd",
 				"x": 0,
 				"y": 4,
 				"w": 2,
@@ -241,11 +221,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/cells/4fc7a2c4-fe68-496d-9ce9-8d624391527f"
+					"self": "/chronograf/v1/dashboards/36/cells/b205ad64-c155-43a7-95a0-8e438977c6fd"
 				}
 			},
 			{
-				"i": "8a46ab63-ef1d-4221-865d-713a5ee00646",
+				"i": "6342f950-1ec3-4320-af42-330a15900675",
 				"x": 0,
 				"y": 1,
 				"w": 2,
@@ -371,11 +351,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/cells/8a46ab63-ef1d-4221-865d-713a5ee00646"
+					"self": "/chronograf/v1/dashboards/36/cells/6342f950-1ec3-4320-af42-330a15900675"
 				}
 			},
 			{
-				"i": "f96abb06-ec39-44c0-9ff7-1bd1eb381685",
+				"i": "9b41214a-7d60-4fd7-9a5e-213fc6b848aa",
 				"x": 2,
 				"y": 4,
 				"w": 8,
@@ -488,11 +468,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/cells/f96abb06-ec39-44c0-9ff7-1bd1eb381685"
+					"self": "/chronograf/v1/dashboards/36/cells/9b41214a-7d60-4fd7-9a5e-213fc6b848aa"
 				}
 			},
 			{
-				"i": "c47ef3e3-5df0-45ec-a673-f0724be5bbe0",
+				"i": "6d1b4cd4-057b-4c82-af8d-24539b4ad159",
 				"x": 0,
 				"y": 0,
 				"w": 5,
@@ -500,39 +480,19 @@
 				"name": "File System Capacity - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"total\") AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+						"query": "SELECT last(\"total\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "disk",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "capacity",
-									"args": [
-										{
-											"value": "total",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":host:"
-								],
-								"path": [
-									":file_system:"
-								]
-							},
+							"fields": [],
+							"tags": {},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": true,
-							"rawText": null,
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"total\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 							"range": null,
 							"shifts": null
 						},
@@ -559,7 +519,7 @@
 						],
 						"label": "",
 						"prefix": "",
-						"suffix": " B",
+						"suffix": " GiB",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -606,16 +566,16 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 0
+					"digits": 2
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/cells/c47ef3e3-5df0-45ec-a673-f0724be5bbe0"
+					"self": "/chronograf/v1/dashboards/36/cells/6d1b4cd4-057b-4c82-af8d-24539b4ad159"
 				}
 			},
 			{
-				"i": "5c505bf6-2fe5-4a10-9a14-ef88d2655607",
+				"i": "411a62f1-4a2f-4388-ad5d-e454e0b24c64",
 				"x": 2,
 				"y": 1,
 				"w": 8,
@@ -749,7 +709,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/cells/5c505bf6-2fe5-4a10-9a14-ef88d2655607"
+					"self": "/chronograf/v1/dashboards/36/cells/411a62f1-4a2f-4388-ad5d-e454e0b24c64"
 				}
 			}
 		],
@@ -773,7 +733,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/templates/21f8e74f-f78c-440e-af0a-58efdb7299b0"
+					"self": "/chronograf/v1/dashboards/36/templates/21f8e74f-f78c-440e-af0a-58efdb7299b0"
 				}
 			},
 			{
@@ -795,16 +755,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/7/templates/67208fb2-17f4-404a-b061-fa459a3d58c3"
+					"self": "/chronograf/v1/dashboards/36/templates/67208fb2-17f4-404a-b061-fa459a3d58c3"
 				}
 			}
 		],
 		"name": "Disk: Capacity",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/7",
-			"cells": "/chronograf/v1/dashboards/7/cells",
-			"templates": "/chronograf/v1/dashboards/7/templates"
+			"self": "/chronograf/v1/dashboards/36",
+			"cells": "/chronograf/v1/dashboards/36/cells",
+			"templates": "/chronograf/v1/dashboards/36/templates"
 		}
 	}
 }

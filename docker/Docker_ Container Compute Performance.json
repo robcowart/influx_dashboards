@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.10",
+		"chronografVersion": "1.7.12",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 48,
+		"id": 34,
 		"cells": [
 			{
-				"i": "c70f03a3-582b-40e7-bf02-4fe502c3ab1a",
+				"i": "1292ca12-b18b-4673-b716-17ff56c6f000",
 				"x": 6,
 				"y": 3,
 				"w": 6,
@@ -146,11 +146,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/cells/c70f03a3-582b-40e7-bf02-4fe502c3ab1a"
+					"self": "/chronograf/v1/dashboards/34/cells/1292ca12-b18b-4673-b716-17ff56c6f000"
 				}
 			},
 			{
-				"i": "c2d74cef-2303-4550-8abe-2036d97ef9c6",
+				"i": "162ab036-f161-4427-8bdc-f07b5393699d",
 				"x": 6,
 				"y": 6,
 				"w": 6,
@@ -263,11 +263,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/cells/c2d74cef-2303-4550-8abe-2036d97ef9c6"
+					"self": "/chronograf/v1/dashboards/34/cells/162ab036-f161-4427-8bdc-f07b5393699d"
 				}
 			},
 			{
-				"i": "2b2508e1-1860-4452-b031-0fe49058ffad",
+				"i": "bdcf542c-cdfc-4a04-ae5a-8ecb226d1ec0",
 				"x": 0,
 				"y": 6,
 				"w": 6,
@@ -380,11 +380,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/cells/2b2508e1-1860-4452-b031-0fe49058ffad"
+					"self": "/chronograf/v1/dashboards/34/cells/bdcf542c-cdfc-4a04-ae5a-8ecb226d1ec0"
 				}
 			},
 			{
-				"i": "04c73a45-7904-40d9-be58-f83d2ba24dde",
+				"i": "66061d15-c8a3-4ca9-b05a-ee0f91fe7745",
 				"x": 0,
 				"y": 3,
 				"w": 6,
@@ -542,11 +542,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/cells/04c73a45-7904-40d9-be58-f83d2ba24dde"
+					"self": "/chronograf/v1/dashboards/34/cells/66061d15-c8a3-4ca9-b05a-ee0f91fe7745"
 				}
 			},
 			{
-				"i": "76802b96-069a-4889-88ac-ce6b34509307",
+				"i": "55437aff-7e26-4e1e-9107-53434f58cf60",
 				"x": 6,
 				"y": 0,
 				"w": 6,
@@ -680,11 +680,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/cells/76802b96-069a-4889-88ac-ce6b34509307"
+					"self": "/chronograf/v1/dashboards/34/cells/55437aff-7e26-4e1e-9107-53434f58cf60"
 				}
 			},
 			{
-				"i": "5305ce1a-cd28-4277-9c57-f2b56223f3c5",
+				"i": "b0bb298c-be3a-4f8e-9f33-39128bb8fc9f",
 				"x": 0,
 				"y": 0,
 				"w": 6,
@@ -818,7 +818,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/cells/5305ce1a-cd28-4277-9c57-f2b56223f3c5"
+					"self": "/chronograf/v1/dashboards/34/cells/b0bb298c-be3a-4f8e-9f33-39128bb8fc9f"
 				}
 			}
 		],
@@ -836,20 +836,20 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker\" WITH KEY=\"engine_host\"",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker_container_mem\" WITH KEY=\"engine_host\"",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/templates/09f94aa0-ff13-436a-a700-3a484ea03edf"
+					"self": "/chronograf/v1/dashboards/34/templates/09f94aa0-ff13-436a-a700-3a484ea03edf"
 				}
 			},
 			{
 				"tempVar": ":container:",
 				"values": [
 					{
-						"value": "elasticsearch",
+						"value": "admiring_chatelet",
 						"type": "influxql",
 						"selected": true
 					}
@@ -858,22 +858,22 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker_container_blkio\" WITH KEY=\"container_name\" WHERE \"host\"=':host:'",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"docker_container_mem\" WITH KEY=\"container_name\" WHERE \"host\"=':host:'",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/48/templates/3c26b0ea-60ce-4434-a8e2-dbb2317d3a3e"
+					"self": "/chronograf/v1/dashboards/34/templates/3c26b0ea-60ce-4434-a8e2-dbb2317d3a3e"
 				}
 			}
 		],
 		"name": "Docker: Container Compute Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/48",
-			"cells": "/chronograf/v1/dashboards/48/cells",
-			"templates": "/chronograf/v1/dashboards/48/templates"
+			"self": "/chronograf/v1/dashboards/34",
+			"cells": "/chronograf/v1/dashboards/34/cells",
+			"templates": "/chronograf/v1/dashboards/34/templates"
 		}
 	}
 }

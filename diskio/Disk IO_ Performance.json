@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.10",
+		"chronografVersion": "1.7.12",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 8,
+		"id": 37,
 		"cells": [
 			{
-				"i": "58747046-dde6-44e2-be7d-392897fd1b49",
+				"i": "b4468f6c-e3f4-4540-9e97-4252c1363c82",
 				"x": 9,
 				"y": 0,
 				"w": 3,
@@ -20,7 +20,7 @@
 				"name": "Total Write Volume - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"write_bytes\") - first(\"write_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
+						"query": "SELECT (last(\"write_bytes\") - first(\"write_bytes\")) / 1048576 FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"write_bytes\") - first(\"write_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
+							"rawText": "SELECT (last(\"write_bytes\") - first(\"write_bytes\")) / 1048576 FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 							"range": null,
 							"shifts": null
 						},
@@ -59,7 +59,7 @@
 						],
 						"label": "IOPS",
 						"prefix": "",
-						"suffix": " B",
+						"suffix": " MiB",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -106,16 +106,16 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 0
+					"digits": 2
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/58747046-dde6-44e2-be7d-392897fd1b49"
+					"self": "/chronograf/v1/dashboards/37/cells/b4468f6c-e3f4-4540-9e97-4252c1363c82"
 				}
 			},
 			{
-				"i": "0daac16d-b463-4c50-86bd-4a254a24901e",
+				"i": "bd6a1b13-b379-4f01-9d51-46dc431960c9",
 				"x": 3,
 				"y": 0,
 				"w": 3,
@@ -123,7 +123,7 @@
 				"name": "Total Read Volume - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"read_bytes\") - first(\"read_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
+						"query": "SELECT (last(\"read_bytes\") - first(\"read_bytes\")) / 1048576 FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"read_bytes\") - first(\"read_bytes\") FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
+							"rawText": "SELECT (last(\"read_bytes\") - first(\"read_bytes\")) / 1048576 FROM \"telegraf\"..\"diskio\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"name\"=':device:'",
 							"range": null,
 							"shifts": null
 						},
@@ -162,7 +162,7 @@
 						],
 						"label": "IOPS",
 						"prefix": "",
-						"suffix": " B",
+						"suffix": " MiB",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -209,16 +209,16 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 0
+					"digits": 2
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/0daac16d-b463-4c50-86bd-4a254a24901e"
+					"self": "/chronograf/v1/dashboards/37/cells/bd6a1b13-b379-4f01-9d51-46dc431960c9"
 				}
 			},
 			{
-				"i": "5fc00483-e97a-45d7-90dc-254349261c48",
+				"i": "5dddf415-f882-454a-9b78-0b2923aa7f84",
 				"x": 6,
 				"y": 0,
 				"w": 3,
@@ -317,11 +317,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/5fc00483-e97a-45d7-90dc-254349261c48"
+					"self": "/chronograf/v1/dashboards/37/cells/5dddf415-f882-454a-9b78-0b2923aa7f84"
 				}
 			},
 			{
-				"i": "bdd9573d-6090-47b3-bb97-23ebc5574454",
+				"i": "80c77792-608e-4d86-af82-add1535731ad",
 				"x": 0,
 				"y": 0,
 				"w": 3,
@@ -420,11 +420,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/bdd9573d-6090-47b3-bb97-23ebc5574454"
+					"self": "/chronograf/v1/dashboards/37/cells/80c77792-608e-4d86-af82-add1535731ad"
 				}
 			},
 			{
-				"i": "c331a382-0719-40f9-9bf5-a157a014dcdc",
+				"i": "a27593ff-ef87-49ee-8195-b4cd2b6b464a",
 				"x": 6,
 				"y": 7,
 				"w": 6,
@@ -537,11 +537,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/c331a382-0719-40f9-9bf5-a157a014dcdc"
+					"self": "/chronograf/v1/dashboards/37/cells/a27593ff-ef87-49ee-8195-b4cd2b6b464a"
 				}
 			},
 			{
-				"i": "7cca363e-8ab5-44db-a240-84a06cdaa4a1",
+				"i": "4e3ee0ba-dba2-4c00-b8a7-cfcba1553f73",
 				"x": 0,
 				"y": 7,
 				"w": 6,
@@ -654,11 +654,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/7cca363e-8ab5-44db-a240-84a06cdaa4a1"
+					"self": "/chronograf/v1/dashboards/37/cells/4e3ee0ba-dba2-4c00-b8a7-cfcba1553f73"
 				}
 			},
 			{
-				"i": "e85d18c7-4380-423d-9040-267307c799c6",
+				"i": "41fcf2ce-f6bd-40bc-95ec-7765f4e486ca",
 				"x": 6,
 				"y": 4,
 				"w": 6,
@@ -771,11 +771,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/e85d18c7-4380-423d-9040-267307c799c6"
+					"self": "/chronograf/v1/dashboards/37/cells/41fcf2ce-f6bd-40bc-95ec-7765f4e486ca"
 				}
 			},
 			{
-				"i": "5833263f-ed2c-413e-a65c-c175850b2d23",
+				"i": "a025a318-67c1-416a-a976-e72a078ba14f",
 				"x": 0,
 				"y": 4,
 				"w": 6,
@@ -888,11 +888,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/5833263f-ed2c-413e-a65c-c175850b2d23"
+					"self": "/chronograf/v1/dashboards/37/cells/a025a318-67c1-416a-a976-e72a078ba14f"
 				}
 			},
 			{
-				"i": "fac469c2-9ca9-4716-8644-660290d31c8a",
+				"i": "6d1776ff-25d8-4e75-8bb2-d7cb86fb1810",
 				"x": 6,
 				"y": 1,
 				"w": 6,
@@ -1005,11 +1005,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/fac469c2-9ca9-4716-8644-660290d31c8a"
+					"self": "/chronograf/v1/dashboards/37/cells/6d1776ff-25d8-4e75-8bb2-d7cb86fb1810"
 				}
 			},
 			{
-				"i": "cfc96ec9-977c-43b9-b6d8-4a17fe53f33e",
+				"i": "2187fd01-ea28-41ce-ab70-b0333d75dc9c",
 				"x": 0,
 				"y": 1,
 				"w": 6,
@@ -1122,7 +1122,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/cells/cfc96ec9-977c-43b9-b6d8-4a17fe53f33e"
+					"self": "/chronograf/v1/dashboards/37/cells/2187fd01-ea28-41ce-ab70-b0333d75dc9c"
 				}
 			}
 		],
@@ -1146,7 +1146,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/templates/21f8e74f-f78c-440e-af0a-58efdb7299b0"
+					"self": "/chronograf/v1/dashboards/37/templates/21f8e74f-f78c-440e-af0a-58efdb7299b0"
 				}
 			},
 			{
@@ -1168,16 +1168,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/8/templates/aa7f0d59-d60f-4c66-a958-5ea666bb8992"
+					"self": "/chronograf/v1/dashboards/37/templates/aa7f0d59-d60f-4c66-a958-5ea666bb8992"
 				}
 			}
 		],
 		"name": "Disk IO: Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/8",
-			"cells": "/chronograf/v1/dashboards/8/cells",
-			"templates": "/chronograf/v1/dashboards/8/templates"
+			"self": "/chronograf/v1/dashboards/37",
+			"cells": "/chronograf/v1/dashboards/37/cells",
+			"templates": "/chronograf/v1/dashboards/37/templates"
 		}
 	}
 }
