@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.12",
+		"chronografVersion": "1.7.14",
 		"sources": {
 			"0": {
 				"name": "http://192.2.0.1:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 21,
+		"id": 42,
 		"cells": [
 			{
-				"i": "808f34ae-7cc3-45f4-86bf-8562a62b19aa",
+				"i": "5722c6af-344b-4221-9a1b-71d1b8926203",
 				"x": 9,
 				"y": 0,
 				"w": 3,
@@ -20,7 +20,7 @@
 				"name": "Total Errors (packets) - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"err_in\"))) + cumulative_sum(non_negative_difference(last(\"err_out\"))) AS \"Total Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT (last(\"err_in\") - first(\"err_in\")) + (last(\"err_out\") - first(\"err_out\")) AS \"Total Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -32,7 +32,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"err_in\"))) + cumulative_sum(non_negative_difference(last(\"err_out\"))) AS \"Total Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT (last(\"err_in\") - first(\"err_in\")) + (last(\"err_out\") - first(\"err_out\")) AS \"Total Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -111,11 +111,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/808f34ae-7cc3-45f4-86bf-8562a62b19aa"
+					"self": "/chronograf/v1/dashboards/42/cells/5722c6af-344b-4221-9a1b-71d1b8926203"
 				}
 			},
 			{
-				"i": "8ac4f63b-ec75-422b-be34-42518012be12",
+				"i": "10a43604-dd05-431a-858f-2e9e5b2872da",
 				"x": 6,
 				"y": 0,
 				"w": 3,
@@ -123,7 +123,7 @@
 				"name": "Total Discards (packets) - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"drop_in\"))) + cumulative_sum(non_negative_difference(last(\"drop_out\"))) AS \"Total Discards\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT (last(\"drop_in\") - first(\"drop_in\")) + (last(\"drop_out\") - first(\"drop_out\")) AS \"Total Discards\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"drop_in\"))) + cumulative_sum(non_negative_difference(last(\"drop_out\"))) AS \"Total Discards\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT (last(\"drop_in\") - first(\"drop_in\")) + (last(\"drop_out\") - first(\"drop_out\")) AS \"Total Discards\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -214,11 +214,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/8ac4f63b-ec75-422b-be34-42518012be12"
+					"self": "/chronograf/v1/dashboards/42/cells/10a43604-dd05-431a-858f-2e9e5b2872da"
 				}
 			},
 			{
-				"i": "2775534c-8db5-4824-9787-0588a01568d3",
+				"i": "bcb933f8-e7f9-4ca0-a08e-02cf4ede2332",
 				"x": 3,
 				"y": 0,
 				"w": 3,
@@ -226,7 +226,7 @@
 				"name": "Total Traffic (packets) - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"packets_recv\"))) + cumulative_sum(non_negative_difference(last(\"packets_sent\"))) AS \"Total Packets\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT ((last(\"packets_recv\") - first(\"packets_recv\")) + (last(\"packets_sent\") - first(\"packets_sent\"))) / 1000 AS \"Total Packets\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -238,7 +238,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"packets_recv\"))) + cumulative_sum(non_negative_difference(last(\"packets_sent\"))) AS \"Total Packets\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT ((last(\"packets_recv\") - first(\"packets_recv\")) + (last(\"packets_sent\") - first(\"packets_sent\"))) / 1000 AS \"Total Packets\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -265,7 +265,7 @@
 						],
 						"label": "bits",
 						"prefix": "",
-						"suffix": "",
+						"suffix": " K",
 						"base": "2",
 						"scale": "linear"
 					},
@@ -317,11 +317,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/2775534c-8db5-4824-9787-0588a01568d3"
+					"self": "/chronograf/v1/dashboards/42/cells/bcb933f8-e7f9-4ca0-a08e-02cf4ede2332"
 				}
 			},
 			{
-				"i": "f2d2b2cc-0d33-4005-8ee8-455522c57d15",
+				"i": "fcf0da05-57b6-4bda-8a74-75684e8dd75a",
 				"x": 0,
 				"y": 0,
 				"w": 3,
@@ -329,7 +329,7 @@
 				"name": "Total Traffic (bytes) - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT cumulative_sum(non_negative_difference(last(\"bytes_recv\"))) + cumulative_sum(non_negative_difference(last(\"bytes_sent\"))) AS \"Total Bytes\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT ((last(\"bytes_recv\") - first(\"bytes_recv\")) + (last(\"bytes_sent\") - first(\"bytes_sent\"))) / 1000000 AS \"Total Bytes\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -341,7 +341,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT cumulative_sum(non_negative_difference(last(\"bytes_recv\"))) + cumulative_sum(non_negative_difference(last(\"bytes_sent\"))) AS \"Total Bytes\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT ((last(\"bytes_recv\") - first(\"bytes_recv\")) + (last(\"bytes_sent\") - first(\"bytes_sent\"))) / 1000000 AS \"Total Bytes\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -368,7 +368,7 @@
 						],
 						"label": "bits",
 						"prefix": "",
-						"suffix": " B",
+						"suffix": " MB",
 						"base": "2",
 						"scale": "linear"
 					},
@@ -415,16 +415,16 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 0
+					"digits": 2
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/f2d2b2cc-0d33-4005-8ee8-455522c57d15"
+					"self": "/chronograf/v1/dashboards/42/cells/fcf0da05-57b6-4bda-8a74-75684e8dd75a"
 				}
 			},
 			{
-				"i": "39b9255b-f2d4-49a6-9f05-9947cca8d8bf",
+				"i": "a03a0087-1e52-4bf4-ba06-789ca36caddc",
 				"x": 0,
 				"y": 7,
 				"w": 12,
@@ -432,7 +432,7 @@
 				"name": "Dropped Packets - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"drop_in\"))  AS \"Ingress Discards\", (non_negative_difference(last(\"err_in\"))) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"drop_in\")) AS \"Ingress Discards\", non_negative_difference(last(\"err_in\")) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -444,7 +444,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"drop_in\"))  AS \"Ingress Discards\", (non_negative_difference(last(\"err_in\"))) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"drop_in\")) AS \"Ingress Discards\", non_negative_difference(last(\"err_in\")) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -452,7 +452,7 @@
 						"type": "influxql"
 					},
 					{
-						"query": "SELECT non_negative_derivative(last(\"drop_out\"),1s) * -1 AS \"Egress Dropped Packet Rate\", (non_negative_derivative(last(\"err_out\"),1s)) * -1 AS \"Egress Errored Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"drop_out\")) * -1 AS \"Egress Discards\", non_negative_derivative(last(\"err_out\")) * -1 AS \"Egress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -464,7 +464,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"drop_out\"),1s) * -1 AS \"Egress Dropped Packet Rate\", (non_negative_derivative(last(\"err_out\"),1s)) * -1 AS \"Egress Errored Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"drop_out\")) * -1 AS \"Egress Discards\", non_negative_derivative(last(\"err_out\")) * -1 AS \"Egress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -557,11 +557,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/39b9255b-f2d4-49a6-9f05-9947cca8d8bf"
+					"self": "/chronograf/v1/dashboards/42/cells/a03a0087-1e52-4bf4-ba06-789ca36caddc"
 				}
 			},
 			{
-				"i": "cde9ff3f-9d0d-4c1b-9d86-4ec336b35b2a",
+				"i": "78dc3a8b-516e-4741-bf7f-6d676da3efa3",
 				"x": 0,
 				"y": 4,
 				"w": 12,
@@ -589,7 +589,7 @@
 						"type": "influxql"
 					},
 					{
-						"query": "SELECT non_negative_derivative(last(\"packets_sent\"),1s) * -1  AS \"Egress Unicast Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"packets_sent\"),1s) * -1  AS \"Egress Unicast Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -601,7 +601,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"packets_sent\"),1s) * -1  AS \"Egress Unicast Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"packets_sent\"),1s) * -1  AS \"Egress Unicast Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -694,11 +694,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/cde9ff3f-9d0d-4c1b-9d86-4ec336b35b2a"
+					"self": "/chronograf/v1/dashboards/42/cells/78dc3a8b-516e-4741-bf7f-6d676da3efa3"
 				}
 			},
 			{
-				"i": "9a7fac51-5ba7-4d49-b3d1-49ab78b7c91c",
+				"i": "a5a4cef0-1f3b-4d2a-9266-5396592d5e74",
 				"x": 0,
 				"y": 1,
 				"w": 12,
@@ -726,7 +726,7 @@
 						"type": "influxql"
 					},
 					{
-						"query": "SELECT non_negative_derivative(last(\"bytes_sent\"),1s) * -8  AS \"Egress Traffic Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"bytes_sent\"),1s) * -8  AS \"Egress Traffic Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -738,7 +738,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_derivative(last(\"bytes_sent\"),1s) * -8  AS \"Egress Traffic Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"bytes_sent\"),1s) * -8  AS \"Egress Traffic Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -831,7 +831,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/cells/9a7fac51-5ba7-4d49-b3d1-49ab78b7c91c"
+					"self": "/chronograf/v1/dashboards/42/cells/a5a4cef0-1f3b-4d2a-9266-5396592d5e74"
 				}
 			}
 		],
@@ -855,7 +855,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/templates/2f052195-a0cb-414c-9a4f-ee542a362ae4"
+					"self": "/chronograf/v1/dashboards/42/templates/2f052195-a0cb-414c-9a4f-ee542a362ae4"
 				}
 			},
 			{
@@ -877,16 +877,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/21/templates/a56477ab-cfa7-46a5-b4b6-49ec464169a7"
+					"self": "/chronograf/v1/dashboards/42/templates/a56477ab-cfa7-46a5-b4b6-49ec464169a7"
 				}
 			}
 		],
 		"name": "Net: Interface Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/21",
-			"cells": "/chronograf/v1/dashboards/21/cells",
-			"templates": "/chronograf/v1/dashboards/21/templates"
+			"self": "/chronograf/v1/dashboards/42",
+			"cells": "/chronograf/v1/dashboards/42/cells",
+			"templates": "/chronograf/v1/dashboards/42/templates"
 		}
 	}
 }
