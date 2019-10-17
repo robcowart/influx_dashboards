@@ -10,7 +10,7 @@ Dashboards | Telegraf Inputs
 --- | ---
 [disk](https://github.com/robcowart/influx_dashboards/tree/master/disk) | [disk](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#disk)
 [diskio](https://github.com/robcowart/influx_dashboards/tree/master/diskio) | [diskio](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#diskio)
-[docker](https://github.com/robcowart/influx_dashboards/tree/master/docker) | [docker](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#docker)
+[docker](https://github.com/robcowart/influx_dashboards/tree/master/docker) | [docker](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#docker), [docker_log](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#docker_log)
 [host](https://github.com/robcowart/influx_dashboards/tree/master/host) | [cpu](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#cpu), [kernel](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#kernel), [mem](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#mem), [processes](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#processes), [swap](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#swap), [system](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#system)
 [influxdb](https://github.com/robcowart/influx_dashboards/tree/master/influxdb) | [influxdb](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#influxdb)
 [kibana](https://github.com/robcowart/influx_dashboards/tree/master/kibana) | [kibana](https://docs.influxdata.com/telegraf/latest/plugins/inputs/#kibana)

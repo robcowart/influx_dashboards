@@ -22,6 +22,10 @@ The following dashboards are provided for use with data from the Telegraf [docke
 
 ![Docker: Container Network Performance](https://user-images.githubusercontent.com/10326954/58762503-d6416a80-8550-11e9-857e-3c99560526d1.png)
 
+## Docker: Container Logs
+
+![Docker: Container Logs](https://user-images.githubusercontent.com/10326954/66992595-60d2d280-f0ca-11e9-9f80-dd2a768bd0e6.png)
+
 ## Telegraf Input Configuration
 
 The following input plugin configuration is required to provide the data for these dashboards.
@@ -56,6 +60,37 @@ The following input plugin configuration is required to provide the data for the
   #tag_env = ["JAVA_HOME", "HEAP_SIZE"]
 
   # docker labels to include and exclude as tags. Globs accepted. Note that an empty array for both will include all labels as tags
+  docker_label_include = []
+  docker_label_exclude = []
+
+  # Optional TLS Config
+  #tls_ca = "/etc/telegraf/ca.pem"
+  #tls_cert = "/etc/telegraf/cert.pem"
+  #tls_key = "/etc/telegraf/key.pem"
+  #insecure_skip_verify = false
+
+[[inputs.docker_log]]
+  # Docker Endpoint. To use TCP, set endpoint = "tcp://[ip]:[port]". To use environment variables (ie, docker-machine),
+  # set endpoint = "ENV"
+  endpoint = "unix:///var/run/docker.sock"
+
+  # When true, container logs are read from the beginning; otherwise reading begins at the end of the log.
+  from_beginning = false
+
+  # Timeout for Docker API calls.
+  timeout = "5s"
+
+  # Containers to include and exclude. Globs accepted. Note that an empty array for both will include all containers
+  container_name_include = []
+  container_name_exclude = []
+
+  # Container states to include and exclude. Globs accepted. When empty only containers in the "running" state will be
+  # captured.
+  #container_state_include = []
+  #container_state_exclude = []
+
+  # docker labels to include and exclude as tags. Globs accepted. Note that an empty array for both will include all
+  # labels as tags
   docker_label_include = []
   docker_label_exclude = []
 
