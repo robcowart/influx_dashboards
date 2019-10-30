@@ -3,16 +3,16 @@
 		"chronografVersion": "1.7.14",
 		"sources": {
 			"0": {
-				"name": "http://192.2.0.1:8086",
+				"name": "http://192.168.9.11:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}
 	},
 	"dashboard": {
-		"id": 42,
+		"id": 26,
 		"cells": [
 			{
-				"i": "5722c6af-344b-4221-9a1b-71d1b8926203",
+				"i": "b91d617a-c4bb-419c-aaa1-1ecef976c76c",
 				"x": 9,
 				"y": 0,
 				"w": 3,
@@ -111,11 +111,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/cells/5722c6af-344b-4221-9a1b-71d1b8926203"
+					"self": "/chronograf/v1/dashboards/26/cells/b91d617a-c4bb-419c-aaa1-1ecef976c76c"
 				}
 			},
 			{
-				"i": "10a43604-dd05-431a-858f-2e9e5b2872da",
+				"i": "676ff40e-6aa5-4bfa-9597-0ac106c622d1",
 				"x": 6,
 				"y": 0,
 				"w": 3,
@@ -214,11 +214,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/cells/10a43604-dd05-431a-858f-2e9e5b2872da"
+					"self": "/chronograf/v1/dashboards/26/cells/676ff40e-6aa5-4bfa-9597-0ac106c622d1"
 				}
 			},
 			{
-				"i": "bcb933f8-e7f9-4ca0-a08e-02cf4ede2332",
+				"i": "8117662e-8492-48c8-80dc-b98bb0399765",
 				"x": 3,
 				"y": 0,
 				"w": 3,
@@ -317,11 +317,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/cells/bcb933f8-e7f9-4ca0-a08e-02cf4ede2332"
+					"self": "/chronograf/v1/dashboards/26/cells/8117662e-8492-48c8-80dc-b98bb0399765"
 				}
 			},
 			{
-				"i": "fcf0da05-57b6-4bda-8a74-75684e8dd75a",
+				"i": "1bb1af0a-00e9-40d0-ad54-45ee6f788b07",
 				"x": 0,
 				"y": 0,
 				"w": 3,
@@ -420,11 +420,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/cells/fcf0da05-57b6-4bda-8a74-75684e8dd75a"
+					"self": "/chronograf/v1/dashboards/26/cells/1bb1af0a-00e9-40d0-ad54-45ee6f788b07"
 				}
 			},
 			{
-				"i": "a03a0087-1e52-4bf4-ba06-789ca36caddc",
+				"i": "88d5e2df-6378-4c31-8818-70a8e28b013a",
 				"x": 0,
 				"y": 7,
 				"w": 12,
@@ -432,7 +432,7 @@
 				"name": "Dropped Packets - :host: - :interface:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"drop_in\")) AS \"Ingress Discards\", non_negative_difference(last(\"err_in\")) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"drop_in\"))  AS \"Ingress Discards\", (non_negative_difference(last(\"err_in\"))) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -444,7 +444,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"drop_in\")) AS \"Ingress Discards\", non_negative_difference(last(\"err_in\")) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"drop_in\"))  AS \"Ingress Discards\", (non_negative_difference(last(\"err_in\"))) AS \"Ingress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -452,7 +452,7 @@
 						"type": "influxql"
 					},
 					{
-						"query": "SELECT non_negative_difference(last(\"drop_out\")) * -1 AS \"Egress Discards\", non_negative_derivative(last(\"err_out\")) * -1 AS \"Egress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_derivative(last(\"drop_out\"),1s) * -1 AS \"Egress Dropped Packet Rate\", (non_negative_derivative(last(\"err_out\"),1s)) * -1 AS \"Egress Errored Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -464,7 +464,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"drop_out\")) * -1 AS \"Egress Discards\", non_negative_derivative(last(\"err_out\")) * -1 AS \"Egress Errors\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_derivative(last(\"drop_out\"),1s) * -1 AS \"Egress Dropped Packet Rate\", (non_negative_derivative(last(\"err_out\"),1s)) * -1 AS \"Egress Errored Packet Rate\" FROM \"telegraf\"..\"net\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"interface\"=':interface:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -557,11 +557,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/cells/a03a0087-1e52-4bf4-ba06-789ca36caddc"
+					"self": "/chronograf/v1/dashboards/26/cells/88d5e2df-6378-4c31-8818-70a8e28b013a"
 				}
 			},
 			{
-				"i": "78dc3a8b-516e-4741-bf7f-6d676da3efa3",
+				"i": "7d9fe1e1-426a-4f61-86ce-48a8abc1e15d",
 				"x": 0,
 				"y": 4,
 				"w": 12,
@@ -694,11 +694,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/cells/78dc3a8b-516e-4741-bf7f-6d676da3efa3"
+					"self": "/chronograf/v1/dashboards/26/cells/7d9fe1e1-426a-4f61-86ce-48a8abc1e15d"
 				}
 			},
 			{
-				"i": "a5a4cef0-1f3b-4d2a-9266-5396592d5e74",
+				"i": "88e83b7d-e5d0-4915-9d73-37afa93c2788",
 				"x": 0,
 				"y": 1,
 				"w": 12,
@@ -760,7 +760,7 @@
 					},
 					"y": {
 						"bounds": [
-							"0",
+							"",
 							""
 						],
 						"label": "bandwidth",
@@ -831,7 +831,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/cells/a5a4cef0-1f3b-4d2a-9266-5396592d5e74"
+					"self": "/chronograf/v1/dashboards/26/cells/88e83b7d-e5d0-4915-9d73-37afa93c2788"
 				}
 			}
 		],
@@ -855,7 +855,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/templates/2f052195-a0cb-414c-9a4f-ee542a362ae4"
+					"self": "/chronograf/v1/dashboards/26/templates/2f052195-a0cb-414c-9a4f-ee542a362ae4"
 				}
 			},
 			{
@@ -877,16 +877,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/42/templates/a56477ab-cfa7-46a5-b4b6-49ec464169a7"
+					"self": "/chronograf/v1/dashboards/26/templates/a56477ab-cfa7-46a5-b4b6-49ec464169a7"
 				}
 			}
 		],
 		"name": "Net: Interface Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/42",
-			"cells": "/chronograf/v1/dashboards/42/cells",
-			"templates": "/chronograf/v1/dashboards/42/templates"
+			"self": "/chronograf/v1/dashboards/26",
+			"cells": "/chronograf/v1/dashboards/26/cells",
+			"templates": "/chronograf/v1/dashboards/26/templates"
 		}
 	}
 }
