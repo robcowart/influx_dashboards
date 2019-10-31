@@ -1,18 +1,18 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.10",
+		"chronografVersion": "1.7.14",
 		"sources": {
 			"0": {
-				"name": "http://192.2.0.1:8086",
+				"name": "http://192.168.9.11:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}
 	},
 	"dashboard": {
-		"id": 55,
+		"id": 24,
 		"cells": [
 			{
-				"i": "d3a85e6b-893f-4a76-b798-c9546061ed17",
+				"i": "8f4dfc83-2102-4348-8b6e-02faec49a47c",
 				"x": 6,
 				"y": 0,
 				"w": 2,
@@ -138,11 +138,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/d3a85e6b-893f-4a76-b798-c9546061ed17"
+					"self": "/chronograf/v1/dashboards/24/cells/8f4dfc83-2102-4348-8b6e-02faec49a47c"
 				}
 			},
 			{
-				"i": "718335f9-691a-476d-9441-194a9b2c7f2f",
+				"i": "e17452bb-2f45-4817-8fb9-164f2d1e1712",
 				"x": 8,
 				"y": 0,
 				"w": 2,
@@ -268,11 +268,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/718335f9-691a-476d-9441-194a9b2c7f2f"
+					"self": "/chronograf/v1/dashboards/24/cells/e17452bb-2f45-4817-8fb9-164f2d1e1712"
 				}
 			},
 			{
-				"i": "e72d24c5-56b7-4ee4-9a52-125e05a73b47",
+				"i": "d2284cc0-b1f7-4a47-bf54-fdde75ed0aff",
 				"x": 0,
 				"y": 2,
 				"w": 2,
@@ -391,11 +391,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/e72d24c5-56b7-4ee4-9a52-125e05a73b47"
+					"self": "/chronograf/v1/dashboards/24/cells/d2284cc0-b1f7-4a47-bf54-fdde75ed0aff"
 				}
 			},
 			{
-				"i": "17eae793-ae7b-4fcc-810b-fe7c58a780ca",
+				"i": "5d688812-ae4a-485d-921f-5fdf1c19bb53",
 				"x": 10,
 				"y": 0,
 				"w": 2,
@@ -521,16 +521,16 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/17eae793-ae7b-4fcc-810b-fe7c58a780ca"
+					"self": "/chronograf/v1/dashboards/24/cells/5d688812-ae4a-485d-921f-5fdf1c19bb53"
 				}
 			},
 			{
-				"i": "64783149-979a-41c6-88c6-d7c702c67599",
+				"i": "13c8d469-7449-455d-8b06-4b99f41b6a44",
 				"x": 4,
 				"y": 0,
 				"w": 2,
 				"h": 3,
-				"name": "Memory Utilization - :host: - :gpu:",
+				"name": "Memory Access Utilization - :host: - :gpu:",
 				"queries": [
 					{
 						"query": "SELECT last(\"utilization_memory\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -651,11 +651,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/64783149-979a-41c6-88c6-d7c702c67599"
+					"self": "/chronograf/v1/dashboards/24/cells/13c8d469-7449-455d-8b06-4b99f41b6a44"
 				}
 			},
 			{
-				"i": "0f3a8fe7-0881-421c-9dd3-b7a045bdf492",
+				"i": "542e5bc0-7efb-4608-afeb-6e4ff6167e37",
 				"x": 2,
 				"y": 0,
 				"w": 2,
@@ -781,11 +781,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/0f3a8fe7-0881-421c-9dd3-b7a045bdf492"
+					"self": "/chronograf/v1/dashboards/24/cells/542e5bc0-7efb-4608-afeb-6e4ff6167e37"
 				}
 			},
 			{
-				"i": "fb30ffd2-8800-4207-a426-35559bdff39a",
+				"i": "d61e1da2-1262-42b4-b23c-db5322546ccd",
 				"x": 0,
 				"y": 0,
 				"w": 2,
@@ -889,11 +889,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/fb30ffd2-8800-4207-a426-35559bdff39a"
+					"self": "/chronograf/v1/dashboards/24/cells/d61e1da2-1262-42b4-b23c-db5322546ccd"
 				}
 			},
 			{
-				"i": "c948fc9b-471c-4152-a93e-72f1d3263ed3",
+				"i": "b5acc3f0-85b6-4ac3-82f2-ad9ff6539dbd",
 				"x": 0,
 				"y": 9,
 				"w": 6,
@@ -901,7 +901,7 @@
 				"name": "Memory Used - :host: - :gpu:",
 				"queries": [
 					{
-						"query": "SELECT mean(\"memory_used\") AS \"memory used\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"memory_used\") AS \"memory used\", mean(\"memory_total\") AS \"memory total\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "nvidia_smi",
@@ -914,6 +914,18 @@
 									"args": [
 										{
 											"value": "memory_used",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "memory total",
+									"args": [
+										{
+											"value": "memory_total",
 											"type": "field",
 											"alias": ""
 										}
@@ -1027,16 +1039,16 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/c948fc9b-471c-4152-a93e-72f1d3263ed3"
+					"self": "/chronograf/v1/dashboards/24/cells/b5acc3f0-85b6-4ac3-82f2-ad9ff6539dbd"
 				}
 			},
 			{
-				"i": "01c8c2ca-c704-47fe-a357-dcbeb0061643",
+				"i": "d5eda820-a3bc-4ce0-8601-88c9f0717265",
 				"x": 0,
 				"y": 6,
 				"w": 6,
 				"h": 3,
-				"name": "Memory Utilization - :host: - :gpu:",
+				"name": "Memory Access Utilization - :host: - :gpu:",
 				"queries": [
 					{
 						"query": "SELECT mean(\"utilization_memory\") AS \"memory utilization\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
@@ -1165,11 +1177,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/01c8c2ca-c704-47fe-a357-dcbeb0061643"
+					"self": "/chronograf/v1/dashboards/24/cells/d5eda820-a3bc-4ce0-8601-88c9f0717265"
 				}
 			},
 			{
-				"i": "6a9096a3-e1f1-4195-9a09-9e23ee0551cb",
+				"i": "53572754-706f-4c54-9b61-a4e40ae967e2",
 				"x": 6,
 				"y": 6,
 				"w": 6,
@@ -1303,11 +1315,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/6a9096a3-e1f1-4195-9a09-9e23ee0551cb"
+					"self": "/chronograf/v1/dashboards/24/cells/53572754-706f-4c54-9b61-a4e40ae967e2"
 				}
 			},
 			{
-				"i": "858b4257-6cb6-415a-a0c4-4980ba6b14e5",
+				"i": "0667cb23-bc1c-4653-b2bf-d359a3690d55",
 				"x": 0,
 				"y": 3,
 				"w": 6,
@@ -1441,11 +1453,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/858b4257-6cb6-415a-a0c4-4980ba6b14e5"
+					"self": "/chronograf/v1/dashboards/24/cells/0667cb23-bc1c-4653-b2bf-d359a3690d55"
 				}
 			},
 			{
-				"i": "19d269fd-56e9-4892-9b83-53425d4f12d2",
+				"i": "4c0786c3-92fe-42bc-8356-d40ada9446cd",
 				"x": 6,
 				"y": 3,
 				"w": 6,
@@ -1579,11 +1591,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/19d269fd-56e9-4892-9b83-53425d4f12d2"
+					"self": "/chronograf/v1/dashboards/24/cells/4c0786c3-92fe-42bc-8356-d40ada9446cd"
 				}
 			},
 			{
-				"i": "39a02e20-a820-4961-964f-9b5c35a96cd7",
+				"i": "679d51ae-5624-44ae-b59b-8eba591c9cb8",
 				"x": 6,
 				"y": 9,
 				"w": 6,
@@ -1717,7 +1729,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/cells/39a02e20-a820-4961-964f-9b5c35a96cd7"
+					"self": "/chronograf/v1/dashboards/24/cells/679d51ae-5624-44ae-b59b-8eba591c9cb8"
 				}
 			}
 		],
@@ -1741,7 +1753,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/templates/09f94aa0-ff13-436a-a700-3a484ea03edf"
+					"self": "/chronograf/v1/dashboards/24/templates/09f94aa0-ff13-436a-a700-3a484ea03edf"
 				}
 			},
 			{
@@ -1763,16 +1775,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/55/templates/ea28fe34-c108-4a1b-b059-b997bb1ca5a0"
+					"self": "/chronograf/v1/dashboards/24/templates/ea28fe34-c108-4a1b-b059-b997bb1ca5a0"
 				}
 			}
 		],
 		"name": "NVIDIA: GPU Performance",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/55",
-			"cells": "/chronograf/v1/dashboards/55/cells",
-			"templates": "/chronograf/v1/dashboards/55/templates"
+			"self": "/chronograf/v1/dashboards/24",
+			"cells": "/chronograf/v1/dashboards/24/cells",
+			"templates": "/chronograf/v1/dashboards/24/templates"
 		}
 	}
 }
