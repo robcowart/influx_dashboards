@@ -12,12 +12,1118 @@
 		"id": 24,
 		"cells": [
 			{
-				"i": "8f4dfc83-2102-4348-8b6e-02faec49a47c",
+				"i": "f2cebcd0-aa5d-411d-956d-375154480649",
+				"x": 0,
+				"y": 14,
+				"w": 6,
+				"h": 3,
+				"name": "Memory Capacity Used - :host: - :gpu:",
+				"queries": [
+					{
+						"query": "SELECT last(\"memory_used\") AS \"memory used\", last(\"memory_total\") AS \"memory total\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "memory used",
+									"args": [
+										{
+											"value": "memory_used",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "memory total",
+									"args": [
+										{
+											"value": "memory_total",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/f2cebcd0-aa5d-411d-956d-375154480649"
+				}
+			},
+			{
+				"i": "4a0b4b44-8309-4a88-8918-e1d51962e252",
+				"x": 4,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "Memory Used",
+				"queries": [
+					{
+						"query": "SELECT mean(\"memory_used\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "memory_used",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "megabytes",
+						"prefix": "",
+						"suffix": " MB",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/4a0b4b44-8309-4a88-8918-e1d51962e252"
+				}
+			},
+			{
+				"i": "a5322951-4c1d-4dfa-84fe-d4bd273782be",
+				"x": 10,
+				"y": 0,
+				"w": 2,
+				"h": 2,
+				"name": " ",
+				"queries": [
+					{
+						"query": "",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "note",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": " ",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/a5322951-4c1d-4dfa-84fe-d4bd273782be"
+				}
+			},
+			{
+				"i": "5d199463-633e-4e01-9538-98fcadc9b23a",
+				"x": 2,
+				"y": 1,
+				"w": 2,
+				"h": 1,
+				"name": "Graphics/Shader Clock",
+				"queries": [
+					{
+						"query": "SELECT last(\"clocks_current_graphics\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "clocks_current_graphics",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "megabytes",
+						"prefix": "",
+						"suffix": " MHz",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/5d199463-633e-4e01-9538-98fcadc9b23a"
+				}
+			},
+			{
+				"i": "e9971bce-d95b-4bd6-8d7c-8cee0c0abffe",
+				"x": 4,
+				"y": 1,
+				"w": 2,
+				"h": 1,
+				"name": "Streaming Multiprocessor Clock",
+				"queries": [
+					{
+						"query": "SELECT last(\"clocks_current_sm\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "clocks_current_sm",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "megabytes",
+						"prefix": "",
+						"suffix": " MHz",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/e9971bce-d95b-4bd6-8d7c-8cee0c0abffe"
+				}
+			},
+			{
+				"i": "fcc1329d-0500-43bb-b061-50957786893f",
+				"x": 8,
+				"y": 1,
+				"w": 2,
+				"h": 1,
+				"name": "Video Clock",
+				"queries": [
+					{
+						"query": "SELECT last(\"clocks_current_video\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "clocks_current_video",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "megabytes",
+						"prefix": "",
+						"suffix": " MHz",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/fcc1329d-0500-43bb-b061-50957786893f"
+				}
+			},
+			{
+				"i": "18a35021-c46b-4857-8d34-fb70b71a9062",
+				"x": 6,
+				"y": 1,
+				"w": 2,
+				"h": 1,
+				"name": "Memory Clock",
+				"queries": [
+					{
+						"query": "SELECT last(\"clocks_current_memory\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "clocks_current_memory",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "megabytes",
+						"prefix": "",
+						"suffix": " MHz",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/18a35021-c46b-4857-8d34-fb70b71a9062"
+				}
+			},
+			{
+				"i": "3df4ada5-f47c-4ca9-8702-f2d97b5b8933",
+				"x": 8,
+				"y": 0,
+				"w": 2,
+				"h": 1,
+				"name": "PCIe Width",
+				"queries": [
+					{
+						"query": "SELECT last(\"pcie_link_width_current\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "pcie_link_width_current",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "megabytes",
+						"prefix": "x",
+						"suffix": "",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/3df4ada5-f47c-4ca9-8702-f2d97b5b8933"
+				}
+			},
+			{
+				"i": "495103b9-fcf5-468e-866d-3cc937b53976",
 				"x": 6,
 				"y": 0,
 				"w": 2,
+				"h": 1,
+				"name": "PCIe Version",
+				"queries": [
+					{
+						"query": "SELECT last(\"pcie_link_gen_current\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "pcie_link_gen_current",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "megabytes",
+						"prefix": "PCIe ",
+						"suffix": ".0",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/495103b9-fcf5-468e-866d-3cc937b53976"
+				}
+			},
+			{
+				"i": "8f4dfc83-2102-4348-8b6e-02faec49a47c",
+				"x": 6,
+				"y": 2,
+				"w": 2,
 				"h": 3,
-				"name": "Power - :host: - :gpu:",
+				"name": "Power Consumption",
 				"queries": [
 					{
 						"query": "SELECT last(\"power_draw\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -105,6 +1211,27 @@
 						"value": "0"
 					},
 					{
+						"id": "745ec669-001b-4054-b42f-df260589961a",
+						"type": "threshold",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "120"
+					},
+					{
+						"id": "42d878d8-0e6b-468d-a0a3-3fb52e1dc139",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "150"
+					},
+					{
+						"id": "7c0c2983-7981-48e7-b4c7-e5f4cc83a0e0",
+						"type": "threshold",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "175"
+					},
+					{
 						"id": "1",
 						"type": "max",
 						"hex": "#DC4E58",
@@ -144,10 +1271,10 @@
 			{
 				"i": "e17452bb-2f45-4817-8fb9-164f2d1e1712",
 				"x": 8,
-				"y": 0,
+				"y": 2,
 				"w": 2,
 				"h": 3,
-				"name": "Temperature - :host: - :gpu:",
+				"name": "Temperature",
 				"queries": [
 					{
 						"query": "SELECT last(\"temperature_gpu\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -235,6 +1362,27 @@
 						"value": "30"
 					},
 					{
+						"id": "1f2389b0-8318-401e-acc4-f3ec42a936c9",
+						"type": "threshold",
+						"hex": "#FFD255",
+						"name": "thunder",
+						"value": "65"
+					},
+					{
+						"id": "f944484e-19cb-478e-a018-78932f5b0a19",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "75"
+					},
+					{
+						"id": "6425f91b-cc18-4182-af99-9b38b6500079",
+						"type": "threshold",
+						"hex": "#F95F53",
+						"name": "curacao",
+						"value": "85"
+					},
+					{
 						"id": "1",
 						"type": "max",
 						"hex": "#DC4E58",
@@ -273,11 +1421,11 @@
 			},
 			{
 				"i": "d2284cc0-b1f7-4a47-bf54-fdde75ed0aff",
-				"x": 0,
-				"y": 2,
+				"x": 2,
+				"y": 0,
 				"w": 2,
 				"h": 1,
-				"name": "Memory Size - :host: - :gpu:",
+				"name": "Memory Size",
 				"queries": [
 					{
 						"query": "SELECT mean(\"memory_total\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -397,10 +1545,10 @@
 			{
 				"i": "5d688812-ae4a-485d-921f-5fdf1c19bb53",
 				"x": 10,
-				"y": 0,
+				"y": 2,
 				"w": 2,
 				"h": 3,
-				"name": "Fan Speed - :host: - :gpu:",
+				"name": "Fan Speed",
 				"queries": [
 					{
 						"query": "SELECT last(\"fan_speed\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -488,6 +1636,27 @@
 						"value": "0"
 					},
 					{
+						"id": "1ad62590-830e-4617-a11c-cafee1175069",
+						"type": "threshold",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "70"
+					},
+					{
+						"id": "ae3c4587-d669-4928-83f7-c7ca98af4de8",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "85"
+					},
+					{
+						"id": "23885eaa-e2d9-4c35-acc5-9e029ad86f99",
+						"type": "threshold",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "95"
+					},
+					{
 						"id": "1",
 						"type": "max",
 						"hex": "#DC4E58",
@@ -516,7 +1685,7 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 2
+					"digits": 0
 				},
 				"note": "",
 				"noteVisibility": "default",
@@ -526,11 +1695,11 @@
 			},
 			{
 				"i": "13c8d469-7449-455d-8b06-4b99f41b6a44",
-				"x": 4,
-				"y": 0,
+				"x": 2,
+				"y": 2,
 				"w": 2,
 				"h": 3,
-				"name": "Memory Access Utilization - :host: - :gpu:",
+				"name": "Memory Access Utilization",
 				"queries": [
 					{
 						"query": "SELECT last(\"utilization_memory\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -618,6 +1787,27 @@
 						"value": "0"
 					},
 					{
+						"id": "6bff0568-b438-45d6-902c-51da988f984e",
+						"type": "threshold",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "70"
+					},
+					{
+						"id": "0b9d404d-98ee-4a9a-82b8-ef84abf0c1dd",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "85"
+					},
+					{
+						"id": "bbfff80f-bc84-4981-9813-147b6f524266",
+						"type": "threshold",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "95"
+					},
+					{
 						"id": "1",
 						"type": "max",
 						"hex": "#DC4E58",
@@ -646,7 +1836,7 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 2
+					"digits": 0
 				},
 				"note": "",
 				"noteVisibility": "default",
@@ -656,11 +1846,11 @@
 			},
 			{
 				"i": "542e5bc0-7efb-4608-afeb-6e4ff6167e37",
-				"x": 2,
-				"y": 0,
+				"x": 0,
+				"y": 2,
 				"w": 2,
 				"h": 3,
-				"name": "GPU Utilization - :host: - :gpu:",
+				"name": "GPU Utilization",
 				"queries": [
 					{
 						"query": "SELECT last(\"utilization_gpu\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -748,6 +1938,27 @@
 						"value": "0"
 					},
 					{
+						"id": "367bc7cd-d199-4d3a-80a4-a989078cd342",
+						"type": "threshold",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "70"
+					},
+					{
+						"id": "3c4959c3-6644-48f0-9d34-5de53b959150",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "85"
+					},
+					{
+						"id": "3389b50a-693c-4f13-96cd-8f0e916856ee",
+						"type": "threshold",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "95"
+					},
+					{
 						"id": "1",
 						"type": "max",
 						"hex": "#DC4E58",
@@ -776,7 +1987,7 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 2
+					"digits": 0
 				},
 				"note": "",
 				"noteVisibility": "default",
@@ -790,7 +2001,7 @@
 				"y": 0,
 				"w": 2,
 				"h": 2,
-				"name": "GPU Name - :host: - :gpu:",
+				"name": "GPU Name",
 				"queries": [
 					{
 						"query": "SHOW TAG VALUES ON \"telegraf\" FROM \"nvidia_smi\" WITH KEY=\"name\" WHERE \"host\"=':host:' AND \"uuid\"=':gpu:'",
@@ -871,12 +2082,12 @@
 				},
 				"fieldOptions": [
 					{
-						"internalName": "value",
+						"internalName": "key",
 						"displayName": "",
 						"visible": true
 					},
 					{
-						"internalName": "key",
+						"internalName": "value",
 						"displayName": "",
 						"visible": true
 					}
@@ -895,58 +2106,25 @@
 			{
 				"i": "b5acc3f0-85b6-4ac3-82f2-ad9ff6539dbd",
 				"x": 0,
-				"y": 9,
+				"y": 11,
 				"w": 6,
 				"h": 3,
-				"name": "Memory Used - :host: - :gpu:",
+				"name": "Memory Capacity Utilization - :host: - :gpu:",
 				"queries": [
 					{
-						"query": "SELECT mean(\"memory_used\") AS \"memory used\", mean(\"memory_total\") AS \"memory total\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT (last(\"memory_used\") / last(\"memory_total\")) * 100 AS \"memory capacity utilization\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "nvidia_smi",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "mean",
-									"type": "func",
-									"alias": "memory used",
-									"args": [
-										{
-											"value": "memory_used",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								},
-								{
-									"value": "mean",
-									"type": "func",
-									"alias": "memory total",
-									"args": [
-										{
-											"value": "memory_total",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"host": [
-									":host:"
-								],
-								"uuid": [
-									":gpu:"
-								]
-							},
+							"fields": [],
+							"tags": {},
 							"groupBy": {
-								"time": "auto",
+								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": true,
-							"fill": "null",
-							"rawText": null,
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"memory_used\") / last(\"memory_total\")) * 100 AS \"memory capacity utilization\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -971,9 +2149,9 @@
 							"0",
 							""
 						],
-						"label": "megabytes",
+						"label": "utilization",
 						"prefix": "",
-						"suffix": " MB",
+						"suffix": "%",
 						"base": "raw",
 						"scale": "linear"
 					},
@@ -1045,7 +2223,7 @@
 			{
 				"i": "d5eda820-a3bc-4ce0-8601-88c9f0717265",
 				"x": 0,
-				"y": 6,
+				"y": 8,
 				"w": 6,
 				"h": 3,
 				"name": "Memory Access Utilization - :host: - :gpu:",
@@ -1183,7 +2361,7 @@
 			{
 				"i": "53572754-706f-4c54-9b61-a4e40ae967e2",
 				"x": 6,
-				"y": 6,
+				"y": 8,
 				"w": 6,
 				"h": 3,
 				"name": "Temperature - :host: - :gpu: (clone 1)",
@@ -1321,7 +2499,7 @@
 			{
 				"i": "0667cb23-bc1c-4653-b2bf-d359a3690d55",
 				"x": 0,
-				"y": 3,
+				"y": 5,
 				"w": 6,
 				"h": 3,
 				"name": "GPU Utilization - :host: - :gpu:",
@@ -1459,10 +2637,10 @@
 			{
 				"i": "4c0786c3-92fe-42bc-8356-d40ada9446cd",
 				"x": 6,
-				"y": 3,
+				"y": 5,
 				"w": 6,
 				"h": 3,
-				"name": "Power Draw - :host: - :gpu:",
+				"name": "Power Consumption - :host: - :gpu:",
 				"queries": [
 					{
 						"query": "SELECT max(\"power_draw\") AS \"power draw\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
@@ -1597,7 +2775,7 @@
 			{
 				"i": "679d51ae-5624-44ae-b59b-8eba591c9cb8",
 				"x": 6,
-				"y": 9,
+				"y": 11,
 				"w": 6,
 				"h": 3,
 				"name": "Fan Speed - :host: - :gpu:",
@@ -1731,6 +2909,311 @@
 				"links": {
 					"self": "/chronograf/v1/dashboards/24/cells/679d51ae-5624-44ae-b59b-8eba591c9cb8"
 				}
+			},
+			{
+				"i": "fb29dca1-f409-4b3d-8b7b-67dbe380e78d",
+				"x": 4,
+				"y": 2,
+				"w": 2,
+				"h": 3,
+				"name": "Memory Capacity Utilization",
+				"queries": [
+					{
+						"query": "SELECT (last(\"memory_used\") / last(\"memory_total\")) * 100 FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"memory_used\") / last(\"memory_total\")) * 100 FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "utilization",
+						"prefix": "",
+						"suffix": "%",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "0"
+					},
+					{
+						"id": "6bff0568-b438-45d6-902c-51da988f984e",
+						"type": "threshold",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "70"
+					},
+					{
+						"id": "0b9d404d-98ee-4a9a-82b8-ef84abf0c1dd",
+						"type": "threshold",
+						"hex": "#F48D38",
+						"name": "tiger",
+						"value": "85"
+					},
+					{
+						"id": "bbfff80f-bc84-4981-9813-147b6f524266",
+						"type": "threshold",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "95"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/fb29dca1-f409-4b3d-8b7b-67dbe380e78d"
+				}
+			},
+			{
+				"i": "518a033d-7749-48ab-a7ca-239bf73147a1",
+				"x": 6,
+				"y": 14,
+				"w": 6,
+				"h": 3,
+				"name": "Clock Frequencies - :host: - :gpu:",
+				"queries": [
+					{
+						"query": "SELECT last(\"clocks_current_graphics\") AS \"Graphics/Shader\", mean(\"clocks_current_memory\") AS \"Memory\", mean(\"clocks_current_sm\") AS \"Streaming Multiprocessor)\", mean(\"clocks_current_video\") AS \"Video Encoder/Decoder\" FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "nvidia_smi",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "Graphics/Shader",
+									"args": [
+										{
+											"value": "clocks_current_graphics",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Memory",
+									"args": [
+										{
+											"value": "clocks_current_memory",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Streaming Multiprocessor)",
+									"args": [
+										{
+											"value": "clocks_current_sm",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "Video Encoder/Decoder",
+									"args": [
+										{
+											"value": "clocks_current_video",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"uuid": [
+									":gpu:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "frequency",
+						"prefix": "",
+						"suffix": " MHz",
+						"base": "raw",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/24/cells/518a033d-7749-48ab-a7ca-239bf73147a1"
+				}
 			}
 		],
 		"templates": [
@@ -1738,7 +3221,7 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "knode1",
+						"value": "lab6",
 						"type": "influxql",
 						"selected": true
 					}

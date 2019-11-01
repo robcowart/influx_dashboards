@@ -4,7 +4,7 @@ The following dashboards are provided for use with data from the Telegraf [nvidi
 
 ## NVIDIA: GPU Performance
 
-![NVIDIA: GPU Performance](https://user-images.githubusercontent.com/10326954/58805102-ab6c1a80-8613-11e9-86e3-a74979a8573f.png)
+![NVIDIA: GPU Performance](https://user-images.githubusercontent.com/10326954/68026205-45adb880-fcaf-11e9-944a-c7e34c4d988b.png)
 
 ## Telegraf Input Configuration
 
