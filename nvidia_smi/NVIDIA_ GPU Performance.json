@@ -111,24 +111,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"id": "9bc1d156-a561-4992-9030-56435b085af8",
 						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"id": "cc0e4ec9-4f80-4669-9dad-e15618601172",
 						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"id": "f65c5e63-c889-441b-92e5-7c81544785a6",
 						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
 						"value": "0"
 					}
 				],
@@ -170,14 +170,14 @@
 				"name": "Memory Used",
 				"queries": [
 					{
-						"query": "SELECT mean(\"memory_used\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"query": "SELECT last(\"memory_used\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "nvidia_smi",
 							"retentionPolicy": "",
 							"fields": [
 								{
-									"value": "mean",
+									"value": "last",
 									"type": "func",
 									"alias": "",
 									"args": [
@@ -1428,14 +1428,14 @@
 				"name": "Memory Size",
 				"queries": [
 					{
-						"query": "SELECT mean(\"memory_total\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
+						"query": "SELECT last(\"memory_total\") FROM \"telegraf\"..\"nvidia_smi\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"uuid\"=':gpu:'",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "nvidia_smi",
 							"retentionPolicy": "",
 							"fields": [
 								{
-									"value": "mean",
+									"value": "last",
 									"type": "func",
 									"alias": "",
 									"args": [
@@ -3165,24 +3165,24 @@
 				"type": "line",
 				"colors": [
 					{
-						"id": "75749e8b-b791-4f85-9c68-ec8b462150ce",
+						"id": "9bc1d156-a561-4992-9030-56435b085af8",
 						"type": "scale",
-						"hex": "#31C0F6",
-						"name": "Nineteen Eighty Four",
+						"hex": "#DA6FF1",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "087be227-8635-4e40-aad4-76da54a33b96",
+						"id": "cc0e4ec9-4f80-4669-9dad-e15618601172",
 						"type": "scale",
-						"hex": "#A500A5",
-						"name": "Nineteen Eighty Four",
+						"hex": "#00717A",
+						"name": "Ectoplasm",
 						"value": "0"
 					},
 					{
-						"id": "5515b8ca-ec41-4156-b50f-b7268e5c672a",
+						"id": "f65c5e63-c889-441b-92e5-7c81544785a6",
 						"type": "scale",
-						"hex": "#FF7E27",
-						"name": "Nineteen Eighty Four",
+						"hex": "#ACFF76",
+						"name": "Ectoplasm",
 						"value": "0"
 					}
 				],
