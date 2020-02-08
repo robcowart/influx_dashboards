@@ -1,18 +1,18 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.10",
+		"chronografVersion": "1.7.14",
 		"sources": {
 			"0": {
-				"name": "http://192.2.0.1:8086",
+				"name": "http://192.0.2.1:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}
 	},
 	"dashboard": {
-		"id": 12,
+		"id": 5,
 		"cells": [
 			{
-				"i": "5106066f-0b36-4b65-856c-5801d3378f45",
+				"i": "233d913d-4f27-4350-ad0e-d932bffd4b25",
 				"x": 0,
 				"y": 0,
 				"w": 6,
@@ -146,11 +146,11 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/12/cells/5106066f-0b36-4b65-856c-5801d3378f45"
+					"self": "/chronograf/v1/dashboards/5/cells/233d913d-4f27-4350-ad0e-d932bffd4b25"
 				}
 			},
 			{
-				"i": "9ccb3d56-058b-4120-8d90-bf566003029b",
+				"i": "1ec83fd2-11e5-4245-a47a-403a6a76c585",
 				"x": 6,
 				"y": 3,
 				"w": 6,
@@ -158,7 +158,7 @@
 				"name": "Seek Errors - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"seek_error_rate\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -170,7 +170,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT non_negative_difference(last(\"seek_error\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT non_negative_difference(last(\"seek_error_rate\")) AS \"seek errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -263,11 +263,11 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/12/cells/9ccb3d56-058b-4120-8d90-bf566003029b"
+					"self": "/chronograf/v1/dashboards/5/cells/1ec83fd2-11e5-4245-a47a-403a6a76c585"
 				}
 			},
 			{
-				"i": "b4171c5e-d153-42a3-a078-4cbdb3145677",
+				"i": "06335b00-6c42-4bdc-a9a9-21b683aab364",
 				"x": 0,
 				"y": 3,
 				"w": 6,
@@ -380,11 +380,11 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/12/cells/b4171c5e-d153-42a3-a078-4cbdb3145677"
+					"self": "/chronograf/v1/dashboards/5/cells/06335b00-6c42-4bdc-a9a9-21b683aab364"
 				}
 			},
 			{
-				"i": "5224a41d-f29b-4129-9be1-3e389be13268",
+				"i": "3ad04f82-f4d6-4914-a935-f23e3d681825",
 				"x": 6,
 				"y": 0,
 				"w": 6,
@@ -392,40 +392,19 @@
 				"name": "Read Errors - :host: - :device:",
 				"queries": [
 					{
-						"query": "SELECT last(\"read_error_rate\") AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT non_negative_difference(last(\"read_error_rate\")) AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "smart_device",
+							"database": "",
+							"measurement": "",
 							"retentionPolicy": "",
-							"fields": [
-								{
-									"value": "last",
-									"type": "func",
-									"alias": "read errors",
-									"args": [
-										{
-											"value": "read_error_rate",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
-							"tags": {
-								"device": [
-									":device:"
-								],
-								"host": [
-									":host:"
-								]
-							},
+							"fields": [],
+							"tags": {},
 							"groupBy": {
-								"time": "auto",
+								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": true,
-							"fill": "null",
-							"rawText": null,
+							"areTagsAccepted": false,
+							"rawText": "SELECT non_negative_difference(last(\"read_error_rate\")) AS \"read errors\" FROM \"telegraf\"..\"smart_device\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"device\"=':device:' GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -518,7 +497,7 @@
 				"note": "The selected device does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/12/cells/5224a41d-f29b-4129-9be1-3e389be13268"
+					"self": "/chronograf/v1/dashboards/5/cells/3ad04f82-f4d6-4914-a935-f23e3d681825"
 				}
 			}
 		],
@@ -542,7 +521,7 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/12/templates/d3fd1aed-4b7f-4065-ac19-3747d8ecdcc9"
+					"self": "/chronograf/v1/dashboards/5/templates/d3fd1aed-4b7f-4065-ac19-3747d8ecdcc9"
 				}
 			},
 			{
@@ -564,16 +543,16 @@
 					"fieldKey": ""
 				},
 				"links": {
-					"self": "/chronograf/v1/dashboards/12/templates/729c739e-33f3-4a7e-ab43-dfa85a7c7c9b"
+					"self": "/chronograf/v1/dashboards/5/templates/729c739e-33f3-4a7e-ab43-dfa85a7c7c9b"
 				}
 			}
 		],
 		"name": "S.M.A.R.T.",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/12",
-			"cells": "/chronograf/v1/dashboards/12/cells",
-			"templates": "/chronograf/v1/dashboards/12/templates"
+			"self": "/chronograf/v1/dashboards/5",
+			"cells": "/chronograf/v1/dashboards/5/cells",
+			"templates": "/chronograf/v1/dashboards/5/templates"
 		}
 	}
 }

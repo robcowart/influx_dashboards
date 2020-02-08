@@ -13,7 +13,7 @@ The following input plugin configuration is required to provide the data for the
 ```toml
 [[inputs.influxdb]]
   urls = [
-    "http://192.2.0.1:8086/debug/vars"
+    "http://192.0.2.1:8086/debug/vars"
   ]
 
   # tls_ca = "/etc/telegraf/ca.pem"
