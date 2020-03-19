@@ -1,239 +1,26 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.12",
+		"chronografVersion": "1.8.0",
 		"sources": {
 			"0": {
-				"name": "http://192.0.2.1:8086",
+				"name": "http://192.168.9.19:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}
 	},
 	"dashboard": {
-		"id": 36,
+		"id": "29",
 		"cells": [
 			{
-				"i": "d3a80752-4ae2-4c0f-833f-9eee3d8cd60a",
-				"x": 5,
-				"y": 0,
-				"w": 5,
-				"h": 1,
-				"name": "File System Capacity Used - :host: - :file_system:",
-				"queries": [
-					{
-						"query": "SELECT last(\"used\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"used\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": " GiB",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "single-stat",
-				"colors": [
-					{
-						"id": "base",
-						"type": "text",
-						"hex": "#00C9FF",
-						"name": "laser",
-						"value": "-1000000000000000000"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 2
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/36/cells/d3a80752-4ae2-4c0f-833f-9eee3d8cd60a"
-				}
-			},
-			{
-				"i": "b205ad64-c155-43a7-95a0-8e438977c6fd",
-				"x": 0,
-				"y": 4,
-				"w": 2,
-				"h": 3,
-				"name": "inode Utilization - :host: - :file_system:",
-				"queries": [
-					{
-						"query": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "utilization",
-						"prefix": "",
-						"suffix": "%",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#32B08C",
-						"name": "viridian",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#FFD255",
-						"name": "thunder",
-						"value": "100"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 2
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/36/cells/b205ad64-c155-43a7-95a0-8e438977c6fd"
-				}
-			},
-			{
-				"i": "6342f950-1ec3-4320-af42-330a15900675",
-				"x": 0,
+				"i": "12475f7d-6fed-47ce-83fe-f78af9687834",
+				"x": 6,
 				"y": 1,
-				"w": 2,
+				"w": 6,
 				"h": 3,
-				"name": "Capacity Utilization - :host: - :file_system:",
+				"name": "inode usage - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"used_percent\") FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+						"query": "SELECT last(\"inodes_used\") AS \"inodes used\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "disk",
@@ -242,10 +29,10 @@
 								{
 									"value": "last",
 									"type": "func",
-									"alias": "",
+									"alias": "inodes used",
 									"args": [
 										{
-											"value": "used_percent",
+											"value": "inodes_used",
 											"type": "field",
 											"alias": ""
 										}
@@ -261,10 +48,11 @@
 								]
 							},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
 							"areTagsAccepted": true,
+							"fill": "previous",
 							"rawText": null,
 							"range": null,
 							"shifts": null
@@ -290,9 +78,9 @@
 							"0",
 							""
 						],
-						"label": "utilization",
+						"label": "inodes",
 						"prefix": "",
-						"suffix": "%",
+						"suffix": "",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -308,117 +96,7 @@
 						"scale": "linear"
 					}
 				},
-				"type": "gauge",
-				"colors": [
-					{
-						"id": "0",
-						"type": "min",
-						"hex": "#32B08C",
-						"name": "viridian",
-						"value": "0"
-					},
-					{
-						"id": "1",
-						"type": "max",
-						"hex": "#FFD255",
-						"name": "thunder",
-						"value": "100"
-					}
-				],
-				"legend": {},
-				"tableOptions": {
-					"verticalTimeAxis": true,
-					"sortBy": {
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					},
-					"wrapping": "truncate",
-					"fixFirstColumn": true
-				},
-				"fieldOptions": [
-					{
-						"internalName": "time",
-						"displayName": "",
-						"visible": true
-					}
-				],
-				"timeFormat": "MM/DD/YYYY HH:mm:ss",
-				"decimalPlaces": {
-					"isEnforced": true,
-					"digits": 1
-				},
-				"note": "",
-				"noteVisibility": "default",
-				"links": {
-					"self": "/chronograf/v1/dashboards/36/cells/6342f950-1ec3-4320-af42-330a15900675"
-				}
-			},
-			{
-				"i": "9b41214a-7d60-4fd7-9a5e-213fc6b848aa",
-				"x": 2,
-				"y": 4,
-				"w": 8,
-				"h": 3,
-				"name": "inode Utilization - :host: - :file_system:",
-				"queries": [
-					{
-						"query": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
-						"queryConfig": {
-							"database": "",
-							"measurement": "",
-							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
-							"groupBy": {
-								"time": "",
-								"tags": []
-							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
-							"range": null,
-							"shifts": null
-						},
-						"source": "",
-						"type": "influxql"
-					}
-				],
-				"axes": {
-					"x": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y": {
-						"bounds": [
-							"0",
-							""
-						],
-						"label": "utilization",
-						"prefix": "",
-						"suffix": "%",
-						"base": "10",
-						"scale": "linear"
-					},
-					"y2": {
-						"bounds": [
-							"",
-							""
-						],
-						"label": "",
-						"prefix": "",
-						"suffix": "",
-						"base": "10",
-						"scale": "linear"
-					}
-				},
-				"type": "line-plus-single-stat",
+				"type": "line",
 				"colors": [
 					{
 						"id": "base",
@@ -468,31 +146,51 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/36/cells/9b41214a-7d60-4fd7-9a5e-213fc6b848aa"
+					"self": "/chronograf/v1/dashboards/29/cells/12475f7d-6fed-47ce-83fe-f78af9687834"
 				}
 			},
 			{
-				"i": "6d1b4cd4-057b-4c82-af8d-24539b4ad159",
-				"x": 0,
+				"i": "c33cb5dd-5f49-4600-a6e7-9a9ba37e6e5d",
+				"x": 6,
 				"y": 0,
-				"w": 5,
+				"w": 3,
 				"h": 1,
-				"name": "File System Capacity - :host: - :file_system:",
+				"name": "inodes Used - :host: - :file_system:",
 				"queries": [
 					{
-						"query": "SELECT last(\"total\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+						"query": "SELECT last(\"inodes_used\") AS \"inodes used\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
 						"queryConfig": {
-							"database": "",
-							"measurement": "",
+							"database": "telegraf",
+							"measurement": "disk",
 							"retentionPolicy": "",
-							"fields": [],
-							"tags": {},
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "inodes used",
+									"args": [
+										{
+											"value": "inodes_used",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"host": [
+									":host:"
+								],
+								"path": [
+									":file_system:"
+								]
+							},
 							"groupBy": {
 								"time": "",
 								"tags": []
 							},
-							"areTagsAccepted": false,
-							"rawText": "SELECT last(\"total\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+							"areTagsAccepted": true,
+							"rawText": null,
 							"range": null,
 							"shifts": null
 						},
@@ -519,7 +217,7 @@
 						],
 						"label": "",
 						"prefix": "",
-						"suffix": " GiB",
+						"suffix": "",
 						"base": "10",
 						"scale": "linear"
 					},
@@ -566,19 +264,19 @@
 				"timeFormat": "MM/DD/YYYY HH:mm:ss",
 				"decimalPlaces": {
 					"isEnforced": true,
-					"digits": 2
+					"digits": 0
 				},
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/36/cells/6d1b4cd4-057b-4c82-af8d-24539b4ad159"
+					"self": "/chronograf/v1/dashboards/29/cells/c33cb5dd-5f49-4600-a6e7-9a9ba37e6e5d"
 				}
 			},
 			{
-				"i": "411a62f1-4a2f-4388-ad5d-e454e0b24c64",
-				"x": 2,
-				"y": 1,
-				"w": 8,
+				"i": "0819e027-5ac3-42c9-9ebe-05fd1621478e",
+				"x": 0,
+				"y": 4,
+				"w": 6,
 				"h": 3,
 				"name": "Capacity Utilization - :host: - :file_system:",
 				"queries": [
@@ -709,7 +407,564 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/36/cells/411a62f1-4a2f-4388-ad5d-e454e0b24c64"
+					"self": "/chronograf/v1/dashboards/29/cells/0819e027-5ac3-42c9-9ebe-05fd1621478e"
+				}
+			},
+			{
+				"i": "1949e1a0-daaa-4bbb-b99a-4f2a88f68d73",
+				"x": 9,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "",
+				"queries": [
+					{
+						"query": "false",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "false",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "6f27a08e-d806-429e-b134-b452b6b13946",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "80fea787-8ebd-46d6-84d5-3e4efaa5b94b",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "5acc8c5e-c122-4cd5-a780-48e005aaf5ed",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/29/cells/1949e1a0-daaa-4bbb-b99a-4f2a88f68d73"
+				}
+			},
+			{
+				"i": "32043c11-1d04-4dc6-9a24-7a91a730a726",
+				"x": 3,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "File System Capacity Used - :host: - :file_system:",
+				"queries": [
+					{
+						"query": "SELECT last(\"used\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"used\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " GiB",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/29/cells/32043c11-1d04-4dc6-9a24-7a91a730a726"
+				}
+			},
+			{
+				"i": "a6ffbaac-52b9-46d7-8c36-f952be49e82c",
+				"x": 6,
+				"y": 4,
+				"w": 6,
+				"h": 3,
+				"name": "inode Utilization - :host: - :file_system:",
+				"queries": [
+					{
+						"query": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT (last(\"inodes_used\") / last(\"inodes_total\")) * 100 AS \"inode utilization\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "utilization",
+						"prefix": "",
+						"suffix": "%",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4b835bca-4233-4104-95d6-8e56edf6cab1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14f0d278-e294-483b-9b79-714488cee3c4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/29/cells/a6ffbaac-52b9-46d7-8c36-f952be49e82c"
+				}
+			},
+			{
+				"i": "38530ab3-9a50-410e-a052-82ac6ecc58ff",
+				"x": 0,
+				"y": 0,
+				"w": 3,
+				"h": 1,
+				"name": "File System Capacity - :host: - :file_system:",
+				"queries": [
+					{
+						"query": "SELECT last(\"total\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"total\") / 1073741824 AS \"capacity\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": " GiB",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/29/cells/38530ab3-9a50-410e-a052-82ac6ecc58ff"
+				}
+			},
+			{
+				"i": "058909b3-b7e3-473f-8fc3-cbaee19e21b1",
+				"x": 0,
+				"y": 1,
+				"w": 6,
+				"h": 3,
+				"name": "Capacity Usage - :host: - :file_system:",
+				"queries": [
+					{
+						"query": "SELECT last(\"used\") / 1073741824 AS \"capacity used\", (last(\"total\") - last(\"used\")) / 1073741824 AS \"capacity available\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(\"used\") / 1073741824 AS \"capacity used\", (last(\"total\") - last(\"used\")) / 1073741824 AS \"capacity available\" FROM \"telegraf\"..\"disk\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"path\"=':file_system:' GROUP BY time(:interval:) FILL(previous)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "bytes",
+						"prefix": "",
+						"suffix": "GiB",
+						"base": "2",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-stacked",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "4b835bca-4233-4104-95d6-8e56edf6cab1",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "14f0d278-e294-483b-9b79-714488cee3c4",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/29/cells/058909b3-b7e3-473f-8fc3-cbaee19e21b1"
 				}
 			}
 		],
@@ -732,8 +987,9 @@
 					"tagKey": "",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
-					"self": "/chronograf/v1/dashboards/36/templates/21f8e74f-f78c-440e-af0a-58efdb7299b0"
+					"self": "/chronograf/v1/dashboards/29/templates/21f8e74f-f78c-440e-af0a-58efdb7299b0"
 				}
 			},
 			{
@@ -754,17 +1010,18 @@
 					"tagKey": "",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
-					"self": "/chronograf/v1/dashboards/36/templates/67208fb2-17f4-404a-b061-fa459a3d58c3"
+					"self": "/chronograf/v1/dashboards/29/templates/67208fb2-17f4-404a-b061-fa459a3d58c3"
 				}
 			}
 		],
 		"name": "Disk: Capacity",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/36",
-			"cells": "/chronograf/v1/dashboards/36/cells",
-			"templates": "/chronograf/v1/dashboards/36/templates"
+			"self": "/chronograf/v1/dashboards/29",
+			"cells": "/chronograf/v1/dashboards/29/cells",
+			"templates": "/chronograf/v1/dashboards/29/templates"
 		}
 	}
 }
