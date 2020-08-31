@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.10",
+		"chronografVersion": "1.8.4",
 		"sources": {
 			"0": {
 				"name": "http://192.0.2.11:8086",
@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 13,
+		"id": "55",
 		"cells": [
 			{
-				"i": "19e63b1d-58dd-4b32-a804-63240d45ae7d",
+				"i": "cf93b730-1002-475b-a92c-eabc313f1250",
 				"x": 0,
 				"y": 6,
 				"w": 2,
@@ -111,11 +111,11 @@
 				"note": "The selected device and feature does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/19e63b1d-58dd-4b32-a804-63240d45ae7d"
+					"self": "/chronograf/v1/dashboards/55/cells/cf93b730-1002-475b-a92c-eabc313f1250"
 				}
 			},
 			{
-				"i": "7cdac30a-9fe1-44a0-a860-46e5d80a3c80",
+				"i": "f256f17c-8f24-4153-97fa-5b775177ff8b",
 				"x": 7,
 				"y": 6,
 				"w": 5,
@@ -123,7 +123,7 @@
 				"name": "All Features - :host:",
 				"queries": [
 					{
-						"query": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"query": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^t[dc][it][el].*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -135,7 +135,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"rawText": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^t[dc][it][el].*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -228,11 +228,11 @@
 				"note": "The selected device does not provide metrics for additional features.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/7cdac30a-9fe1-44a0-a860-46e5d80a3c80"
+					"self": "/chronograf/v1/dashboards/55/cells/f256f17c-8f24-4153-97fa-5b775177ff8b"
 				}
 			},
 			{
-				"i": "41ada4e7-abba-4558-99a9-dc5fba97a93a",
+				"i": "1f7db8df-70e8-46aa-ad54-e0f403de0e92",
 				"x": 7,
 				"y": 3,
 				"w": 5,
@@ -345,11 +345,11 @@
 				"note": "The selected device does not provide metrics for fans.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/41ada4e7-abba-4558-99a9-dc5fba97a93a"
+					"self": "/chronograf/v1/dashboards/55/cells/1f7db8df-70e8-46aa-ad54-e0f403de0e92"
 				}
 			},
 			{
-				"i": "51335cbc-827b-480d-ac38-efd68c441225",
+				"i": "3fc0ba86-1a32-41b1-a134-8924dff5a8a4",
 				"x": 0,
 				"y": 3,
 				"w": 2,
@@ -475,19 +475,19 @@
 				"note": "The selected device or fan does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/51335cbc-827b-480d-ac38-efd68c441225"
+					"self": "/chronograf/v1/dashboards/55/cells/3fc0ba86-1a32-41b1-a134-8924dff5a8a4"
 				}
 			},
 			{
-				"i": "eff51c05-0526-4d0c-a856-39f1eb286018",
+				"i": "c54fc22c-9169-47ec-8ce4-c5d28d2cd1bc",
 				"x": 7,
 				"y": 0,
 				"w": 5,
 				"h": 3,
-				"name": "All Core Temperatures - :host:",
+				"name": "All CPU Sensors - :host:",
 				"queries": [
 					{
-						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^t[dc][it][el].*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -499,7 +499,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"rawText": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^t[dc][it][el].*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -592,19 +592,19 @@
 				"note": "The selected device does not provide metrics for CPU core temperatures.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/eff51c05-0526-4d0c-a856-39f1eb286018"
+					"self": "/chronograf/v1/dashboards/55/cells/c54fc22c-9169-47ec-8ce4-c5d28d2cd1bc"
 				}
 			},
 			{
-				"i": "0d4e9bbc-ee09-4108-9f71-26fc659e180e",
+				"i": "2bc48bc4-9a4b-4caa-9095-c37c699fe44e",
 				"x": 0,
 				"y": 0,
 				"w": 2,
 				"h": 3,
-				"name": "Temperature - :host: - :core:",
+				"name": "Temperature - :host: - :cpu_sensor:",
 				"queries": [
 					{
-						"query": "SELECT last(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':core:'",
+						"query": "SELECT last(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':cpu_sensor:'",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "sensors",
@@ -625,7 +625,7 @@
 							],
 							"tags": {
 								"feature": [
-									":core:"
+									":cpu_sensor:"
 								],
 								"host": [
 									":host:"
@@ -722,11 +722,11 @@
 				"note": "The selected device or CPU core does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/0d4e9bbc-ee09-4108-9f71-26fc659e180e"
+					"self": "/chronograf/v1/dashboards/55/cells/2bc48bc4-9a4b-4caa-9095-c37c699fe44e"
 				}
 			},
 			{
-				"i": "479cee82-8969-4b2a-85bc-3800a29c13db",
+				"i": "13a6d0ed-ab22-42a9-9f87-4946ad568aae",
 				"x": 2,
 				"y": 6,
 				"w": 5,
@@ -839,11 +839,11 @@
 				"note": "The selected device and feature does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/479cee82-8969-4b2a-85bc-3800a29c13db"
+					"self": "/chronograf/v1/dashboards/55/cells/13a6d0ed-ab22-42a9-9f87-4946ad568aae"
 				}
 			},
 			{
-				"i": "eaff298f-1cab-4ce4-94a4-9175c277ee4b",
+				"i": "18fe5814-b07e-4ab4-9c3f-562433791166",
 				"x": 2,
 				"y": 3,
 				"w": 5,
@@ -977,19 +977,19 @@
 				"note": "The selected device or fan does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/eaff298f-1cab-4ce4-94a4-9175c277ee4b"
+					"self": "/chronograf/v1/dashboards/55/cells/18fe5814-b07e-4ab4-9c3f-562433791166"
 				}
 			},
 			{
-				"i": "6d330a79-6a2b-4aca-be0d-e6c189b510dc",
+				"i": "172d1f43-e2e8-44b5-b1a4-be604a1108e3",
 				"x": 2,
 				"y": 0,
 				"w": 5,
 				"h": 3,
-				"name": "Temperature - :host: - :core:",
+				"name": "Temperature - :host: - :cpu_sensor:",
 				"queries": [
 					{
-						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':core:' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':cpu_sensor:' GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "sensors",
@@ -1010,7 +1010,7 @@
 							],
 							"tags": {
 								"feature": [
-									":core:"
+									":cpu_sensor:"
 								],
 								"host": [
 									":host:"
@@ -1115,7 +1115,7 @@
 				"note": "The selected device or CPU core does not provide this metric.",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/cells/6d330a79-6a2b-4aca-be0d-e6c189b510dc"
+					"self": "/chronograf/v1/dashboards/55/cells/172d1f43-e2e8-44b5-b1a4-be604a1108e3"
 				}
 			}
 		],
@@ -1124,7 +1124,7 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "knode1",
+						"value": "labzilla1",
 						"type": "influxql",
 						"selected": true
 					}
@@ -1133,20 +1133,21 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"host\"",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"host\" WHERE \"feature\" =~ /^t[dc][it][el].*$/",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/templates/018eb779-d712-47bb-9565-79348f7d09a4"
+					"self": "/chronograf/v1/dashboards/55/templates/018eb779-d712-47bb-9565-79348f7d09a4"
 				}
 			},
 			{
-				"tempVar": ":core:",
+				"tempVar": ":cpu_sensor:",
 				"values": [
 					{
-						"value": "core_0",
+						"value": "tdie",
 						"type": "influxql",
 						"selected": true
 					}
@@ -1155,13 +1156,14 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" =~ /^core.*$/",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" =~ /^t[dc][it][el].*$/",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/templates/d3914759-c5fe-4c20-b518-1b0e267ce753"
+					"self": "/chronograf/v1/dashboards/55/templates/d3914759-c5fe-4c20-b518-1b0e267ce753"
 				}
 			},
 			{
@@ -1182,15 +1184,16 @@
 					"tagKey": "",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/templates/50c82bce-5d25-4012-a3bc-3b338cd00584"
+					"self": "/chronograf/v1/dashboards/55/templates/50c82bce-5d25-4012-a3bc-3b338cd00584"
 				}
 			},
 			{
 				"tempVar": ":feature:",
 				"values": [
 					{
-						"value": "vcore",
+						"value": "systin",
 						"type": "influxql",
 						"selected": true
 					}
@@ -1199,13 +1202,14 @@
 				"type": "influxql",
 				"label": "",
 				"query": {
-					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/",
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" !~ /^t[dc][it][el].*$/ AND \"feature\" !~ /^fan.*$/",
 					"measurement": "",
 					"tagKey": "",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/templates/9692b59e-caa6-4cf3-8156-3caeeb92622c"
+					"self": "/chronograf/v1/dashboards/55/templates/9692b59e-caa6-4cf3-8156-3caeeb92622c"
 				}
 			},
 			{
@@ -1219,12 +1223,12 @@
 					{
 						"value": "in_input",
 						"type": "csv",
-						"selected": true
+						"selected": false
 					},
 					{
 						"value": "temp_input",
 						"type": "csv",
-						"selected": false
+						"selected": true
 					}
 				],
 				"id": "6b1f3acc-96ba-4c83-8efb-25b5ec44533a",
@@ -1236,17 +1240,18 @@
 					"tagKey": "",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
-					"self": "/chronograf/v1/dashboards/13/templates/6b1f3acc-96ba-4c83-8efb-25b5ec44533a"
+					"self": "/chronograf/v1/dashboards/55/templates/6b1f3acc-96ba-4c83-8efb-25b5ec44533a"
 				}
 			}
 		],
-		"name": "Sensors: System Environment Health",
+		"name": "Sensors: System Environment Health (AMD)",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/13",
-			"cells": "/chronograf/v1/dashboards/13/cells",
-			"templates": "/chronograf/v1/dashboards/13/templates"
+			"self": "/chronograf/v1/dashboards/55",
+			"cells": "/chronograf/v1/dashboards/55/cells",
+			"templates": "/chronograf/v1/dashboards/55/templates"
 		}
 	}
 }

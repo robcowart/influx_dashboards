@@ -1,0 +1,1257 @@
+{
+	"meta": {
+		"chronografVersion": "1.8.4",
+		"sources": {
+			"0": {
+				"name": "http://192.0.2.11:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "6",
+		"cells": [
+			{
+				"i": "34681669-eaa4-47e0-8813-44fc438d8530",
+				"x": 0,
+				"y": 6,
+				"w": 2,
+				"h": 3,
+				"name": ":feature: - :host: - :value:",
+				"queries": [
+					{
+						"query": "SELECT last(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:'",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT last(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:'",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device and feature does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/34681669-eaa4-47e0-8813-44fc438d8530"
+				}
+			},
+			{
+				"i": "b7852008-5c45-4632-b323-0524f4eb2e57",
+				"x": 7,
+				"y": 6,
+				"w": 5,
+				"h": 3,
+				"name": "All Features - :host:",
+				"queries": [
+					{
+						"query": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(:value:) FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1f002154-7756-412d-b7b4-241984536695",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d0f858d0-4939-4a7a-b79d-c07f01218f6e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a694b879-2525-42e8-bcef-8d36187b1b04",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide metrics for additional features.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/b7852008-5c45-4632-b323-0524f4eb2e57"
+				}
+			},
+			{
+				"i": "ce7b9a2c-7355-492a-86a8-8c2e610c26b8",
+				"x": 7,
+				"y": 3,
+				"w": 5,
+				"h": 3,
+				"name": "All Fan Speeds - :host:",
+				"queries": [
+					{
+						"query": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^fan.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "RPMs",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1f002154-7756-412d-b7b4-241984536695",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d0f858d0-4939-4a7a-b79d-c07f01218f6e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a694b879-2525-42e8-bcef-8d36187b1b04",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide metrics for fans.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/ce7b9a2c-7355-492a-86a8-8c2e610c26b8"
+				}
+			},
+			{
+				"i": "d9ca3556-e145-4f29-8ecd-7abd9c29ecde",
+				"x": 0,
+				"y": 3,
+				"w": 2,
+				"h": 3,
+				"name": "Fan Speed - :host: - :fan:",
+				"queries": [
+					{
+						"query": "SELECT last(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':fan:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "sensors",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "fan speed",
+									"args": [
+										{
+											"value": "fan_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":fan:"
+								],
+								"host": [
+									":host:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "RPMs",
+						"prefix": "",
+						"suffix": " RPM",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#32B08C",
+						"name": "viridian",
+						"value": "5000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 0
+				},
+				"note": "The selected device or fan does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/d9ca3556-e145-4f29-8ecd-7abd9c29ecde"
+				}
+			},
+			{
+				"i": "96c41013-9412-48c7-a5fe-f5503fcb6267",
+				"x": 7,
+				"y": 0,
+				"w": 5,
+				"h": 3,
+				"name": "All Core Temperatures - :host:",
+				"queries": [
+					{
+						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\" =~ /^core.*$/ GROUP BY time(:interval:),\"feature\" FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Temperature",
+						"prefix": "",
+						"suffix": "C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1f002154-7756-412d-b7b4-241984536695",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d0f858d0-4939-4a7a-b79d-c07f01218f6e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a694b879-2525-42e8-bcef-8d36187b1b04",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device does not provide metrics for CPU core temperatures.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/96c41013-9412-48c7-a5fe-f5503fcb6267"
+				}
+			},
+			{
+				"i": "58a48cbf-3867-4707-941e-907103f701c4",
+				"x": 0,
+				"y": 0,
+				"w": 2,
+				"h": 3,
+				"name": "Temperature - :host: - :core:",
+				"queries": [
+					{
+						"query": "SELECT last(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':core:'",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "sensors",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "last",
+									"type": "func",
+									"alias": "temperature",
+									"args": [
+										{
+											"value": "temp_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":core:"
+								],
+								"host": [
+									":host:"
+								]
+							},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Temperature",
+						"prefix": "",
+						"suffix": "C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "gauge",
+				"colors": [
+					{
+						"id": "0",
+						"type": "min",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "0"
+					},
+					{
+						"id": "1",
+						"type": "max",
+						"hex": "#DC4E58",
+						"name": "fire",
+						"value": "100"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 1
+				},
+				"note": "The selected device or CPU core does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/58a48cbf-3867-4707-941e-907103f701c4"
+				}
+			},
+			{
+				"i": "6700fcd8-e53c-46aa-bb3e-2a936b409534",
+				"x": 2,
+				"y": 6,
+				"w": 5,
+				"h": 3,
+				"name": ":feature: - :host: - :value:",
+				"queries": [
+					{
+						"query": "SELECT mean(:value:) AS \"mean :feature: :value:\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": "SELECT mean(:value:) AS \"mean :feature: :value:\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':feature:' GROUP BY time(:interval:) FILL(null)",
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1f002154-7756-412d-b7b4-241984536695",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d0f858d0-4939-4a7a-b79d-c07f01218f6e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a694b879-2525-42e8-bcef-8d36187b1b04",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device and feature does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/6700fcd8-e53c-46aa-bb3e-2a936b409534"
+				}
+			},
+			{
+				"i": "cea9629d-8ca2-4224-8f68-a6933b05222c",
+				"x": 2,
+				"y": 3,
+				"w": 5,
+				"h": 3,
+				"name": "Fan Speed - :host: - :fan:",
+				"queries": [
+					{
+						"query": "SELECT max(\"fan_input\") AS \"fan speed\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':fan:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "sensors",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "fan speed",
+									"args": [
+										{
+											"value": "fan_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":fan:"
+								],
+								"host": [
+									":host:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "RPMs",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1f002154-7756-412d-b7b4-241984536695",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d0f858d0-4939-4a7a-b79d-c07f01218f6e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a694b879-2525-42e8-bcef-8d36187b1b04",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device or fan does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/cea9629d-8ca2-4224-8f68-a6933b05222c"
+				}
+			},
+			{
+				"i": "5afffd40-44ef-47a7-ae3d-8182a5f0aa39",
+				"x": 2,
+				"y": 0,
+				"w": 5,
+				"h": 3,
+				"name": "Temperature - :host: - :core:",
+				"queries": [
+					{
+						"query": "SELECT max(\"temp_input\") AS \"temperature\" FROM \"telegraf\"..\"sensors\" WHERE time > :dashboardTime: AND \"host\"=':host:' AND \"feature\"=':core:' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "sensors",
+							"retentionPolicy": "",
+							"fields": [
+								{
+									"value": "max",
+									"type": "func",
+									"alias": "temperature",
+									"args": [
+										{
+											"value": "temp_input",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"feature": [
+									":core:"
+								],
+								"host": [
+									":host:"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"0",
+							""
+						],
+						"label": "Temperature",
+						"prefix": "",
+						"suffix": "C",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [
+					{
+						"id": "1f002154-7756-412d-b7b4-241984536695",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "d0f858d0-4939-4a7a-b79d-c07f01218f6e",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "a694b879-2525-42e8-bcef-8d36187b1b04",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "The selected device or CPU core does not provide this metric.",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/5afffd40-44ef-47a7-ae3d-8182a5f0aa39"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":host:",
+				"values": [
+					{
+						"value": "lab0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "018eb779-d712-47bb-9565-79348f7d09a4",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"host\" WHERE \"feature\" =~ /^core.*$/",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/templates/018eb779-d712-47bb-9565-79348f7d09a4"
+				}
+			},
+			{
+				"tempVar": ":core:",
+				"values": [
+					{
+						"value": "core_0",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "d3914759-c5fe-4c20-b518-1b0e267ce753",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" =~ /^core.*$/",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/templates/d3914759-c5fe-4c20-b518-1b0e267ce753"
+				}
+			},
+			{
+				"tempVar": ":fan:",
+				"values": [
+					{
+						"value": "fan1",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "50c82bce-5d25-4012-a3bc-3b338cd00584",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" =~ /^fan.*$/",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/templates/50c82bce-5d25-4012-a3bc-3b338cd00584"
+				}
+			},
+			{
+				"tempVar": ":feature:",
+				"values": [
+					{
+						"value": "vcore",
+						"type": "influxql",
+						"selected": true
+					}
+				],
+				"id": "9692b59e-caa6-4cf3-8156-3caeeb92622c",
+				"type": "influxql",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON \"telegraf\" FROM \"sensors\" WITH KEY=\"feature\" WHERE \"host\"=':host:' AND \"feature\" !~ /^core.*$/ AND \"feature\" !~ /^fan.*$/",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/templates/9692b59e-caa6-4cf3-8156-3caeeb92622c"
+				}
+			},
+			{
+				"tempVar": ":value:",
+				"values": [
+					{
+						"value": "fan_input",
+						"type": "csv",
+						"selected": false
+					},
+					{
+						"value": "in_input",
+						"type": "csv",
+						"selected": true
+					},
+					{
+						"value": "temp_input",
+						"type": "csv",
+						"selected": false
+					}
+				],
+				"id": "6b1f3acc-96ba-4c83-8efb-25b5ec44533a",
+				"type": "csv",
+				"label": "",
+				"query": {
+					"influxql": "",
+					"measurement": "",
+					"tagKey": "",
+					"fieldKey": ""
+				},
+				"sourceID": "dynamic",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/templates/6b1f3acc-96ba-4c83-8efb-25b5ec44533a"
+				}
+			}
+		],
+		"name": "Sensors: System Environment Health (Intel)",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/6",
+			"cells": "/chronograf/v1/dashboards/6/cells",
+			"templates": "/chronograf/v1/dashboards/6/templates"
+		}
+	}
+}
