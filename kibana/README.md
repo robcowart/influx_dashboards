@@ -12,7 +12,7 @@ The following input plugin configuration is required to provide the data for the
 
 ```toml
 [[inputs.kibana]]
-  servers = ["http://192.2.0.1:5601"]
+  servers = ["http://192.0.2.11:5601"]
   timeout = "5s"
 
   username = "elastic"

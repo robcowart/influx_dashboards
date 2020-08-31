@@ -20,7 +20,7 @@ The following input plugin configuration is required to provide the data for the
 
 ```toml
 [[inputs.zookeeper]]
-  servers = ["192.2.0.1:2181"]
+  servers = ["192.0.2.11:2181"]
 
   timeout = "5s"
 

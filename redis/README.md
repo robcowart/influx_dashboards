@@ -20,7 +20,7 @@ The following input plugin configuration is required to provide the data for the
 
 ```toml
 [[inputs.redis]]
-  servers = ["tcp://192.2.0.1:6379"]
+  servers = ["tcp://192.0.2.11:6379"]
   password = "changeme"
 
   # Optional TLS Config

@@ -32,7 +32,7 @@ The following input plugin configuration is required to provide the data for the
 
 [[inputs.kubernetes]]
   # URL for the kubelet
-  url = "https://192.2.0.1:10250"
+  url = "https://192.0.2.11:10250"
 
   # Use bearer token for authorization
   #bearer_token = /path/to/bearer/token

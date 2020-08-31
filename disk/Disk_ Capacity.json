@@ -3,7 +3,7 @@
 		"chronografVersion": "1.8.0",
 		"sources": {
 			"0": {
-				"name": "http://192.168.9.19:8086",
+				"name": "http://192.0.2.11:8086",
 				"link": "/chronograf/v1/sources/0"
 			}
 		}

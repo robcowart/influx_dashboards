@@ -31,7 +31,7 @@ The following input plugin configuration is required to provide the data for the
 ```toml
 [[inputs.nginx]]
   # An array of Nginx stub_status URI to gather stats.
-  urls = ["http://192.2.0.1/nginx_status"]
+  urls = ["http://192.0.2.11/nginx_status"]
 
   # Optional TLS Config
   #tls_ca = "/etc/telegraf/ca.pem"
